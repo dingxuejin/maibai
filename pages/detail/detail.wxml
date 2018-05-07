@@ -1,0 +1,323 @@
+<!--pages/detail/detail.wxml-->
+<view>
+  <scroll-view id='detail-container' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}'>
+
+    <!-- 轮播图 -->
+    <view id='banner'>
+      <swiper indicator-active-color="#fff" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:470rpx;'>
+        <block wx:for="{{productDetail.imgList}}" wx:key="{{index}}">
+          <swiper-item>
+            <image src="{{baseUrl+item}}" class='full-img' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- banner--end -->
+    <!-- 标题 -->
+    <view id='caption'>
+      <view class='flex-between'>
+        <view>
+          <view>
+            <text class='caption-title'>{{productDetail.name}}</text>
+          </view>
+          <view>
+            <text class='caption-price'>{{'￥'+productDetail.price}}</text>
+            <image class='caption-mian' src='../../image/vipmianicon.png'></image>
+          </view>
+        </view>
+        <view>
+          <image class='caption-fengxiang' src='../../image/fengxiang.png'></image>
+        </view>
+      </view>
+      <view class='flex-between caption-fbt'>
+        <view>
+          <text>市场价：</text>
+          <text class='text-through'>{{'￥'+productDetail.originPrice}}</text>
+        </view>
+        <view>
+          <text>运费：</text>
+          <text>20</text>
+        </view>
+        <view>
+          <text>销量：</text>
+          <text>156</text>
+        </view>
+      </view>
+      <view class='flex-between'>
+        <view class='flex-start'>
+          <image class='caption-icon' src='../../image/zpbz.png'></image>
+          <text class='caption-title'>正品保障</text>
+        </view>
+        <view class='flex-center'>
+          <image class='caption-icon' src='../../image/wytk.png'></image>
+          <text class='caption-title'>30天无忧退款</text>
+        </view>
+        <view class='flex-end'>
+          <image class='caption-icon' src='../../image/mfyg.png'></image>
+          <text class='caption-title'>免费验光</text>
+        </view>
+      </view>
+    </view>
+    <!-- caption--end -->
+    <!-- 评论 -->
+    <view id='pinglun'>
+      <view class='flex-between pinglun-header'>
+        <view class='pinglun-caption'>
+          <text>用户评论</text>
+          <text>(</text>
+          <text>{{productDetail.comments.commentCount}}</text>
+          <text>)</text>
+        </view>
+        <view>
+          <text class='pinglun-caption' style='color:#999;'>好评度</text>
+          <text class='pinglun-caption'>100%</text>
+          <image src='../../image/enter.png' class='pinglun-enter'></image>
+        </view>
+      </view>
+      <view>
+        <!-- 评论人信息 -->
+        <view class='flex-between  pinglun-user'>
+          <view class='flex-start'>
+            <view class='headerimage'>
+              <image src='../../image/headerimage.png' class='full-img'></image>
+            </view>
+            <view>
+              <view>
+                <text>史蒂夫</text>
+              </view>
+              <view>
+                <text class='pinglun-date'>2018-01-15</text>
+                <text class='pinglun-date'>07:23</text>
+              </view>
+
+
+            </view>
+          </view>
+          <view>
+            <image class='xing' src='../../image/xing.png'></image>
+            <image class='xing' src='../../image/xing.png'></image>
+            <image class='xing' src='../../image/xing.png'></image>
+          </view>
+        </view>
+        <!-- 评论人信息end -->
+        <!-- 评论内容 -->
+        <view class='pinglun-content'>
+          <text>眼睛超级喜欢，质量也很好，而且还有免费领取，只 需要交199押金，简直是太实惠了~~</text>
+        </view>
+        <view class='flex-start pinglun-content'>
+          <view class='pinglun-img'>
+            <image src='../../image/bg.png' class='full-img'></image>
+          </view>
+          <view class='pinglun-img'>
+            <image src='../../image/bg.png' class='full-img'></image>
+          </view>
+          <view class='pinglun-img'>
+            <image src='../../image/bg.png' class='full-img'></image>
+          </view>
+          <view class='pinglun-img'>
+            <image src='../../image/bg.png' class='full-img'></image>
+          </view>
+          <view class='pinglun-img'>
+            <image src='../../image/bg.png' class='full-img'></image>
+          </view>
+        </view>
+        <!-- 评论内容end -->
+      </view>
+      <view class='text-center chakanall'>
+        <text>查看全部评价</text>
+      </view>
+    </view>
+    <!-- 评论end -->
+    <!-- 商品详情 -->
+    <view id='detail'>
+      <view class='flex-between'>
+        <view class='detail-hr'></view>
+        <view>
+          <text class='detail-caption'>商品详情</text>
+        </view>
+        <view class='detail-hr'></view>
+      </view>
+      <!-- 商品图片 -->
+      <view class='detail-img'>
+        <image style='width:100%;' src='../../image/headerimage.png' mode='aspectFit'></image>
+      </view>
+    </view>
+    <!-- 商品详情end -->
+  </scroll-view>
+
+</view>
+<view id='detail-tarbar' class='flex-between'>
+  <view>
+    <image class='taricon' src='../../image/guanzu.png'></image>
+    <image class='taricon' src='../../image/dianhua.png'></image>
+    <image class='taricon' src='../../image/shouji.png'></image>
+    <image class='taricon' src='../../image/kefu.png'></image>
+  </view>
+  <view>
+    <button class='tarbutton' bindtap='toShop'>选择度数购买</button>
+  </view>
+</view>
+<cover-view class='zhiding flex-center' wx:if='{{isShowZhiding}}' bindtap='toScrollTop'>
+  <cover-image class='zhiding1' src='../../image/zhiding.png'></cover-image>
+</cover-view>
+
+<!-- 规格选择内容 -->
+<view class='dialog' wx:if='{{isDialog}}'  catchtap='dialogClose'>
+  <view class='dialog-container'  catchtap='stopMaopao'>
+    <scroll-view style='max-height:900rpx;' scrollY>
+      <view id='xuanze'>
+        <view class='close' bindtap='dialogClose'>
+          <image src='../../image/close.png' class='flex-center full-img'></image>
+        </view>
+        <view class='flex-between'>
+          <view class='xuanze1'>
+            <image src='../../image/bg.png' class='full-img'></image>
+          </view>
+          <view class='xuanze2'>
+            <view class='xuanze3'>
+              <text>￥</text>
+              <text>199</text>
+            </view>
+            <view class='xuanze4'>
+              <text> 已选 :</text>
+              <text class='xuanze5'>黑色</text>
+              <text class='xuanze5'>1.56非球面防蓝光镜片</text>
+            </view>
+          </view>
+        </view>
+        <!-- 选择标题 -->
+        <view class='xuanze-title'>
+          <text>镜框颜色</text>
+        </view>
+        <!-- 选择内容 -->
+        <view class='flex-start'>
+          <view class='xuanze-item {{jingkuangactive===index?"xuanze-active":""}}' wx:for='{{jingkuangColor}}' wx:key='{{index}}' bindtap='xuanze' data-jingkuangactive='{{index}}'>
+            <text>{{item}}</text>
+            <image wx:if='{{jingkuangactive===index}}' src='../../image/xuanze.png' class='xuanze7'></image>
+          </view>
+        </view>
+        <!-- 选择标题 -->
+        <view class='xuanze-title'>
+          <text>镜片规格</text>
+        </view>
+        <!-- 选择内容 -->
+        <view class='flex-start'>
+          <view class='xuanze-item {{jingpianactive===index?"xuanze-active":""}}' wx:for='{{jingpian}}' wx:key='{{index}}' bindtap='xuanze' data-jingpianactive='{{index}}'>
+            <text>{{item}}</text>
+            <image wx:if='{{jingpianactive===index}}' src='../../image/xuanze.png' class='xuanze7'></image>
+          </view>
+        </view>
+        <!-- 选择标题 -->
+        <view class='xuanze-title'>
+          <text>镜片规格</text>
+        </view>
+        <!-- 选择内容 -->
+
+        <view class='flex-start'>
+          <view class='picker-container'>
+            <picker bindchange="bindPickerChange" value="{{arrindex}}" range="{{array}}">
+              <view class="picker flex-between">
+                <view>
+                  <text>右眼度数:</text>
+                  <text>{{array[arrindex]}}</text>
+                </view>
+                <view class='icon-img flex-center'>
+                  <image src='../../image/xia.png' class='full-img'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          <view class='picker-container'>
+            <picker bindchange="bindPickerChange" value="{{arrindex}}" range="{{array}}">
+              <view class="picker flex-between">
+                <view>
+                  <text>右眼散光:</text>
+                  <text>{{array[arrindex]}}</text>
+                </view>
+                <view class='icon-img flex-center'>
+                  <image src='../../image/xia.png' class='full-img'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          <view class='picker-container'>
+            <picker bindchange="bindPickerChange" value="{{arrindex}}" range="{{array}}">
+              <view class="picker flex-between">
+                <view>
+                  <text>右眼轴位:</text>
+                  <text>{{array[arrindex]}}</text>
+                </view>
+                <view class='icon-img flex-center'>
+                  <image src='../../image/xia.png' class='full-img'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          <view class='picker-container'>
+            <picker bindchange="bindPickerChange" value="{{arrindex}}" range="{{array}}">
+              <view class="picker flex-between">
+                <view>
+                  <text>左眼度数:</text>
+                  <text>{{array[arrindex]}}</text>
+                </view>
+                <view class='icon-img flex-center'>
+                  <image src='../../image/xia.png' class='full-img'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          <view class='picker-container'>
+            <picker bindchange="bindPickerChange" value="{{arrindex}}" range="{{array}}">
+              <view class="picker flex-between">
+                <view>
+                  <text>左眼散光:</text>
+                  <text>{{array[arrindex]}}</text>
+                </view>
+                <view class='icon-img flex-center'>
+                  <image src='../../image/xia.png' class='full-img'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          <view class='picker-container'>
+            <picker bindchange="bindPickerChange" value="{{arrindex}}" range="{{array}}">
+              <view class="picker flex-between">
+                <view>
+                  <text>左眼轴位:</text>
+                  <text>{{array[arrindex]}}</text>
+                </view>
+                <view class='icon-img flex-center'>
+                  <image src='../../image/xia.png' class='full-img'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+          <view class='picker-container'>
+            <picker bindchange="bindPickerChange" value="{{arrindex}}" range="{{array}}">
+              <view class="picker flex-between">
+                <view>
+                  <text>双眼瞳距:</text>
+                  <text>{{array[arrindex]}}</text>
+                </view>
+                <view class='icon-img flex-center'>
+                  <image src='../../image/xia.png' class='full-img'></image>
+                </view>
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+
+
+
+
+
+
+    </scroll-view>
+    <view>
+      <button class='xiadan' bindtap='xiadan'>立即下单</button>
+    </view>
+  </view>
+
+</view>

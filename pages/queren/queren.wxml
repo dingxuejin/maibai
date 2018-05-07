@@ -1,0 +1,116 @@
+<!--pages/queren/queren.wxml-->
+<scroll-view style='height:1105rpx;' scrollY>
+  <view id='user'>
+    <view class='flex-start'>
+      <view class='weizhi'>
+        <image src='../../image/weizhi.png' class='full-img'></image>
+      </view>
+      <view>
+        <text class='user-name'>黄飞鸿</text>
+        <text class='user-phone'>13800138000</text>
+      </view>
+    </view>
+    <view class='flex-between' style='height:60rpx;'>
+      <view class='user-address'>
+        <text>广东省广州市荔湾区广佛数字创意园2601</text>
+      </view>
+      <view class='enter flex-center'>
+        <image src='../../image/enter.png' class='full-img'></image>
+      </view>
+    </view>
+    <view class='moren-address'>
+      <text>（默认收货信息）</text>
+    </view>
+  </view>
+  <view style='height:10rpx;' class='flex-center'>
+    <image src='../../image/fengexian.png' class='full-img'></image>
+  </view>
+  <view id='product'>
+    <view class='flex-between'>
+      <view class='product-img'>
+        <image src='../../image/headerimage.png' class='full-img'></image>
+      </view>
+      <view style='width:480rpx;'>
+        <view class='flex-between'>
+          <text class='product-name'>时尚半框镜架  MV0003  黑色</text>
+          <text class='product-geshu'>X1</text>
+        </view>
+        <view class='flex-start'>
+          <view class='product-guige'>
+            <text>镜片规格：</text>
+          </view>
+          <view class='product-guigexx'>
+            <view>
+              <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+            </view>
+            <view>
+              <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+              <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+            </view>
+          </view>
+        </view>
+        <view class='flex-start'>
+          <view class='product-guige'>
+            <text>度数：</text>
+          </view>
+          <view class='product-guigexx'>
+            <view>
+              <text class='product-text'>右眼度数 0.00</text>
+              <text class='product-text'>右眼散光 无</text>
+              <text class='product-text'>右眼轴位 无 </text>
+              <text class='product-text'>左眼度数 0.00</text>
+              <text class='product-text'>左眼散光 无</text>
+            </view>
+          </view>
+        </view>
+        <view class='product-price'>
+          <text>￥</text>
+          <text>199</text>
+        </view>
+      </view>
+    </view>
+    <view id='fuwu'>
+      <view class='flex-between fuwu'>
+        <view class='fuwu1'>
+          <text>买家留言</text>
+        </view>
+        <view class='fuwu2'>
+        <input placeholder='选填: 针对本次交易留言'></input>
+        </view>
+      </view>
+
+      <view class='flex-between fuwu'>
+        <view class='fuwu1'>
+          <text>运费</text>
+        </view>
+        <view class='fuwu3'>
+          <text>￥</text>
+          <text>20</text>
+          <text>元</text>
+        </view>
+      </view>
+      <view class='flex-between fuwu'>
+        <view class='fuwu1'>
+          <text>商品合计</text>
+        </view>
+        <view class='fuwu3'>
+          <text>￥</text>
+          <text>498</text>
+          <text>元</text>
+        </view>
+      </view>
+  
+   
+    </view>
+  </view>
+</scroll-view>
+
+<view class='flex-between' id='zhifu'>
+  <view>
+    <text class='zhifu1'>总价：</text>
+    <text class='zhifu2'>￥150.00元</text>
+  </view>
+  <view>
+    <button class='zhifu3'>立即支付</button>
+  </view>
+</view>

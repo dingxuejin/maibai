@@ -1,0 +1,2 @@
+<!--pages/user/user.wxml-->
+<button bindtap='getUserLogin'>aaa</button>

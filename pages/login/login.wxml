@@ -1,0 +1,9 @@
+
+<form bindsubmit="login">
+  <form bindsubmit="getCheckCode">
+    <input placeholder='输入手机号' name='userPhone' />
+    <input placeholder='输入验证码' name='checkCode' />
+    <button form-type='submit'>获取验证码</button>
+  </form>
+  <button form-type='submit'>登录</button>
+</form>

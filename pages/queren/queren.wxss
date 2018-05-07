@@ -1,0 +1,133 @@
+/* pages/queren/queren.wxss */
+
+#user {
+  padding: 30rpx;
+}
+
+.weizhi {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.user-name {
+  font-size: 28rpx;
+  margin: 0 20rpx;
+  color: #333;
+}
+
+.user-phone {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.user-address {
+  width: 600rpx;
+  margin-left: 60rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.enter {
+  width: 12rpx;
+  height: 24rpx;
+}
+
+.moren-address {
+  font-size: 24rpx;
+  color: rgba(231, 201, 131, 1);
+  height: 20rpx;
+  line-height: 20rpx;
+  margin-left: 50rpx;
+}
+
+#product {
+  padding: 30rpx;
+}
+
+.product-img {
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.product-geshu {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.product-guige {
+  align-self: flex-start;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.product-guigexx {
+  font-size: 22rpx;
+  color: #999;
+  width: 360rpx;
+}
+
+.product-text {
+  margin-right: 10rpx;
+}
+
+.product-price {
+  font-size: 28rpx;
+  color: #e51c23;
+}
+
+#fuwu {
+  margin: 20rpx 0;
+}
+
+.fuwu {
+  padding: 30rpx 0;
+  border-top: 2rpx solid #f2f2f2;
+}
+
+.fuwu1 {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.fuwu2 {
+  font-size: 28rpx;
+  color: #999;
+  font-weight: 600;
+}
+
+.fuwu3 {
+  font-size: 28rpx;
+  color: #e51c23;
+}
+
+#zhifu {
+  border-top: 2rpx #ccc solid;
+  height: 100rpx;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.zhifu1 {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.zhifu2 {
+  font-size: 32rpx;
+  color: #e51c23;
+  font-weight: 600;
+}
+
+.zhifu3 {
+  background: #e51c23;
+  color: #fff;
+}

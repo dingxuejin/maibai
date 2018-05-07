@@ -1,0 +1,225 @@
+<!--pages/mianfei/mianfei.wxml-->
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <!-- 商品列表 -->
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+
+          <view class='flex-center'>
+            <view class='pro-end1'></view>
+            <view>
+              <text class='pro-end'>我也是有底线的</text>
+            </view>
+            <view class='pro-end1'></view>
+          </view>
+          <!-- 商品列表end -->
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+
+          <!-- 商品列表 -->
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='flex-center'>
+            <view class='pro-end1'></view>
+            <view>
+              <text class='pro-end'>我也是有底线的</text>
+            </view>
+            <view class='pro-end1'></view>
+          </view>
+          <!-- end -->
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+
+
+          <!-- 商品列表 -->
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='pro-container'>
+            <view class='img-container'>
+              <image src='../../image/wode.png' class='img-size'></image>
+            </view>
+            <view class='flex-between'>
+              <view class='pro-title'>
+                <view>
+                  <text>正题正题正题正题正题正题</text>
+                </view>
+                <view>
+                  <text class='pro-title1'>副题副题副题副题副题副题</text>
+
+                </view>
+              </view>
+              <view>
+                <button class='pro-btn'>点击查看</button>
+              </view>
+            </view>
+          </view>
+          <view class='flex-center'>
+            <view class='pro-end1'></view>
+            <view>
+              <text class='pro-end'>我也是有底线的</text>
+            </view>
+            <view class='pro-end1'></view>
+          </view>
+          <!-- 商品列表end -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

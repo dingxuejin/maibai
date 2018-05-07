@@ -1,0 +1,64 @@
+
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #f00;
+}
+
+.img-container {
+  text-align: center;
+  position: relative;
+}
+.mian{
+  width:94rpx;
+  height: 94rpx;
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.img-size {
+  width: 690rpx;
+  height: 460rpx;
+  vertical-align: bottom;
+}
+
+.pro-container {
+  margin: 50rpx 30rpx;
+}
+
+.pro-title {
+  padding: 20rpx 0 9rpx;
+  font-size: 28rpx;
+}
+
+.pro-title1 {
+  color: #333;
+}
+
+.pro-title2 {
+  color: #e51c23;
+}
+
+.pro-title3 {
+  margin-left: 10rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.pro-btn {
+  color: #fff;
+  background: #e51c23;
+  font-size: 24rpx;
+  padding: 6rpx 33rpx;
+}
+
+.pro-end {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.pro-end1 {
+  margin: 0 20rpx;
+  width: 160rpx;
+  height: 2rpx;
+  background: rgba(204, 204, 204, 1);
+}

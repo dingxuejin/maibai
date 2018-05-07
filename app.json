@@ -1,0 +1,46 @@
+{
+  "pages": [
+
+    "pages/mianfei/mianfei",
+        "pages/queren/queren",
+    "pages/detail/detail",
+    "pages/login/login",
+    "pages/wode/wode",
+    "pages/jingxuan/jingxuan",
+    "pages/user/user",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/sousuo/sousuo"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#E51C23",
+    "navigationBarTitleText": "麦拜眼镜",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "selectedColor": "#f00",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/jingxuan/jingxuan",
+        "iconPath": "image/jingxuan.png",
+        "selectedIconPath": "image/jingxuans.png",
+        "text": "精选"
+      },
+      {
+        "pagePath": "pages/mianfei/mianfei",
+        "iconPath": "image/mianfei.png",
+        "selectedIconPath": "image/mianfeis.png",
+        "text": "免费领取"
+      },
+      {
+        "pagePath": "pages/wode/wode",
+        "iconPath": "image/wode.png",
+        "selectedIconPath": "image/wodes.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
