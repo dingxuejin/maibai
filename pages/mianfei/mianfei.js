@@ -7,6 +7,8 @@ Page({
    */
   data: {
     baseUrl: http.baseUrl,
+    isShowZhiding: false,
+    scrollTop: 0,
     tabs: [{ id: null, name: "会员免费" }],
     guangxue: {
       productList: [],
@@ -73,6 +75,21 @@ Page({
     }
 
 
+
+  },
+
+  // 一键置顶
+  toScrollTop() {
+    this.setData({ scrollTop: 0 })
+  },
+  // 显示一键置顶
+  getScrollTop(e) {
+    let scrollTop = parseFloat(e.detail.scrollTop);
+    if (scrollTop > 300) {
+      this.setData({ isShowZhiding: true })
+    } else {
+      this.setData({ isShowZhiding: false })
+    }
 
   },
   // navbar的点击样式

@@ -1,0 +1,80 @@
+/* pages/qianbao/qiaobao.wxss */
+
+#qiaobao {
+  height: 90vh;
+  background: #eee;
+}
+
+.qiaobao1 {
+  margin: 20rpx;
+  border: 2rpx dotted #999;
+  height: 350rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.qiaobao2 {
+  position: absolute;
+  left: 0;
+  bottom: 80rpx;
+  width: 100%;
+}
+
+.qiaobao3 {
+  margin: 0 60rpx;
+}
+
+.qiaobao4 {
+  width: 180rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  border: 2rpx solid #f00;
+  text-align: center;
+  color: #f00;
+  line-height: 70rpx;
+  font-size: 28rpx;
+}
+
+.qiaobao5 {
+  font-size: 28rpx;
+  color: #222;
+}
+
+.qiaobao6 {
+  font-size: 48rpx;
+  color:#E51C23;
+}
+
+.qiaobao7{
+  font-size: 28rpx;
+  color:#E51C23;
+}
+.qiaobao8{
+  width:15rpx;
+  height: 30rpx;
+}
+.qiaobao9{
+  background: #fff;
+  margin: 20rpx ;
+  padding:30rpx 20rpx;
+  border-radius: 10rpx;
+
+}
+#jiaoyajin {
+  height: 10vh;
+  background: #e51c23;
+  padding: 0 30rpx;
+}
+
+.jiaoyajin1 {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.jiaoyajin2 {
+  font-size: 28rpx;
+  color: #e51c23;
+  background: #fff;
+  border-radius: 6rpx;
+}

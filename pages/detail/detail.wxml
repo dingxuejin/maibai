@@ -1,65 +1,66 @@
 <!--pages/detail/detail.wxml-->
-  <scroll-view id='detail-container' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}'>
+<scroll-view id='detail-container' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}'>
 
-    <!-- 轮播图 -->
-    <view id='banner'>
-      <swiper indicator-active-color="#fff" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:470rpx;'>
-        <block wx:for="{{productDetail.imgList}}" wx:key="{{index}}">
-          <swiper-item>
-            <image src="{{baseUrl+item}}" class='full-img' />
-          </swiper-item>
-        </block>
-      </swiper>
-    </view>
-    <!-- banner--end -->
-    <!-- 标题 -->
-    <view id='caption'>
-      <view class='flex-between'>
+  <!-- 轮播图 -->
+  <view id='banner'>
+    <swiper indicator-active-color="#fff" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:470rpx;'>
+      <block wx:for="{{productDetail.imgList}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{baseUrl+item}}" class='full-img' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- banner--end -->
+  <!-- 标题 -->
+  <view id='caption'>
+    <view class='flex-between'>
+      <view>
         <view>
-          <view>
-            <text class='caption-title'>{{productDetail.name}}</text>
-          </view>
-          <view>
-            <text class='caption-price'>{{'￥'+productDetail.price}}</text>
-            <image class='caption-mian' src='../../image/vipmianicon.png'></image>
-          </view>
+          <text class='caption-title'>{{productDetail.name}}</text>
         </view>
         <view>
-          <image class='caption-fengxiang' src='../../image/fengxiang.png'></image>
+          <text class='caption-price'>{{'￥'+productDetail.price}}</text>
+          <image class='caption-mian' src='../../image/vipmianicon.png'></image>
         </view>
       </view>
-      <view class='flex-between caption-fbt'>
-        <view>
-          <text>市场价：</text>
-          <text class='text-through'>{{'￥'+productDetail.originPrice}}</text>
-        </view>
-        <view>
-          <text>运费：</text>
-          <text>20</text>
-        </view>
-        <view>
-          <text>销量：</text>
-          <text>156</text>
-        </view>
-      </view>
-      <view class='flex-between'>
-        <view class='flex-start'>
-          <image class='caption-icon' src='../../image/zpbz.png'></image>
-          <text class='caption-title'>正品保障</text>
-        </view>
-        <view class='flex-center'>
-          <image class='caption-icon' src='../../image/wytk.png'></image>
-          <text class='caption-title'>30天无忧退款</text>
-        </view>
-        <view class='flex-end'>
-          <image class='caption-icon' src='../../image/mfyg.png'></image>
-          <text class='caption-title'>免费验光</text>
-        </view>
+      <view>
+        <image class='caption-fengxiang' src='../../image/fengxiang.png'></image>
       </view>
     </view>
-    <!-- caption--end -->
-    <!-- 评论 -->
-    <view id='pinglun'>
+    <view class='flex-between caption-fbt'>
+      <view>
+        <text>市场价：</text>
+        <text class='text-through'>{{'￥'+productDetail.originPrice}}</text>
+      </view>
+      <view>
+        <text>运费：</text>
+        <text>20</text>
+      </view>
+      <view>
+        <text>销量：</text>
+        <text>{{productDetail.maxStock}}</text>
+      </view>
+    </view>
+    <view class='flex-between'>
+      <view class='flex-start'>
+        <image class='caption-icon' src='../../image/zpbz.png'></image>
+        <text class='caption-title'>正品保障</text>
+      </view>
+      <view class='flex-center'>
+        <image class='caption-icon' src='../../image/wytk.png'></image>
+        <text class='caption-title'>30天无忧退款</text>
+      </view>
+      <view class='flex-end'>
+        <image class='caption-icon' src='../../image/mfyg.png'></image>
+        <text class='caption-title'>免费验光</text>
+      </view>
+    </view>
+  </view>
+  <!-- caption--end -->
+  <!-- 评论 -->
+  <view id='pinglun'>
+    <view>
       <view class='flex-between pinglun-header'>
         <view class='pinglun-caption'>
           <text>用户评论</text>
@@ -122,27 +123,29 @@
         </view>
         <!-- 评论内容end -->
       </view>
-      <view class='text-center chakanall'>
-        <text>查看全部评价</text>
-      </view>
     </view>
-    <!-- 评论end -->
-    <!-- 商品详情 -->
-    <view id='detail'>
-      <view class='flex-between'>
-        <view class='detail-hr'></view>
-        <view>
-          <text class='detail-caption'>商品详情</text>
-        </view>
-        <view class='detail-hr'></view>
-      </view>
-      <!-- 商品图片 -->
-      <view class='detail-img'>
-        <image style='width:100%;' src='../../image/headerimage.png' mode='aspectFit'></image>
-      </view>
+
+    <view class='text-center chakanall'>
+      <text>查看全部评价</text>
     </view>
-    <!-- 商品详情end -->
-  </scroll-view>
+  </view>
+  <!-- 评论end -->
+  <!-- 商品详情 -->
+  <view id='detail'>
+    <view class='flex-between'>
+      <view class='detail-hr'></view>
+      <view>
+        <text class='detail-caption'>商品详情</text>
+      </view>
+      <view class='detail-hr'></view>
+    </view>
+    <!-- 商品图片 -->
+    <view class='detail-img'>
+      <image style='width:100%;' src='../../image/headerimage.png' mode='aspectFit'></image>
+    </view>
+  </view>
+  <!-- 商品详情end -->
+</scroll-view>
 <view id='detail-tarbar' class='flex-between'>
   <view class='flex-start'>
     <image class='taricon' src='../../image/guanzu.png'></image>
@@ -154,6 +157,7 @@
     <button class='tarbutton' bindtap='toShop'>选择度数购买</button>
   </view>
 </view>
+<!-- 置顶 -->
 <cover-view class='zhiding flex-center' wx:if='{{isShowZhiding}}' bindtap='toScrollTop'>
   <cover-image class='zhiding1' src='../../image/zhiding.png'></cover-image>
 </cover-view>
@@ -316,5 +320,4 @@
       <button class='xiadan' bindtap='xiadan'>立即下单</button>
     </view>
   </view>
-
 </view>

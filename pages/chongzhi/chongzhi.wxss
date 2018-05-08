@@ -1,0 +1,52 @@
+/* pages/chongzhi/chongzhi.wxss */
+
+.chongzhi1 {
+  height: 110rpx;
+  font-weight: 600;
+  padding: 0 30rpx;
+}
+
+.chongzhi2 {
+  font-size: 36rpx;
+  color: #333;
+}
+
+.chongzhi3 {
+  font-size: 36rpx;
+  color: #e51c23;
+}
+
+.chongzhi4 {
+  height: 20rpx;
+  background: #f2f2f2;
+}
+
+.chongzhi5 {
+  height: 100rpx;
+  border: 2rpx solid #ccc;
+  margin: 30rpx;
+  border-radius: 6rpx;
+}
+
+.chongzhi6 {
+  padding: 0 30rpx;
+  font-size: 32rpx;
+  border-right: 2rpx solid #ccc;
+}
+
+.chongzhi7 {
+  padding: 0 30rpx;
+  width: 350rpx;
+  flex: 1;
+}
+.chongzhi8{
+  width: 216rpx;
+  height: 100rpx;
+  color: #ccc;
+  font-size: 28rpx;
+  border:2rpx solid #ccc;
+  border-radius: 6rpx;
+}
+.chongzhi9{
+  padding: 0 30rpx;
+}

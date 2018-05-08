@@ -1,0 +1,34 @@
+<!--pages/chongzhi/chongzhi.wxml-->
+<view>
+  <view class='flex-between chongzhi1'>
+    <view class='chongzhi2'>
+      <text>当前账户余额：</text>
+    </view>
+    <view class='chongzhi3'>
+      <text>21.00</text>
+      <text>元</text>
+    </view>
+
+  </view>
+  <view class='chongzhi4'>
+  </view>
+  <view class='flex-between chongzhi5'>
+    <view class='chongzhi6'>
+      <text>充值金额</text>
+    </view>
+    <view class='chongzhi7'>
+      <input placeholder='请输入充值金额'></input>
+    </view>
+  </view>
+  <view class='flex-between chongzhi9'>
+    <view class='chongzhi8 flex-center'>
+      <text>充50送10</text>
+    </view>
+    <view class='chongzhi8 flex-center'>
+      <text>充100送20</text>
+    </view>
+    <view class='chongzhi8 flex-center'>
+      <text>充200送50</text>
+    </view>
+  </view>
+</view>

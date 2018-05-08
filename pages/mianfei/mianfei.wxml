@@ -10,157 +10,166 @@
       </view>
     </view>
   </navigator>
-  <view class="weui-tab" id='main'>
-    <view class="weui-navbar">
-      <block wx:for="{{tabs}}" wx:key="{{index}}">
-        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-          <view class="weui-navbar__title">{{item.name}}</view>
-        </view>
+  <view style='background:#fff;height:100rpx;'>
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="{{index}}">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item.name}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+<scroll-view id='main' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}'>
+  <view>
+    <!-- 轮播图 -->
+    <swiper indicator-active-color="#fff" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:380rpx;'>
+      <block wx:for="{{bannerList}}" wx:key="{{index}}">
+        <swiper-item bindtap='toWeb' data-weburl='{{item.detailUrl}}'>
+          <image src="{{baseUrl+item.imgUrl}}" class='full-img' />
+        </swiper-item>
       </block>
-    </view>
-  </view>
-</view>
-<view class="weui-tab__panel">
-  <!-- 轮播图 -->
-  <swiper indicator-active-color="#fff" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:380rpx;'>
-    <block wx:for="{{bannerList}}" wx:key="{{index}}">
-      <swiper-item bindtap='toWeb' data-weburl='{{item.detailUrl}}'>
-        <image src="{{baseUrl+item.imgUrl}}" class='full-img' />
-      </swiper-item>
-    </block>
-  </swiper>
-  <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-    <!-- 选项会员免费的内容 -->
+    </swiper>
+    <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+      <!-- 选项会员免费的内容 -->
 
-    <!-- 商品列表 -->
-    <view>
-      <view class='pro-container' wx:for="{{freeList}}" wx:key="{{index}}">
-        <navigator url='{{"../detail/detail?id="+item.id}}'>
-          <view class='img-container'>
-            <image src='../../image/mian.png' class='mian'></image>
-            <image src='{{baseUrl+item.imgUrl}}' class='img-size'></image>
-          </view>
-        </navigator>
+      <!-- 商品列表 -->
+      <view>
+        <view class='pro-container' wx:for="{{freeList}}" wx:key="{{index}}">
+          <navigator url='{{"../detail/detail?id="+item.id}}'>
+            <view class='img-container'>
+              <image src='../../image/mian.png' class='mian'></image>
+              <image src='{{baseUrl+item.imgUrl}}' class='img-size'></image>
+            </view>
+          </navigator>
 
-        <view class='flex-between'>
-          <view class='pro-title'>
-            <view class='pro-title1'>
-              <text>{{item.name}}</text>
+          <view class='flex-between'>
+            <view class='pro-title'>
+              <view class='pro-title1'>
+                <text>{{item.name}}</text>
+              </view>
+              <view>
+                <text class='pro-title2'>{{"￥"+item.price}}</text>
+                <text class='pro-title3'>{{"￥"+item.originPrice}}</text>
+              </view>
             </view>
             <view>
-              <text class='pro-title2'>{{"￥"+item.price}}</text>
-              <text class='pro-title3'>{{"￥"+item.originPrice}}</text>
+              <button class='pro-btn'>免费领取</button>
             </view>
           </view>
+        </view>
+        <view class='flex-center'>
+          <view class='pro-end1'></view>
           <view>
-            <button class='pro-btn'>免费领取</button>
+            <text class='pro-end'>我也是有底线的</text>
           </view>
+          <view class='pro-end1'></view>
         </view>
       </view>
-      <view class='flex-center'>
-        <view class='pro-end1'></view>
-        <view>
-          <text class='pro-end'>我也是有底线的</text>
-        </view>
-        <view class='pro-end1'></view>
-      </view>
+      <!-- 商品列表end -->
     </view>
-    <!-- 商品列表end -->
-  </view>
-  <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-    <!-- 选项光学眼镜的内容 -->
-    <!-- 商品列表 -->
-    <view>
-      <view class='pro-container' wx:for='{{guangxue.productList}}' wx:key='{{index}}'>
-        <navigator url='{{"../detail/detail?id="+item.id}}'>
-          <view class='img-container'>
-            <image src='{{baseUrl+item.imgUrl}}' class='img-size'></image>
-          </view>
-        </navigator>
-        <view class='flex-between'>
-          <view class='pro-title'>
-            <view class='pro-title1'>
-              <text>{{item.name}}</text>
+    <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+      <!-- 选项光学眼镜的内容 -->
+      <!-- 商品列表 -->
+      <view>
+        <view class='pro-container' wx:for='{{guangxue.productList}}' wx:key='{{index}}'>
+          <navigator url='{{"../detail/detail?id="+item.id}}'>
+            <view class='img-container'>
+              <image src='{{baseUrl+item.imgUrl}}' class='img-size'></image>
+            </view>
+          </navigator>
+          <view class='flex-between'>
+            <view class='pro-title'>
+              <view class='pro-title1'>
+                <text>{{item.name}}</text>
+              </view>
+              <view>
+                <text class='pro-title2'>{{item.price}}</text>
+                <text class='pro-title3'>{{item.originPrice}}</text>
+              </view>
             </view>
             <view>
-              <text class='pro-title2'>{{item.price}}</text>
-              <text class='pro-title3'>{{item.originPrice}}</text>
+              <navigator url='{{"../detail/detail?id="+item.id}}'>
+                <button class='pro-btn'>了解详情</button>
+              </navigator>
             </view>
           </view>
+        </view>
+
+
+        <view class='flex-center' wx:if='{{guangxue.hasNextPage}}'>
+          <view class='pro-end1'></view>
           <view>
-            <navigator url='{{"../detail/detail?id="+item.id}}'>
-              <button class='pro-btn'>了解详情</button>
-            </navigator>
+            <text class='pro-end'>正在加载数据</text>
           </view>
+          <view class='pro-end1'></view>
+        </view>
+        <view class='flex-center' wx:else>
+          <view class='pro-end1'></view>
+          <view>
+            <text class='pro-end'>我也是有底线的</text>
+          </view>
+          <view class='pro-end1'></view>
         </view>
       </view>
 
 
-      <view class='flex-center' wx:if='{{guangxue.hasNextPage}}'>
-        <view class='pro-end1'></view>
-        <view>
-          <text class='pro-end'>正在加载数据</text>
-        </view>
-        <view class='pro-end1'></view>
-      </view>
-      <view class='flex-center' wx:else>
-        <view class='pro-end1'></view>
-        <view>
-          <text class='pro-end'>我也是有底线的</text>
-        </view>
-        <view class='pro-end1'></view>
-      </view>
+      <!-- end -->
     </view>
+    <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
 
-
-    <!-- end -->
-  </view>
-  <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-
-    <!-- 选项太阳眼镜的内容 -->
-    <!-- 商品列表 -->
-    <view>
-      <view class='pro-container' wx:for='{{taiyang.productList}}' wx:key='{{index}}'>
-        <navigator url='{{"../detail/detail?id="+item.id}}'>
-          <view class='img-container'>
-            <image src='{{baseUrl+item.imgUrl}}' class='img-size'></image>
-          </view>
-        </navigator>
-        <view class='flex-between'>
-          <view class='pro-title'>
-            <view class='pro-title1'>
-              <text>{{item.name}}</text>
+      <!-- 选项太阳眼镜的内容 -->
+      <!-- 商品列表 -->
+      <view>
+        <view class='pro-container' wx:for='{{taiyang.productList}}' wx:key='{{index}}'>
+          <navigator url='{{"../detail/detail?id="+item.id}}'>
+            <view class='img-container'>
+              <image src='{{baseUrl+item.imgUrl}}' class='img-size'></image>
+            </view>
+          </navigator>
+          <view class='flex-between'>
+            <view class='pro-title'>
+              <view class='pro-title1'>
+                <text>{{item.name}}</text>
+              </view>
+              <view>
+                <text class='pro-title2'>{{item.price}}</text>
+                <text class='pro-title3'>{{item.originPrice}}</text>
+              </view>
             </view>
             <view>
-              <text class='pro-title2'>{{item.price}}</text>
-              <text class='pro-title3'>{{item.originPrice}}</text>
+              <navigator url='{{"../detail/detail?id="+item.id}}'>
+                <button class='pro-btn'>了解详情</button>
+              </navigator>
             </view>
           </view>
+        </view>
+
+
+        <view class='flex-center' wx:if='{{taiyang.hasNextPage}}'>
+          <view class='pro-end1'></view>
           <view>
-            <navigator url='{{"../detail/detail?id="+item.id}}'>
-              <button class='pro-btn'>了解详情</button>
-            </navigator>
+            <text class='pro-end'>正在加载数据</text>
           </view>
+          <view class='pro-end1'></view>
+        </view>
+        <view class='flex-center' wx:else>
+          <view class='pro-end1'></view>
+          <view>
+            <text class='pro-end'>我也是有底线的</text>
+          </view>
+          <view class='pro-end1'></view>
         </view>
       </view>
 
-
-      <view class='flex-center' wx:if='{{taiyang.hasNextPage}}'>
-        <view class='pro-end1'></view>
-        <view>
-          <text class='pro-end'>正在加载数据</text>
-        </view>
-        <view class='pro-end1'></view>
-      </view>
-      <view class='flex-center' wx:else>
-        <view class='pro-end1'></view>
-        <view>
-          <text class='pro-end'>我也是有底线的</text>
-        </view>
-        <view class='pro-end1'></view>
-      </view>
+      <!-- 商品列表end -->
     </view>
-
-    <!-- 商品列表end -->
   </view>
-</view>
+
+</scroll-view>
+<!-- 置顶 -->
+<cover-view class='zhiding flex-center' wx:if='{{isShowZhiding}}' bindtap='toScrollTop'>
+  <cover-image class='zhiding1' src='../../image/zhiding.png'></cover-image>
+</cover-view>

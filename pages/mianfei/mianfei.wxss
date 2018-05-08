@@ -1,13 +1,14 @@
-
-#header{
-  position: fixed;
-  top:0;
-  left: 0;
+#header {
   width: 100%;
+  height: 18vh;
+  border-bottom: 2rpx solid #ccc;
+  box-sizing: border-box;
 }
-#main{
-  margin-top:200rpx;
+
+#main {
+  height: 82vh;
 }
+
 .weui-navbar__item.weui-bar__item_on {
   color: #f00;
 }
@@ -16,13 +17,15 @@
   text-align: center;
   position: relative;
 }
-.mian{
-  width:94rpx;
+
+.mian {
+  width: 94rpx;
   height: 94rpx;
   position: absolute;
   left: 0;
-  top:0;
+  top: 0;
 }
+
 .img-size {
   width: 690rpx;
   height: 460rpx;
@@ -69,4 +72,18 @@
   width: 160rpx;
   height: 2rpx;
   background: rgba(204, 204, 204, 1);
+}
+.zhiding {
+  width: 90rpx;
+  height: 90rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  right: 10rpx;
+  bottom: 200rpx;
+}
+
+.zhiding1 {
+  width: 50%;
+  height: 50%;
 }
