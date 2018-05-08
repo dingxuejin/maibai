@@ -1,5 +1,4 @@
 <!--pages/detail/detail.wxml-->
-<view>
   <scroll-view id='detail-container' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}'>
 
     <!-- 轮播图 -->
@@ -144,16 +143,14 @@
     </view>
     <!-- 商品详情end -->
   </scroll-view>
-
-</view>
 <view id='detail-tarbar' class='flex-between'>
-  <view>
+  <view class='flex-start'>
     <image class='taricon' src='../../image/guanzu.png'></image>
     <image class='taricon' src='../../image/dianhua.png'></image>
     <image class='taricon' src='../../image/shouji.png'></image>
     <image class='taricon' src='../../image/kefu.png'></image>
   </view>
-  <view>
+  <view class='flex-end'>
     <button class='tarbutton' bindtap='toShop'>选择度数购买</button>
   </view>
 </view>

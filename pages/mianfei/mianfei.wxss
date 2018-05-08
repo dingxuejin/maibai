@@ -1,5 +1,13 @@
 
-
+#header{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+}
+#main{
+  margin-top:200rpx;
+}
 .weui-navbar__item.weui-bar__item_on {
   color: #f00;
 }
