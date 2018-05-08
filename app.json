@@ -1,17 +1,21 @@
 {
   "pages": [
-
     "pages/mianfei/mianfei",
-        "pages/queren/queren",
-    "pages/detail/detail",
     "pages/login/login",
-    "pages/wode/wode",
+   
+    "pages/sjyz/sjyz",
+    "pages/zhifutype/zhifutype",
     "pages/jingxuan/jingxuan",
+    "pages/zfmm/zfmm",
+    "pages/queren/queren",
+    "pages/detail/detail",
+    "pages/wode/wode",
     "pages/user/user",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/sousuo/sousuo"
-   
+    "pages/sousuo/sousuo",
+    
+    "pages/web/web"
   ],
   "window": {
     "backgroundTextStyle": "light",

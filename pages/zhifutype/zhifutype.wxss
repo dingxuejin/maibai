@@ -1,0 +1,94 @@
+/* pages/zhifutype/zhifutype.wxss */
+
+.xuanzhong {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.zftype1 {
+  border-bottom: 2rpx solid #ccc;
+  padding: 30rpx;
+}
+
+.zftype2 {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.zftype3 {
+  font-size: 28rpx;
+  color: #333;
+  padding: 0 40rpx;
+}
+
+.zhifu3 {
+  color: #fff;
+  background: #e51c23;
+  border-radius: 0rpx;
+  height: 100rpx;
+}
+
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.dialog-container {
+  margin: auto;
+  width: 96%;
+  background: #fff;
+  position: absolute;
+  top: 150rpx;
+  left: 0;
+  right: 0;
+}
+
+.zfmm2 {
+  position: relative;
+  height: 108rpx;
+}
+
+.zfmm3 {
+  width: 108rpx;
+  height: 108rpx;
+  border: 2rpx solid #999;
+  border-right: none;
+}
+
+.zfmm4 {
+  width: 108rpx;
+  height: 108rpx;
+  border: 2rpx solid #999;
+}
+
+.zfmm5 {
+  width: 0rpx;
+  height: 0rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.zfmm6 {
+  font-size: 24rpx;
+  color: #999;
+  margin: 50rpx 0;
+}
+
+.mima1 {
+  font-size: 34rpx;
+  margin: 80rpx auto 0;
+}
+
+.mima2 {
+  font-size: 32rpx;
+  margin: 50rpx auto;
+}
+
+.mima3 {
+  padding: 20rpx;
+}

@@ -1,4 +1,4 @@
-// pages/queren/queren.js
+// pages/sjyz/sjyz.js
 Page({
 
   /**
@@ -7,9 +7,10 @@ Page({
   data: {
   
   },
-  toZhifuType(){
+  // 验证码验证
+  yanzhen(){
     wx.navigateTo({
-      url: '../zhifutype/zhifutype',
+      url: '../zfmm/zfmm',
     })
   },
   /**

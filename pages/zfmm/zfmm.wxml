@@ -1,0 +1,36 @@
+<!--pages/zfmm/zfmm.wxml-->
+<view class='flex-center zfmm1'>
+  <text>请设置6位支付密码</text>
+</view>
+<view>
+  <view class='flex-center zfmm6'>
+    <text>请输入密码</text>
+  </view>
+  <view class='flex-center zfmm2' bindtap='focuse'>
+    <view class='zfmm3 flex-center'>{{pwdShow[0]}}</view>
+    <view class='zfmm3 flex-center'>{{pwdShow[1]}}</view>
+    <view class='zfmm3 flex-center'>{{pwdShow[2]}}</view>
+    <view class='zfmm3 flex-center'>{{pwdShow[3]}}</view>
+    <view class='zfmm3 flex-center'>{{pwdShow[4]}}</view>
+    <view class='zfmm4 flex-center'>{{pwdShow[5]}}</view>
+    <input class='zfmm5' type='number' focus='{{focuseShow}}' password='true' maxlength='6' bindinput='inputPwd'></input>
+  </view>
+
+</view>
+<view>
+  <view class='flex-center zfmm6'>
+    <text>请再次输入密码</text>
+  </view>
+  <view class='flex-center zfmm2' bindtap='focuseRe'>
+    <view class='zfmm3 flex-center'>{{repwdShow[0]}}</view>
+    <view class='zfmm3 flex-center'>{{repwdShow[1]}}</view>
+    <view class='zfmm3 flex-center'>{{repwdShow[2]}}</view>
+    <view class='zfmm3 flex-center'>{{repwdShow[3]}}</view>
+    <view class='zfmm3 flex-center'>{{repwdShow[4]}}</view>
+    <view class='zfmm4 flex-center'>{{repwdShow[5]}}</view>
+    <input class='zfmm5' type='number' focus='{{focuseReShow}}' password='true' maxlength='6' bindinput='inputRepwd'></input>
+  </view>
+</view>
+<view class='queding'>
+  <button class='queding-button' bindtap='queding'>确定</button>
+</view>

@@ -21,11 +21,21 @@
   font-size: 30rpx;
 }
 
+.pro-title2 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 500rpx;
+}
+
 .pro-title1 {
+  overflow: hidden;
+  width: 500rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: #999;
   font-size: 24rpx;
 }
-
 
 .pro-btn {
   color: #fff;

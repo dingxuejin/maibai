@@ -34,8 +34,6 @@ Page({
   // 规格选择效果
   xuanze(e) {
     let active = e.currentTarget.dataset;
-
-    console.log(active)
     this.setData(active)
   },
   stopMaopao() {
@@ -49,10 +47,10 @@ Page({
   toShop() {
     let that = this;
     let token = wx.getStorageSync('token')
+    console.log(token);
     http.post('getUserInfo', { token })
       .then(res => {
         let myDeposit = parseFloat(res.data.myDeposit);
-        console.log(myDeposit)
         // 押金值判断
         if (myDeposit >= 0) {
           that.setData({ isDialog: true })

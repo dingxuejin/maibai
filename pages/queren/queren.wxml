@@ -111,6 +111,6 @@
     <text class='zhifu2'>￥150.00元</text>
   </view>
   <view>
-    <button class='zhifu3'>立即支付</button>
+    <button class='zhifu3' bindtap='toZhifuType'>立即支付</button>
   </view>
 </view>

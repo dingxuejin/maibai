@@ -1,7 +1,7 @@
 /* pages/detail/detail.wxss */
 
 #detail-container {
-  height: 1096rpx;
+  height: 70vh;
 }
 
 #caption {

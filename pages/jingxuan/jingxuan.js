@@ -7,16 +7,55 @@ Page({
    */
   data: {
     baseUrl: http.baseUrl,
+    huodong: [],
+    zhaoshang: [],
+    gongyi: [],
     tabs: ["活动", "招商", "公益"],
     activeIndex: 0,
     sliderOffset: 0,
   },
+  // 前往web查看
+  toWeb(e) {
+    let webUrl = e.currentTarget.dataset.weburl;
+    wx.setStorageSync('detailUrl', webUrl)
+    wx.navigateTo({
+      url: `../web/web`,
+    })
+  },
+  // 获取视界页面列表
+  getViewList(e, i) {
+    let token = wx.getStorageSync('token')
+    let data = {
+      type: i,
+      token
+    }
+    http.post('viewList', data)
+      .then((res) => {
+        let viewList = {};
+        viewList[e] = res.data.list;
+        this.setData(viewList)
+      })
+  },
   // navbar的点击样式
   tabClick: function (e) {
-    this.setData({
-      sliderOffset: e.currentTarget.offsetLeft,
-      activeIndex: e.currentTarget.id
-    });
+    let activeIndex = e.currentTarget.id;
+    new Promise((resolve, reject) => {
+      this.setData({
+        sliderOffset: e.currentTarget.offsetLeft,
+        activeIndex
+      });
+      resolve();
+    }).then(() => {
+      if (activeIndex === '1') {
+        this.getViewList('zhaoshang', 1);
+      } else if (activeIndex === '2') {
+        this.getViewList('gongyi', 3);
+      } else {
+        this.getViewList('huodong', 0);
+        console.log(this.data.huodong);
+      }
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -28,7 +67,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.getViewList('huodong', 0);
   },
 
   /**

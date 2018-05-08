@@ -162,8 +162,8 @@
 </cover-view>
 
 <!-- 规格选择内容 -->
-<view class='dialog' wx:if='{{isDialog}}'  catchtap='dialogClose'>
-  <view class='dialog-container'  catchtap='stopMaopao'>
+<view class='dialog' wx:if='{{isDialog}}' catchtap='dialogClose'>
+  <view class='dialog-container' catchtap='stopMaopao'>
     <scroll-view style='max-height:900rpx;' scrollY>
       <view id='xuanze'>
         <view class='close' bindtap='dialogClose'>

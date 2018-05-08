@@ -1,15 +1,13 @@
+/* pages/sjyz/sjyz.wxss */
 /* pages/register/register.wxss */
-
-.login-container {
-  padding: 30rpx;
-  border-bottom: 2rpx solid #ccc;
+.login-container{
+  padding:30rpx;
+  border-bottom:2rpx solid #ccc;
 }
-
-.login-icon {
-  width: 40rpx;
+.login-icon{
+  width:40rpx;
   height: 40rpx;
 }
-
 .login-input {
   width:300rpx;
   flex: 1;
@@ -24,9 +22,8 @@
   font-size: 26rpx;
   background: #fff;
 }
-
-.login {
+.login{
   margin: 60rpx 30rpx;
-  background: #e51c23;
-  color: #fff;
+  background: #E51C23;
+  color:#fff;
 }

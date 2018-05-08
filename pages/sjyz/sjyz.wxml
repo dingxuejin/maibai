@@ -1,4 +1,5 @@
-<form bindsubmit="login">
+<!--pages/sjyz/sjyz.wxml-->
+<form bindsubmit="yanzhen">
   <form bindsubmit="getCheckCode">
     <view class='flex-start login-container'>
       <image src='../../image/sj.png' class='login-icon'></image>
@@ -9,10 +10,9 @@
         <image src='../../image/yzm.png' class='login-icon'></image>
         <input class='login-input' placeholder='请输入验证码' name='checkCode' />
       </view>
-
       <button form-type='submit' class='login-yzm'>获取验证码</button>
     </view>
 
   </form>
-  <button form-type='submit' class='login'>登录</button>
+  <button form-type='submit' class='login'>下一步</button>
 </form>

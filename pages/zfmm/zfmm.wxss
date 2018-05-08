@@ -1,0 +1,50 @@
+/* pages/zfmm/zfmm.wxss */
+
+.zfmm1 {
+  font-size: 34rpx;
+  color: #333;
+  margin: 80rpx 0;
+}
+
+.zfmm2 {
+  position: relative;
+  height: 108rpx;
+}
+
+.zfmm3 {
+  width: 108rpx;
+  height: 108rpx;
+  border: 2rpx solid #999;
+  border-right: none;
+}
+
+.zfmm4 {
+  width: 108rpx;
+  height: 108rpx;
+  border: 2rpx solid #999;
+}
+
+.zfmm5 {
+  width: 0rpx;
+  height: 0rpx;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+
+.zfmm6 {
+  font-size: 26rpx;
+  color: #333;
+  margin: 80rpx 0 50rpx;
+}
+
+.queding {
+  margin: 60rpx 30rpx 0;
+}
+
+.queding-button {
+  background: #e51c23;
+  color: #fff;
+  border-radius: 0rpx;
+  height: 100rpx;
+}

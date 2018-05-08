@@ -1,0 +1,59 @@
+<!--pages/queren/queren.wxml-->
+<scroll-view style='height:1105rpx;' scrollY>
+  <view>
+    <view>
+
+      <view class='flex-between zftype1' data-type='0' bindtap='zhifutype'>
+        <view class='flex-start'>
+          <image src='../../image/wxzf.png' class='zftype2'></image>
+          <text class='zftype3'>微信支付</text>
+        </view>
+        <view class='xuanzhong' wx:if='{{type==="0"}}'>
+          <image src='../../image/xuanzhong.png' class='full-img'></image>
+        </view>
+      </view>
+      <view class='flex-between zftype1' data-type='1' bindtap='zhifutype'>
+        <view class='flex-start'>
+          <image src='../../image/yuezf.png' class='zftype2'></image>
+          <text class='zftype3'>余额支付</text>
+        </view>
+        <view class='xuanzhong' wx:if='{{type==="1"}}'>
+          <image src='../../image/xuanzhong.png' class='full-img'></image>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+</scroll-view>
+
+<view id='zhifu'>
+  <button class='zhifu3' bindtap='dialogOpen'>立即支付￥88.00</button>
+</view>
+<view class='dialog' wx:if='{{isDialog}}' catchtap='dialogClose'>
+  <view class='dialog-container' catchtap='stopMaopao'>
+    <view class='text-center mima1'>
+      <text>请输入支付密码</text>
+    </view>
+    <view class='text-center mima2'>
+      <text>支付：¥</text>
+      <text>20.00</text>
+    </view>
+    <view class='flex-center zfmm2' bindtap='focuse'>
+      <view class='zfmm3 flex-center'>{{pwdShow[0]}}</view>
+      <view class='zfmm3 flex-center'>{{pwdShow[1]}}</view>
+      <view class='zfmm3 flex-center'>{{pwdShow[2]}}</view>
+      <view class='zfmm3 flex-center'>{{pwdShow[3]}}</view>
+      <view class='zfmm3 flex-center'>{{pwdShow[4]}}</view>
+      <view class='zfmm4 flex-center'>{{pwdShow[5]}}</view>
+      <input class='zfmm5' type='number' focus='{{focuseShow}}' password='true' maxlength='6' bindinput='inputPwd'></input>
+    </view>
+    <view class='flex-center zfmm6'>
+      <navigator url='../sjyz/sjyz'>
+        <text class='mima3'>重置支付密码</text>
+      </navigator>
+
+    </view>
+  </view>
+
+</view>
