@@ -24,7 +24,7 @@
 .chongzhi5 {
   height: 100rpx;
   border: 2rpx solid #ccc;
-  margin: 30rpx;
+  margin:50rpx 30rpx;
   border-radius: 6rpx;
 }
 
@@ -49,4 +49,24 @@
 }
 .chongzhi9{
   padding: 0 30rpx;
+}
+.chongzhi10{
+  font-size: 24rpx;
+  color: #999;
+}
+.chongzhi11{
+  color: #fff;
+  background: #E51C23;
+  margin: 20rpx 30rpx 0;
+}
+.chongzhi12{
+  font-size: 24rpx;
+  color: #E51C23;
+}
+.chongzhi13{
+  margin: 20rpx 30rpx;
+}
+.active{
+  background: #E51C23;
+  color: #fff;
 }

@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/mianfei/mianfei",
+    "pages/dingdan/dingdan",
+    "pages/detail/detail",
+    "pages/mingxi/mingxi",
     "pages/chongzhi/chongzhi",
     "pages/qianbao/qiaobao",
-    "pages/mianfei/mianfei",
-    "pages/login/login",
-    "pages/detail/detail",
     "pages/sjyz/sjyz",
     "pages/zhifutype/zhifutype",
     "pages/jingxuan/jingxuan",
@@ -16,7 +18,6 @@
     "pages/logs/logs",
     "pages/sousuo/sousuo",
     "pages/web/web"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",

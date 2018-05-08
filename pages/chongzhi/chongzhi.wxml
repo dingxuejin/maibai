@@ -21,14 +21,18 @@
     </view>
   </view>
   <view class='flex-between chongzhi9'>
-    <view class='chongzhi8 flex-center'>
-      <text>充50送10</text>
+    <view wx:for='{{xiangmu}}' bindtap='clickActive' wx:key='{{index}}' class='chongzhi8 flex-center {{active===index?"active":""}}' data-active='{{index}}'>
+      <text>{{item}}</text>
     </view>
-    <view class='chongzhi8 flex-center'>
-      <text>充100送20</text>
-    </view>
-    <view class='chongzhi8 flex-center'>
-      <text>充200送50</text>
-    </view>
+  </view>
+  <view class='chongzhi13'>
+    <text class='chongzhi10'>注: 充值金额不可提现，活动赠送金额不可支持开发票</text>
+  </view>
+  <view>
+    <button class='chongzhi11'>立即充值</button>
+  </view>
+  <view  class='chongzhi13 text-center'>
+    <text class='chongzhi10'>点击立即充值，即表示您已经同意</text>
+    <text class='chongzhi12'>《麦拜充值协议》</text>
   </view>
 </view>

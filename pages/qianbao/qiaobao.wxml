@@ -11,22 +11,28 @@
             <text class='qiaobao6'>21.00</text>
             <text class='qiaobao7'>元</text>
           </view>
-          <view class='qiaobao4'>
-            <text>充值</text>
-          </view>
+          <navigator url='../chongzhi/chongzhi'>
+            <view class='qiaobao4'>
+              <text>充值</text>
+            </view>
+          </navigator>
+
         </view>
 
       </view>
     </view>
     <view class='qiaobao1'>
-      <view class='flex-between qiaobao9'>
-        <view>
-          <text class='qiaobao5'>余额明细</text>
+      <navigator url='../mingxi/mingxi'>
+        <view class='flex-between qiaobao9'>
+          <view>
+            <text class='qiaobao5'>余额明细</text>
+          </view>
+          <view class='qiaobao8'>
+            <image src='../../image/enter.png' class='full-img'></image>
+          </view>
         </view>
-        <view class='qiaobao8'>
-          <image src='../../image/enter.png' class='full-img'></image>
-        </view>
-      </view>
+      </navigator>
+
     </view>
 
   </scroll-view>

@@ -10,9 +10,6 @@ Page({
   },
   // 验证码登录
   login(e) {
-    wx.reLaunch({
-      url: '../mianfei/mianfei'
-    })
     let userPhone = e.detail.value.userPhone;
     let checkCode = e.detail.value.checkCode;
     http.post('userlogin', { userPhone, checkCode })

@@ -140,9 +140,12 @@
       <view class='detail-hr'></view>
     </view>
     <!-- 商品图片 -->
-    <view class='detail-img'>
-      <image style='width:100%;' src='../../image/headerimage.png' mode='aspectFit'></image>
-    </view>
+    <!-- <view style='margin-top:500rpx;'>
+      <web-view src='http://39.108.76.65:8080/m/product/5786/description'>
+
+      </web-view>
+    </view> -->
+
   </view>
   <!-- 商品详情end -->
 </scroll-view>

@@ -1,17 +1,20 @@
-// pages/chongzhi/chongzhi.js
+// pages/dingdan/dingdan.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    xiangmu: ['充50送10', '充100送20', '充200送50'],
-    active: 0
+    tabs: ["全部", "待付款", "待发货", "待收货", "待评论"],
+    activeIndex: 0,
+    sliderOffset: 0,
   },
-  clickActive(e) {
-   let active=e.currentTarget.dataset;
-   this.setData(active)
-   },
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
