@@ -34,7 +34,7 @@
             </view>
           </view>
           <view>
-            <button class='pro-btn' data-weburl='{{item.detailUrl}}' bindtap='toWeb'>点击查看</button>
+            <button class='pro-btn' data-index='{{index}}' bindtap='toWeb'>点击查看</button>
           </view>
         </view>
       </view>

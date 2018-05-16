@@ -1,0 +1,162 @@
+/* pages/dingdandetail/dingdandetail.wxss */
+
+#user {
+  padding: 30rpx;
+}
+
+.weizhi {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.user-name {
+  font-size: 28rpx;
+  margin: 0 20rpx;
+  color: #333;
+}
+
+.user-phone {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.user-address {
+  width: 600rpx;
+  margin-left: 60rpx;
+  font-size: 24rpx;
+  color: #333;
+}
+
+.enter {
+  width: 12rpx;
+  height: 24rpx;
+}
+
+/* 
+#product {
+  padding: 30rpx;
+} */
+
+.product {
+  padding: 30rpx;
+}
+
+.product-img {
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.product-geshu {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.product-guige {
+  align-self: flex-start;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.product-guigexx {
+  font-size: 22rpx;
+  color: #999;
+  width: 360rpx;
+}
+
+.product-text {
+  margin-right: 10rpx;
+}
+
+.product-price {
+  font-size: 28rpx;
+  color: #e51c23;
+}
+
+#fuwu {
+  margin: 20rpx 0 0;
+}
+
+.fuwu {
+  padding: 30rpx;
+}
+
+.fuwu1 {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.fuwu2 {
+  font-size: 28rpx;
+  color: #999;
+  font-weight: 600;
+}
+
+.fuwu3 {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.fuwu4 {
+  height: 2rpx;
+  background: #ccc;
+  margin: 0 30rpx;
+}
+
+.fuwu5 {
+  font-size: 28rpx;
+  color: #e51c23;
+}
+
+.fuwu6 {
+  font-weight: 600;
+}
+
+.fuwu7 {
+  height: 100rpx;
+  background: #eee;
+}
+
+#zhifu {
+  border-top: 2rpx #ccc solid;
+  height: 100rpx;
+  box-sizing: border-box;
+}
+
+.zhifu1 {
+  color: #fff;
+  background: #f5595f;
+  height: 100%;
+}
+
+.zhifu2 {
+  color: #e51c23;
+  background: #fff;
+  height: 100%;
+}
+
+.zhifu3 {
+  background: #e51c23;
+  color: #fff;
+  height: 100%;
+}
+
+.zhifu4 {
+  width: 50%;
+}
+
+.zhifu5 {
+  width: 33.33%;
+}
+
+.hr {
+  height: 20rpx;
+  background: #ccc;
+}

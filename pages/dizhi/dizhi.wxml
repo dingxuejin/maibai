@@ -1,0 +1,47 @@
+<!--pages/dizhi/dizhi.wxml-->
+<form>
+  <scroll-view style='height:90vh;' scrollY>
+    <radio-group style='background:#fff;' bindchange='changeRadio'>
+      <view wx:for='{{address}}' wx:key='{{index}}'>
+        <view id='user'>
+          <view class='flex-start'>
+            <view class='weizhi'>
+              <image src='../../image/weizhi.png' class='full-img'></image>
+            </view>
+            <view>
+              <text class='user-name'>{{item.name}}</text>
+              <text class='user-phone'>{{item.phone}}</text>
+            </view>
+          </view>
+          <view class='flex-between' style='height:60rpx;'>
+            <view class='user-address'>
+              <text>{{item.provinceName}}{{item.cityName}}{{item.regionName}}{{item.detailAddress}}</text>
+            </view>
+          </view>
+
+        </view>
+        <view class='moren-address flex-between'>
+          <radio color='#000' checked='{{item.isDefault==="1"}}' value='{{item.id}}'>设为默认地址</radio>
+          <view class='flex-end'>
+            <view class='flex-end' bindtap='bianji'  data-address='{{item}}'>
+              <image class='dizhi-icon' src='../../image/bianji1.png'></image>
+              <text>编辑</text>
+            </view>
+            <view class='flex-end dizhi-bianji' bindtap='shanchu' data-deleteId='{{item.id}}'>
+              <image class='dizhi-icon' src='../../image/shanchu1.png'></image>
+              <text>删除</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+    </radio-group>
+  </scroll-view>
+  <navigator url='../xzdz/xzdz?isBlack=0'>
+    <view class='tijiao flex-center'>
+      <text>＋新建地址</text>
+    </view>
+  </navigator>
+
+</form>

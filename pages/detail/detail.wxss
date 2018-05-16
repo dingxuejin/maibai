@@ -5,10 +5,21 @@
 }
 
 #caption {
-  padding: 10rpx 30rpx;
+  padding: 50rpx 30rpx 0;
   border-bottom: 20rpx solid #ccc;
 }
-
+.fengxiangbtn{
+  width:80rpx;
+  height: 80rpx;
+  background: transparent;
+  padding:0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.fengxiangbtn::after {
+  border: 0;
+}
 .caption-mian {
   width: 127rpx;
   height: 50rpx;
@@ -17,15 +28,15 @@
 
 .caption-title {
   color: #333;
-  font-size: 28rpx;
-  padding: 30rpx 10rpx;
+  font-size: 30rpx;
+  padding: 36rpx 10rpx;
 }
 
 .caption-fbt {
   border-bottom: #eaeaea 2rpx solid;
-  padding: 20rpx 0;
+  padding: 30rpx 0;
   color: #999;
-  font-size: 24rpx;
+  font-size: 26rpx;
 }
 
 .caption-fengxiang {
@@ -60,7 +71,7 @@
 }
 
 .pinglun-header {
-  padding: 30rpx;
+  padding:30rpx;
   border-bottom: 2rpx solid #ccc;
 }
 
@@ -111,17 +122,18 @@
 }
 
 #detail {
-  margin: 30rpx 30rpx 0;
+  padding: 30rpx;
+  background: #eee;
 }
 
 .detail-caption {
-  border: 2rpx solid #333;
+  /* border: 2rpx solid #333; */
   font-size: 28rpx;
-  padding: 10rpx 50rpx;
+  padding: 10rpx 20rpx;
 }
 
 .detail-hr {
-  width: 220rpx;
+  width: 150rpx;
   height: 2rpx;
   background: #ccc;
 }
@@ -250,8 +262,8 @@
   bottom: 0;
 }
 .xuanze-active{
-  border: 2rpx solid #000;
-  color:#000;
+  border: 2rpx solid #e51c23;
+  color: #e51c23;
 }
 .picker-container{
   margin:6rpx 10rpx;
@@ -270,4 +282,9 @@
   border-radius: 0rpx;
   background: #f00;
   color:#fff;
+}
+.xiadan1{
+  width:50%;
+  height: 100%;
+  box-sizing: border-box;
 }

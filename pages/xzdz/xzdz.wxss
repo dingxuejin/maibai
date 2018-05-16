@@ -1,0 +1,73 @@
+/* pages/xzdz/xzdz.wxss */
+
+#yajin {
+  height: 90vh;
+  background: #eee;
+}
+
+.xinxi {
+  padding:0 30rpx;
+  background: #fff;
+}
+
+.yajin {
+  padding: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.yajin1 {
+  color: #333;
+  font-size: 28rpx;
+  width: 180rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.yajin3 {
+  border-radius: 6rpx;
+  width: 400rpx;
+  height: 70rpx;
+  padding: 10rpx 20rpx;
+  font-size: 30rpx;
+}
+
+.yajin4 {
+  width: 400rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.yajin5 {
+  margin-right: 50rpx;
+}
+
+.yajin6 {
+  font-size: 28rpx;
+  color: #333;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.yajin7 {
+  font-size: 28rpx;
+  color: #333;
+  padding: 20rpx 0;
+}
+
+.yajin8 {
+  font-size: 28rpx;
+  color: #999;
+  padding: 10rpx 0;
+}
+
+.tijiao {
+  height: 10vh;
+  background: #e51c23;
+  color: #fff;
+  border-radius: 0rpx;
+}
+
+.enter {
+  width: 12rpx;
+  height: 20rpx;
+}

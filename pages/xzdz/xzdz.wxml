@@ -1,0 +1,96 @@
+<!-- 新增地址页面 -->
+<form bindsubmit='addMyAddressList'>
+  <view id='yajin'>
+    <view class='xinxi'>
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>所</text>
+            <text>在</text>
+            <text>地</text>
+            <text>址</text>
+            <text>:</text>
+          </view>
+
+        </view>
+
+        <picker mode="multiSelector" bindcolumnchange="bindMultiPickerColumnChange" bindchange="bindMultiPickerChange" name='address' value="{{multiIndex}}" range="{{multiArray}}">
+          <view class='flex-end'>
+             <view class='yajin4'>
+              <text wx:if='{{multiIndex[0]===-1}}'>省份、城市、区县</text>
+               <text wx:if='{{multiIndex[0]!==-1}}'> {{multiArray[0][multiIndex[0]]}}</text>
+              <text wx:if='{{multiIndex[1]!==-1}}'>{{multiArray[1][multiIndex[1]]}}</text>
+              <text wx:if='{{multiIndex[2]!==-1}}'> {{multiArray[2][multiIndex[2]]}}</text> 
+            </view> 
+
+            <image src='../../image/enter.png' class='enter'></image>
+          </view>
+        </picker>
+
+      </view>
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>详</text>
+            <text>细</text>
+            <text>地</text>
+            <text>址</text>
+            <text>:</text>
+          </view>
+
+        </view>
+        <view>
+          <input name='addressDetail' class='yajin3' placeholder='(如: 街道、门牌号等)'></input>
+        </view>
+      </view>
+
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>收</text>
+            <text>件</text>
+            <text>人</text>
+            <text>姓</text>
+            <text>名</text>
+            <text>:</text>
+          </view>
+
+        </view>
+        <view>
+          <input class='yajin3' name='user' placeholder='请输入收件人姓名'></input>
+        </view>
+      </view>
+      <view class='flex-between yajin' style='border:none;'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>收</text>
+            <text>件</text>
+            <text>人</text>
+            <text>手</text>
+            <text>机</text>
+            <text>号</text>
+            <text>:</text>
+          </view>
+
+        </view>
+        <view>
+          <input class='yajin3' name='iphone' placeholder='请输入收件人手机号' type='number'></input>
+        </view>
+      </view>
+    </view>
+
+    <view class='hr'></view>
+    <view class='flex-between yajin6'>
+      <view>
+        <text>是否设为默认收货地址</text>
+      </view>
+      <view>
+        <radio-group name='moren'>
+          <radio color='#000' class='yajin5' value='1'>是</radio>
+          <radio color='#000' class='yajin5' value='0'>否</radio>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+  <button class='tijiao flex-center' form-type='submit'>确认</button>
+</form>

@@ -3,6 +3,10 @@
 .nowrap{
   white-space: nowrap;
 }
+.hr{
+  height: 20rpx;
+  background: #ccc;
+}
 .full-img{
   width:100%;
   height: 100%;

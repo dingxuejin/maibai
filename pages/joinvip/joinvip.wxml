@@ -1,0 +1,59 @@
+<!--pages/joinvip/joinvip.wxml-->
+<scroll-view style='height:90vh;' scrollY>
+  <view class='vip1'>
+    <image src='../../image/chongzhibg.png' class='full-img'></image>
+    <view class='vip5'>
+      <view class='flex-center'>
+        <image src='../../image/vip.png' class='vip2'></image>
+      </view>
+      <view class='flex-center'>
+        <text class='vip3'> 成为会员，您将享受</text>
+      </view>
+      <view class='flex-center'>
+        <text class='vip4'> 以下会员权益</text>
+      </view>
+    </view>
+  </view>
+  <view class='flex-start'>
+    <view class='vip6'>
+      <image src='../../image/vip1.png' class='full-img'></image>
+    </view>
+    <view>
+      <view class='vip7'>
+        <text>免费领取一副眼镜</text>
+      </view>
+      <view class='vip8'>
+        <text>免费领取一副眼镜</text>
+      </view>
+    </view>
+  </view>
+  <view class='flex-start'>
+    <view class='vip6'>
+      <image src='../../image/vip2.png' class='full-img'></image>
+    </view>
+    <view>
+      <view class='vip7'>
+        <text>满一年退会费</text>
+      </view>
+      <view class='vip8'>
+        <text>加入会员满一年退会费，眼镜继续使用</text>
+      </view>
+    </view>
+  </view>
+  <view class='flex-start'>
+    <view class='vip6'>
+      <image src='../../image/vip3.png' class='full-img'></image>
+    </view>
+    <view>
+      <view class='vip7'>
+        <text>免费验光</text>
+      </view>
+      <view class='vip8'>
+        <text>全国任意一家直营店、加盟店均可免费验光</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view style='height:10vh;' class='flex-center vip9'>
+  <text>加入会员</text>
+</view>

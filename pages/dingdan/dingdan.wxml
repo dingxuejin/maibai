@@ -1,4 +1,296 @@
 <!--pages/dingdan/dingdan.wxml-->
+
+<!-- 代付款模板 -->
+<template name='daifukuan'>
+  <view>
+    <view class='hr'></view>
+    <view>
+      <navigator url='../dingdandetail/dingdandetail?status=1'>
+        <view class='flex-between'>
+          <view class='dingdan2'>
+            <text>订单号：</text>
+            <text>123333443434</text>
+          </view>
+          <view class='dingdan1'>
+            <text>等待付款</text>
+          </view>
+        </view>
+        <view class='flex-between dingdan'>
+          <view class='product-img'>
+            <image src='../../image/headerimage.png' class='full-img'></image>
+          </view>
+          <view style='width:480rpx;'>
+            <view class='flex-between'>
+              <text class='product-name'>时尚半框镜架  MV0003 黑色</text>
+              <text class='product-geshu'>×1</text>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>镜片规格：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+                </view>
+
+              </view>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>度数：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>右眼度数 0.00</text>
+                  <text class='product-text'>右眼散光 无</text>
+                  <text class='product-text'>右眼轴位 无 </text>
+                  <text class='product-text'>左眼度数 0.00</text>
+                  <text class='product-text'>左眼散光 无</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
+          <text style='margin-right:20rpx;'>共1件商品</text>
+          <text>应付￥199</text>
+        </view>
+      </navigator>
+      <view class='flex-end'>
+        <view bindtap='toZhifu'>
+          <button size='mini' class='dingdan1 dingdan3'>去支付</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 代付款模板end -->
+<!-- 代发货模板 -->
+<template name='daifahuo'>
+  <view>
+    <view class='hr'></view>
+    <view>
+      <navigator url='../dingdandetail/dingdandetail?status=2'>
+        <view class='flex-between'>
+          <view class='dingdan2'>
+            <text>订单号：</text>
+            <text>123333443434</text>
+          </view>
+          <view class='dingdan1'>
+            <text>待发货</text>
+
+          </view>
+        </view>
+        <view class='flex-between dingdan'>
+          <view class='product-img'>
+            <image src='../../image/headerimage.png' class='full-img'></image>
+          </view>
+          <view style='width:480rpx;'>
+            <view class='flex-between'>
+              <text class='product-name'>时尚半框镜架  MV0003 黑色</text>
+              <text class='product-geshu'>×1</text>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>镜片规格：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+                </view>
+
+              </view>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>度数：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>右眼度数 0.00</text>
+                  <text class='product-text'>右眼散光 无</text>
+                  <text class='product-text'>右眼轴位 无 </text>
+                  <text class='product-text'>左眼度数 0.00</text>
+                  <text class='product-text'>左眼散光 无</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
+          <text style='margin-right:20rpx;'>共1件商品</text>
+          <text>应付￥199</text>
+        </view>
+      </navigator>
+
+      <view class='flex-end'>
+        <view>
+          <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
+        </view>
+        <view>
+          <button size='mini' class='dingdan1 dingdan4'>确认发货</button>
+        </view>
+        <view>
+          <button size='mini' class='dingdan1 dingdan3'>提醒发货</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+<!-- 待发货end -->
+<!-- 待收货模板 -->
+
+<template name='daishouhuo'>
+  <view>
+    <view class='hr'></view>
+    <view>
+      <navigator url='../dingdandetail/dingdandetail?status=3'>
+        <view class='flex-between'>
+          <view class='dingdan2'>
+            <text>订单号：</text>
+            <text>123333443434</text>
+          </view>
+          <view class='dingdan1'>
+            <text>待发货</text>
+
+          </view>
+        </view>
+        <view class='flex-between dingdan'>
+          <view class='product-img'>
+            <image src='../../image/headerimage.png' class='full-img'></image>
+          </view>
+          <view style='width:480rpx;'>
+            <view class='flex-between'>
+              <text class='product-name'>时尚半框镜架  MV0003 黑色</text>
+              <text class='product-geshu'>×1</text>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>镜片规格：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+                </view>
+
+              </view>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>度数：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>右眼度数 0.00</text>
+                  <text class='product-text'>右眼散光 无</text>
+                  <text class='product-text'>右眼轴位 无 </text>
+                  <text class='product-text'>左眼度数 0.00</text>
+                  <text class='product-text'>左眼散光 无</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
+          <text style='margin-right:20rpx;'>共1件商品</text>
+          <text>应付￥199</text>
+        </view>
+      </navigator>
+
+      <view class='flex-end'>
+        <view>
+          <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
+        </view>
+        <view>
+          <button size='mini' class='dingdan1 dingdan3'>确认发货</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 待收货end -->
+<!-- 待评价模板 -->
+<template name='daipingjia'>
+  <view>
+    <view class='hr'></view>
+    <view>
+      <navigator url='../dingdandetail/dingdandetail?status=4'>
+        <view class='flex-between'>
+          <view class='dingdan2'>
+            <text>订单号：</text>
+            <text>123333443434</text>
+          </view>
+          <view class='dingdan1'>
+            <text>确认发货</text>
+
+          </view>
+        </view>
+        <view class='flex-between dingdan'>
+          <view class='product-img'>
+            <image src='../../image/headerimage.png' class='full-img'></image>
+          </view>
+          <view style='width:480rpx;'>
+            <view class='flex-between'>
+              <text class='product-name'>时尚半框镜架  MV0003 黑色</text>
+              <text class='product-geshu'>×1</text>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>镜片规格：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+                </view>
+
+              </view>
+            </view>
+            <view class='flex-start'>
+              <view class='product-guige'>
+                <text>度数：</text>
+              </view>
+              <view class='product-guigexx'>
+                <view>
+                  <text class='product-text'>右眼度数 0.00</text>
+                  <text class='product-text'>右眼散光 无</text>
+                  <text class='product-text'>右眼轴位 无 </text>
+                  <text class='product-text'>左眼度数 0.00</text>
+                  <text class='product-text'>左眼散光 无</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
+          <text style='margin-right:20rpx;'>共1件商品</text>
+          <text>应付￥199</text>
+        </view>
+      </navigator>
+
+      <view class='flex-end'>
+        <view>
+          <button size='mini' class='dingdan1 dingdan4'>售后</button>
+        </view>
+        <view>
+          <button size='mini' class='dingdan1 dingdan4'>删除订单</button>
+        </view>
+        <view>
+          <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
+        </view>
+        <view  bindtap='toPinglun'>
+          <button size='mini' class='dingdan1 dingdan3' >评论</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 待评价end -->
 <view class="page">
   <view class="page__bd">
     <view class="weui-tab">
@@ -8,414 +300,35 @@
             <view class="weui-navbar__title">{{item}}</view>
           </view>
         </block>
-        <view class="weui-navbar__slider" style="width:150rpx; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        <view class="weui-navbar__slider" style="width:150rpx; transform: translateX({{sliderOffset}}rpx); -webkit-transform: translateX({{sliderOffset}}rpx);"></view>
       </view>
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <!-- start -->
-          <view>
-            <view class='hr'></view>
-            <view>
-              <view class='flex-between'>
-                <view class='dingdan2'>
-                  <text>订单号：</text>
-                  <text>123333443434</text>
-                </view>
-                <view class='dingdan1'>
-                  <text>等待付款</text>
-
-                </view>
-              </view>
-              <view class='flex-between dingdan'>
-                <view class='product-img'>
-                  <image src='../../image/headerimage.png' class='full-img'></image>
-                </view>
-                <view style='width:480rpx;'>
-                  <view class='flex-between'>
-                    <text class='product-name'>时尚半框镜架  MV0003 </text>
-                    <text class='product-geshu'>X1</text>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>颜色：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>黑色</text>
-                      </view>
-
-                    </view>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>度数：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>右眼度数 0.00</text>
-                        <text class='product-text'>右眼散光 无</text>
-                        <text class='product-text'>右眼轴位 无 </text>
-                        <text class='product-text'>左眼度数 0.00</text>
-                        <text class='product-text'>左眼散光 无</text>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-              </view>
-
-              <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
-                <text style='margin-right:20rpx;'>共1件商品</text>
-                <text>应付￥199</text>
-              </view>
-              <view class='flex-end'>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan3'>去支付</button>
-                </view>
-              </view>
-            </view>
-          </view>
-          <!-- end -->
-          <!-- start -->
-          <view>
-            <view class='hr'></view>
-            <view>
-              <view class='flex-between'>
-                <view class='dingdan2'>
-                  <text>订单号：</text>
-                  <text>123333443434</text>
-                </view>
-                <view class='dingdan2'>
-                  <text>交易关闭</text>
-
-                </view>
-              </view>
-              <view class='flex-between dingdan'>
-                <view class='product-img'>
-                  <image src='../../image/headerimage.png' class='full-img'></image>
-                </view>
-                <view style='width:480rpx;'>
-                  <view class='flex-between'>
-                    <text class='product-name'>时尚半框镜架  MV0003 </text>
-                    <text class='product-geshu'>X1</text>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>颜色：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>黑色</text>
-                      </view>
-
-                    </view>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>度数：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>右眼度数 0.00</text>
-                        <text class='product-text'>右眼散光 无</text>
-                        <text class='product-text'>右眼轴位 无 </text>
-                        <text class='product-text'>左眼度数 0.00</text>
-                        <text class='product-text'>左眼散光 无</text>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-              </view>
-
-              <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
-                <text style='margin-right:20rpx;'>共1件商品</text>
-                <text>应付￥199</text>
-              </view>
-              <view class='flex-end'>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan4'>删除订单</button>
-                  <button size='mini' class='dingdan1 dingdan3'>再次购买</button>
-                </view>
-              </view>
-            </view>
-          </view>
+          <template is='daifukuan'></template>
+          <template is='daifahuo'></template>
+          <template is='daishouhuo'></template>
+          <template is='daipingjia'></template>
           <!-- end -->
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
           <!-- start -->
-          <view>
-            <view class='hr'></view>
-            <view>
-              <view class='flex-between'>
-                <view class='dingdan2'>
-                  <text>订单号：</text>
-                  <text>123333443434</text>
-                </view>
-                <view class='dingdan1'>
-                  <text>等待付款</text>
-
-                </view>
-              </view>
-              <view class='flex-between dingdan'>
-                <view class='product-img'>
-                  <image src='../../image/headerimage.png' class='full-img'></image>
-                </view>
-                <view style='width:480rpx;'>
-                  <view class='flex-between'>
-                    <text class='product-name'>时尚半框镜架  MV0003 </text>
-                    <text class='product-geshu'>X1</text>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>颜色：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>黑色</text>
-                      </view>
-
-                    </view>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>度数：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>右眼度数 0.00</text>
-                        <text class='product-text'>右眼散光 无</text>
-                        <text class='product-text'>右眼轴位 无 </text>
-                        <text class='product-text'>左眼度数 0.00</text>
-                        <text class='product-text'>左眼散光 无</text>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-              </view>
-
-              <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
-                <text style='margin-right:20rpx;'>共1件商品</text>
-                <text>应付￥199</text>
-              </view>
-              <view class='flex-end'>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan3'>去支付</button>
-                </view>
-              </view>
-            </view>
-          </view>
+          <template is='daifukuan'></template>
           <!-- end -->
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
           <!-- start -->
-          <view>
-            <view class='hr'></view>
-            <view>
-              <view class='flex-between'>
-                <view class='dingdan2'>
-                  <text>订单号：</text>
-                  <text>123333443434</text>
-                </view>
-                <view class='dingdan1'>
-                  <text>待发货</text>
-
-                </view>
-              </view>
-              <view class='flex-between dingdan'>
-                <view class='product-img'>
-                  <image src='../../image/headerimage.png' class='full-img'></image>
-                </view>
-                <view style='width:480rpx;'>
-                  <view class='flex-between'>
-                    <text class='product-name'>时尚半框镜架  MV0003 </text>
-                    <text class='product-geshu'>X1</text>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>颜色：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>黑色</text>
-                      </view>
-
-                    </view>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>度数：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>右眼度数 0.00</text>
-                        <text class='product-text'>右眼散光 无</text>
-                        <text class='product-text'>右眼轴位 无 </text>
-                        <text class='product-text'>左眼度数 0.00</text>
-                        <text class='product-text'>左眼散光 无</text>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-              </view>
-
-              <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
-                <text style='margin-right:20rpx;'>共1件商品</text>
-                <text>应付￥199</text>
-              </view>
-              <view class='flex-end'>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
-                </view>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan4'>确认发货</button>
-                </view>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan3'>提醒发货</button>
-                </view>
-              </view>
-            </view>
-          </view>
+          <template is='daifahuo'></template>
           <!-- end -->
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
           <!-- start -->
-          <view>
-            <view class='hr'></view>
-            <view>
-              <view class='flex-between'>
-                <view class='dingdan2'>
-                  <text>订单号：</text>
-                  <text>123333443434</text>
-                </view>
-                <view class='dingdan1'>
-                  <text>待发货</text>
-
-                </view>
-              </view>
-              <view class='flex-between dingdan'>
-                <view class='product-img'>
-                  <image src='../../image/headerimage.png' class='full-img'></image>
-                </view>
-                <view style='width:480rpx;'>
-                  <view class='flex-between'>
-                    <text class='product-name'>时尚半框镜架  MV0003 </text>
-                    <text class='product-geshu'>X1</text>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>颜色：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>黑色</text>
-                      </view>
-
-                    </view>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>度数：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>右眼度数 0.00</text>
-                        <text class='product-text'>右眼散光 无</text>
-                        <text class='product-text'>右眼轴位 无 </text>
-                        <text class='product-text'>左眼度数 0.00</text>
-                        <text class='product-text'>左眼散光 无</text>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-              </view>
-
-              <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
-                <text style='margin-right:20rpx;'>共1件商品</text>
-                <text>应付￥199</text>
-              </view>
-              <view class='flex-end'>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
-                </view>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan3'>确认发货</button>
-                </view>
-              </view>
-            </view>
-          </view>
+          <template is='daishouhuo'></template>
           <!-- end -->
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 4}}">
           <!-- start -->
-          <view>
-            <view class='hr'></view>
-            <view>
-              <view class='flex-between'>
-                <view class='dingdan2'>
-                  <text>订单号：</text>
-                  <text>123333443434</text>
-                </view>
-                <view class='dingdan1'>
-                  <text>确认发货</text>
-
-                </view>
-              </view>
-              <view class='flex-between dingdan'>
-                <view class='product-img'>
-                  <image src='../../image/headerimage.png' class='full-img'></image>
-                </view>
-                <view style='width:480rpx;'>
-                  <view class='flex-between'>
-                    <text class='product-name'>时尚半框镜架  MV0003 </text>
-                    <text class='product-geshu'>X1</text>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>颜色：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>黑色</text>
-                      </view>
-
-                    </view>
-                  </view>
-                  <view class='flex-start'>
-                    <view class='product-guige'>
-                      <text>度数：</text>
-                    </view>
-                    <view class='product-guigexx'>
-                      <view>
-                        <text class='product-text'>右眼度数 0.00</text>
-                        <text class='product-text'>右眼散光 无</text>
-                        <text class='product-text'>右眼轴位 无 </text>
-                        <text class='product-text'>左眼度数 0.00</text>
-                        <text class='product-text'>左眼散光 无</text>
-                      </view>
-                    </view>
-                  </view>
-                </view>
-              </view>
-
-              <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
-                <text style='margin-right:20rpx;'>共1件商品</text>
-                <text>应付￥199</text>
-              </view>
-              <view class='flex-end'>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan4'>售后</button>
-                </view>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan4'>删除订单</button>
-                </view>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
-                </view>
-                <view>
-                  <button size='mini' class='dingdan1 dingdan3'>评论</button>
-                </view>
-              </view>
-            </view>
-          </view>
+          <template is='daipingjia'></template>
           <!-- end -->
         </view>
       </view>

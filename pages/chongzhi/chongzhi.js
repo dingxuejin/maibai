@@ -1,29 +1,83 @@
 // pages/chongzhi/chongzhi.js
+import http from '../../utils/http.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    xiangmu: ['充50送10', '充100送20', '充200送50'],
-    active: 0
+
+    xiangmu: [
+      { title: '充199送10', value: '199' },
+      { title: '充299送20', value: '299' },
+      { title: '充399送50', value: '399' }
+    ],
+    value: '',
+    active: -1
+  },
+  // 输入金额
+  tapChongzhi(e) {
+    let value = e.detail.value;
+    this.setData({ value, active: -1 })
+  },
+  // 充值
+  toChongzhi() {
+    let token = wx.getStorageSync('token');
+    let payMethod = 1;
+    // let type = 1;
+    let fee = '1';
+    http.post('addBalance', { token, payMethod, 'type': 1, fee })
+      .then(res => {
+        let playInfo = res.data;
+        console.log(playInfo);
+        let timeStamp = playInfo.timestamp;
+        let nonceStr = playInfo.nonceStr;
+        let prepay_id = 'prepay_id=' + playInfo.prePayId;
+        let paySign = playInfo.sign;
+        console.log({
+          timeStamp,
+          nonceStr,
+          'signType': 'MD5',
+          'package': prepay_id,
+          paySign
+      
+        })
+        wx.requestPayment({
+          timeStamp,
+          nonceStr,
+          'signType': 'MD5',
+          'package': prepay_id,
+          paySign,
+          success(res) {
+            console.log(res);
+          },
+          fail(err) {
+            console.log(err)
+          }
+        })
+      })
   },
   clickActive(e) {
-   let active=e.currentTarget.dataset;
-   this.setData(active)
-   },
+    console.log(e);
+    let active = e.currentTarget.dataset.active;
+    let xiangmu = this.data.xiangmu;
+    let value = xiangmu[active].value
+    this.setData({ active, value })
+
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let balance = options.balance;
+    this.setData({ balance })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

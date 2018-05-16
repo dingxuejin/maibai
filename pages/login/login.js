@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    yzm: '获取验证码'
   },
   // 验证码登录
   login(e) {
@@ -16,8 +16,8 @@ Page({
       .then(res => {
         if (res.status === 0) {
           // 验证码校验成功
-         
-       
+
+
           wx.setStorage({
             key: "token",
             data: res.data.token
@@ -50,10 +50,24 @@ Page({
             duration: 10000
           })
           if (res.status === 0) {
+            let totalTime = 60;
             wx.hideLoading;
             wx.showToast({
-              title: res.message
+              icon: 'none',
+              title: '验证码已发送至当前手机'
             })
+            let time = setInterval(() => {
+              totalTime--;
+              this.setData({
+                yzm: totalTime+'S'
+              })
+              if (totalTime <= 0) {
+                clearInterval(time);
+                this.setData({
+                  yzm: '重新获取'
+                })
+              }
+            }, 1000)
             // 验证码获取成功
           } else {
             wx.hideLoading;

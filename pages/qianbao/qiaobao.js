@@ -1,25 +1,34 @@
 // pages/qianbao/qiaobao.js
+import http from '../../utils/http.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    myBalanceInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.setNavigationBarTitle({
+      title: '我的钱包',
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    let token=wx.getStorageSync('token')
+    http.post('getMyBalanceInfo',{token})
+    .then(res=>{
+      let myBalanceInfo=res.data;
+      console.log(myBalanceInfo);
+      this.setData({ myBalanceInfo})
+    })
   },
 
   /**

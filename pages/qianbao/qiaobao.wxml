@@ -8,10 +8,10 @@
         <view class='flex-between qiaobao3'>
           <view>
             <text class='qiaobao5'>余额</text>
-            <text class='qiaobao6'>21.00</text>
+            <text class='qiaobao6'>{{myBalanceInfo.balance}}</text>
             <text class='qiaobao7'>元</text>
           </view>
-          <navigator url='../chongzhi/chongzhi'>
+          <navigator url='{{"../chongzhi/chongzhi?balance="+myBalanceInfo.balance}}'>
             <view class='qiaobao4'>
               <text>充值</text>
             </view>
@@ -36,12 +36,15 @@
     </view>
 
   </scroll-view>
-  <view id='jiaoyajin' class='flex-between'>
-    <view class='jiaoyajin1'>
-      <text>未充押金,无法免费领取眼镜</text>
+  <navigator url='../joinvip/joinvip'>
+    <view id='jiaoyajin' class='flex-between'>
+      <view class='jiaoyajin1'>
+        <text>未充押金,无法免费领取眼镜</text>
+      </view>
+      <view>
+        <button class='jiaoyajin2'>交纳押金</button>
+      </view>
     </view>
-    <view>
-      <button class='jiaoyajin2'>交纳押金</button>
-    </view>
-  </view>
+  </navigator>
+
 </view>

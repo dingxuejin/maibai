@@ -1,0 +1,111 @@
+<!-- 押金申请页面 -->
+<form>
+  <view id='yajin'>
+    <view class='xinxi'>
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>申</text>
+            <text>请</text>
+            <text>人</text>
+            <text>姓</text>
+            <text>名</text>
+          </view>
+          <view class='yajin2'>
+            <text>*</text>
+          </view>
+        </view>
+        <view>
+          <input class='yajin3' placeholder='请输入你的真实姓名'></input>
+        </view>
+      </view>
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>申</text>
+            <text>请</text>
+            <text>人</text>
+            <text>性</text>
+            <text>别</text>
+          </view>
+        </view>
+        <view class='yajin4'>
+          <radio-group>
+            <radio color='#000' class='yajin5' checked>男</radio>
+            <radio color='#000' class='yajin5'>女</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>手</text>
+            <text>机</text>
+            <text>号</text>
+            <text>码</text>
+          </view>
+          <view class='yajin2'>
+            <text>*</text>
+          </view>
+        </view>
+        <view>
+          <input class='yajin3' placeholder='请输入您的手机号码' type='number'></input>
+        </view>
+      </view>
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>身</text>
+            <text>份</text>
+            <text>证</text>
+            <text>号</text>
+            <text>码</text>
+          </view>
+          <view class='yajin2'>
+            <text>*</text>
+          </view>
+        </view>
+        <view>
+          <input class='yajin3' placeholder='请输入您的身份证号码' type='idcard'></input>
+        </view>
+      </view>
+      <view class='flex-between yajin'>
+        <view class='flex-start'>
+          <view class='yajin1 flex-between'>
+            <text>单</text>
+            <text>位</text>
+            <text>或</text>
+            <text>学</text>
+            <text>校</text>
+          </view>
+          <view class='yajin2'>
+            <text>*</text>
+          </view>
+        </view>
+        <view>
+          <input class='yajin3' placeholder='请输入您所在的单位或学校'></input>
+        </view>
+      </view>
+    </view>
+
+    <view class='hr'></view>
+    <view class='xinxi'>
+      <view class='yajin7'>
+        <text>申请免押金说明</text>
+      </view>
+      <view class='yajin8'>
+        <text>● 目前仅针对合作学校或合作单位</text>
+      </view>
+      <view class='yajin8'>
+        <text>● 申请免押成功通过后，可免费领取一副会员眼镜</text>
+      </view>
+      <view class='yajin8'>
+        <text>● 为了保障免费领取权益，请务必填写准确信息</text>
+      </view>
+
+    </view>
+  </view>
+  <view class='tijiao flex-center'>
+    <text>提交订单</text>
+  </view>
+</form>

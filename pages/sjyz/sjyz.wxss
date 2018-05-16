@@ -1,5 +1,4 @@
-/* pages/sjyz/sjyz.wxss */
-/* pages/register/register.wxss */
+
 .login-container{
   padding:30rpx;
   border-bottom:2rpx solid #ccc;

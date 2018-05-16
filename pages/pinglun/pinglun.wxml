@@ -1,0 +1,51 @@
+<!--pages/pinglun/pinglun.wxml-->
+<scroll-view class='page' scrollY>
+  <view id='pinglun'>
+    <view class='flex-start'>
+      <view class='pinglun1'>
+        <image src='../../image/bg.png' class='full-img'></image>
+      </view>
+      <view class='pinglun3'>
+        <text>评价评价</text>
+      </view>
+      <view class='flex-start'>
+        <image src='../../image/kongxing.png' class='pinglun2'></image>
+        <image src='../../image/kongxing.png' class='pinglun2'></image>
+        <image src='../../image/kongxing.png' class='pinglun2'></image>
+        <image src='../../image/kongxing.png' class='pinglun2'></image>
+        <image src='../../image/kongxing.png' class='pinglun2'></image>
+      </view>
+    </view>
+    <view class='hr'></view>
+    <view style='margin:30rpx; padding:30rpx 0;border-bottom:2rpx solid #ccc;'>
+      <textarea class='pinglun4' maxlength='-1' placeholder='说说你对眼镜看法，分享给想买的他们把'></textarea>
+    </view>
+    <view class='flex-start pinglun8'>
+      <view class='pinglun9'>
+        <image src='../../image/paizhao.png' class='full-img'></image>
+      </view>
+      <view class='pinglun9'>
+        <image src='../../image/paizhao.png' class='full-img'></image>
+      </view>
+      <view class='pinglun9'>
+        <image src='../../image/paizhao.png' class='full-img'></image>
+      </view>
+      <view class='pinglun9'>
+        <image src='../../image/paizhao.png' class='full-img'></image>
+      </view>
+      <view class='pinglun7 flex-center' bindtap='chooseImage'>
+        <view>
+          <view class='flex-center'>
+            <image src='../../image/paizhao.png' class='pinglun5'></image>
+          </view>
+          <view class='pinglun6 flex-center'>
+            <text>添加相片</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view id='tijiao' class='flex-center'>
+  <text>提交评论</text>
+</view>

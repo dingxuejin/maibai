@@ -1,0 +1,4 @@
+<!-- 商品详情网页 -->
+<view>
+  <web-view src='{{detailUrl}}'></web-view>
+</view>

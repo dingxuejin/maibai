@@ -10,16 +10,38 @@ Page({
     sliderOffset: 0,
   },
   tabClick: function (e) {
+    let activeIndex = e.currentTarget.id;
+    let sliderOffset = 150 * activeIndex;
     this.setData({
-      sliderOffset: e.currentTarget.offsetLeft,
-      activeIndex: e.currentTarget.id
+      sliderOffset,
+      activeIndex
     });
+  },
+  // 去支付
+  toZhifu(){
+    wx.navigateTo({
+      url: '../zhifutype/zhifutype',
+    })
+  },
+  // 跳转评论
+  toPinglun() {
+    wx.navigateTo({
+      url: '../pinglun/pinglun',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let activeIndex = options.active;
+    let sliderOffset = 150 * activeIndex;
+    this.setData({
+      sliderOffset,
+      activeIndex
+    });
+    wx.setNavigationBarTitle({
+      title: '我的订单',
+    })
   },
 
   /**

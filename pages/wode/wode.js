@@ -6,40 +6,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-    headerimage:'../../image/headerimage.png',
+    headerimage:'',
     nickname:'Cody'
 
   },
-
+  // 前往押金申请
+  toYjsq(){
+    wx.navigateTo({
+      url: '../yjsq/yjsq',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this;
-    let token = wx.getStorageSync('token')
-    http.post('getUserInfo', { token })
-    .then(res=>{
-      console.log(res.data)
-      // 获取用户头像
-      if(res.data.headImage){
-        that.setData({
-          headerimage: res.data.headImage
-        })
-      }
-      // 获取用户昵称
-      if (res.data.nickname) {
-        that.setData({
-          nickname: res.data.nickname
-        })
-      }
-    })
+  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      headerimage: userInfo.avatarUrl,
+      nickname: userInfo.nickName
+    })
+    // let that = this;
+    // let token = wx.getStorageSync('token')
+    // http.post('getUserInfo', { token })
+    // .then(res=>{
+    //   console.log(res.data)
+    //   // 获取用户头像
+    //   if(res.data.headImage){
+    //     that.setData({
+    //       headerimage: res.data.headImage
+    //     })
+    //   }
+    //   // 获取用户昵称
+    //   if (res.data.nickname) {
+    //     that.setData({
+    //       nickname: res.data.nickname
+    //     })
+    //   }
+    // })
   },
 
   /**

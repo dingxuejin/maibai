@@ -16,11 +16,27 @@ Page({
   },
   // 前往web查看
   toWeb(e) {
-    let webUrl = e.currentTarget.dataset.weburl;
-    wx.setStorageSync('detailUrl', webUrl)
-    wx.navigateTo({
-      url: `../web/web`,
-    })
+    let huodong=this.data.huodong;
+    let index = e.currentTarget.dataset.index;
+    let webUrl = huodong[index].detailUrl;
+    let id = huodong[index].id;
+    http.post('addViewNumber', { id })
+      .then(res => {
+        if (res.status === 0) {
+          huodong[index].scan = res.data.scan;
+          this.setData({huodong});
+          wx.setStorageSync('detailUrl', webUrl)
+          wx.navigateTo({
+            url: `../web/web`,
+          })
+        }else{
+          wx.showToast({
+            title: '网络错误',
+            icon:'loading'
+          })
+        }
+      })
+
   },
   // 获取视界页面列表
   getViewList(e, i) {

@@ -1,0 +1,39 @@
+/* pages/logintype/logintype.wxss */
+.type1{
+  height: 400rpx;
+}
+.type2{
+  background: #09BB07;
+  color: #fff;
+  font-size: 32rpx;
+  width: 650rpx;
+  height: 100rpx;
+  margin: 60rpx auto 40rpx;
+   border-radius: 10rpx;
+  overflow: hidden;
+}
+.type3{
+  width:50rpx;
+  height: 50rpx;
+  margin: 10rpx;
+ 
+}
+.type4{
+  background: #fff;
+  color: #999999;
+  font-size: 32rpx;
+  width: 650rpx;
+  height: 100rpx;
+  margin: 40rpx auto;
+  border:2rpx solid #999;
+   border-radius: 10rpx;
+  overflow: hidden;
+}
+.type5{
+  font-size: 24rpx;
+  color: #999999;
+}
+.type6{
+  font-size: 24rpx;
+  color: #f00;
+}

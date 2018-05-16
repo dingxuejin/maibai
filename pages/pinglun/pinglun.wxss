@@ -1,0 +1,75 @@
+/* pages/pinglun/pinglun.wxss */
+
+.page {
+  background: #f2f2f2;
+  height: 90vh;
+}
+
+#pinglun {
+  background: #fff;
+  padding-bottom: 30rpx;
+}
+
+.pinglun1 {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 30rpx;
+}
+
+.pinglun2 {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 4rpx;
+}
+
+.pinglun3 {
+  color: #333;
+  font-size: 30rpx;
+  margin-right: 10rpx;
+}
+
+.pinglun4 {
+  font-size: 28rpx;
+  width: 100%;
+  height: 250rpx;
+}
+
+.pinglun5 {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.pinglun6 {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.pinglun7 {
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx dotted #ccc;
+  margin: 10rpx;
+}
+
+.pinglun8 {
+  padding: 0 23rpx;
+}
+
+.pinglun9 {
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx solid #ccc;
+  margin: 8rpx;
+  box-sizing: border-box;
+}
+
+.hr {
+  height: 20rpx;
+  background: #ccc;
+}
+
+#tijiao {
+  height: 10vh;
+  background:#E51C23;
+  color: #fff;
+}

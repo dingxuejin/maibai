@@ -1,25 +1,43 @@
 <!--pages/queren/queren.wxml-->
 <scroll-view style='height:1105rpx;' scrollY>
-  <view id='user'>
+  <view id='user' wx:if="{{myAddressList.length>0}}">
     <view class='flex-start'>
       <view class='weizhi'>
         <image src='../../image/weizhi.png' class='full-img'></image>
       </view>
       <view>
-        <text class='user-name'>黄飞鸿</text>
-        <text class='user-phone'>13800138000</text>
+        <text class='user-name'>{{myAddressList[0].name}}</text>
+        <text class='user-phone'>{{myAddressList[0].phone}}</text>
       </view>
     </view>
     <view class='flex-between' style='height:60rpx;'>
       <view class='user-address'>
-        <text>广东省广州市荔湾区广佛数字创意园2601</text>
+        <text>{{myAddressList[0].provinceName}}{{myAddressList[0].cityName}}{{myAddressList[0].regionName}}{{myAddressList[0].detailAddress}}</text>
       </view>
       <view class='enter flex-center'>
         <image src='../../image/enter.png' class='full-img'></image>
       </view>
     </view>
-    <view class='moren-address'>
+    <view class='moren-address' wx:if='{{myAddressList[0].isDefault==="1"}}'>
       <text>（默认收货信息）</text>
+    </view>
+  </view>
+  <view id='user' wx:else bindtap='addAddress'>
+    <view class='flex-start'>
+      <view class='weizhi'>
+        <image src='../../image/weizhi.png' class='full-img'></image>
+      </view>
+      <view>
+        <text class='user-name'>您还没有设置收货地址</text>
+      </view>
+    </view>
+    <view class='flex-between' style='height:60rpx;'>
+      <view class='user-address'>
+        <text>点击添加地址</text>
+      </view>
+      <view class='enter flex-center'>
+        <image src='../../image/enter.png' class='full-img'></image>
+      </view>
     </view>
   </view>
   <view style='height:10rpx;' class='flex-center'>
@@ -28,12 +46,12 @@
   <view id='product'>
     <view class='flex-between'>
       <view class='product-img'>
-        <image src='../../image/headerimage.png' class='full-img'></image>
+        <image src='{{baseUrl+productList[0].special.specialProductImg}}' class='full-img'></image>
       </view>
       <view style='width:480rpx;'>
         <view class='flex-between'>
-          <text class='product-name'>时尚半框镜架  MV0003  黑色</text>
-          <text class='product-geshu'>X1</text>
+          <text class='product-name'>{{productList[0].special.specialProductName}} {{productList[0].special.specialName}}</text>
+          <text class='product-geshu'>×1</text>
         </view>
         <view class='flex-start'>
           <view class='product-guige'>
@@ -41,11 +59,7 @@
           </view>
           <view class='product-guigexx'>
             <view>
-              <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
-            </view>
-            <view>
-              <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
-              <text class='product-text'>1.61超薄废旧棉树脂镜片</text>
+              <text class='product-text'>{{productList[0].glass.glassName}}</text>
             </view>
           </view>
         </view>
@@ -55,17 +69,19 @@
           </view>
           <view class='product-guigexx'>
             <view>
-              <text class='product-text'>右眼度数 0.00</text>
-              <text class='product-text'>右眼散光 无</text>
-              <text class='product-text'>右眼轴位 无 </text>
-              <text class='product-text'>左眼度数 0.00</text>
-              <text class='product-text'>左眼散光 无</text>
+              <text class='product-text'>右眼度数 {{productList[0].myRule.rightSize.label}}</text>
+              <text class='product-text'>右眼散光{{productList[0].myRule.rightLightSize.label}}</text>
+              <text class='product-text'>右眼轴位 {{productList[0].myRule.rightLocal.label}} </text>
+              <text class='product-text'>左眼度数{{productList[0].myRule.leftSize.label}}</text>
+              <text class='product-text'>左眼散光 {{productList[0].myRule.leftLightSize.label}}</text>
+              <text class='product-text'>左眼轴位 {{productList[0].myRule.leftLocal.label}} </text>
+              <text class='product-text'>瞳距 {{productList[0].myRule.eyeDistance.label}} </text>
             </view>
           </view>
         </view>
         <view class='product-price'>
           <text>￥</text>
-          <text>199</text>
+          <text>{{productList[0].glass.skuPrice}}</text>
         </view>
       </view>
     </view>
@@ -75,7 +91,7 @@
           <text>买家留言</text>
         </view>
         <view class='fuwu2'>
-        <input placeholder='选填: 针对本次交易留言'></input>
+          <input placeholder='选填: 针对本次交易留言'></input>
         </view>
       </view>
 
@@ -99,8 +115,8 @@
           <text>元</text>
         </view>
       </view>
-  
-   
+
+
     </view>
   </view>
 </scroll-view>

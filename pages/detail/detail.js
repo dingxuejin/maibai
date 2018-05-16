@@ -6,31 +6,105 @@ Page({
    * 页面的初始数据
    */
   data: {
+    baseUrl: http.baseUrl,
+    status: 1,
     isDialog: false,
+    guige: [],
     isShowZhiding: false,
-    array: ['0.00', '0.50', '1.00', '1.50', '2.00'],
-    arrindex: 0,
-    jingkuangColor: ['黑色', '灰色', '红色', '蓝色', '紫色'],
-    jingkuangactive: -1,
-    jingpian: ['1.56非球面树脂防蓝光镜片', '1.61非球面树脂翡翠膜镜片', '1.67非球面树脂翡翠膜镜片'],
-    jingpianactive: -1,
+    jingpianguige: {},
+    jingkuangactive: 0,
+    jingpianactive: 0,
     baseUrl: http.baseUrl,
     productDetail: {},
     scrollTop: 0
   },
+  // 得到下单眼镜规格
+  getGuige() {
+    let guige = this.data.guige;
+    let jingpianguige = this.data.jingpianguige;
+    let jingkuangactive = this.data.jingkuangactive;
+    let jingpianactive = this.data.jingpianactive;
+    let productDetail = this.data.productDetail;
+    let special = guige[jingkuangactive];
+    let glass = special.glassList[jingpianactive];
+
+    let productList = [
+      {
+        productId: productDetail.id,
+        special,
+        glass,
+        myRule: {
+          leftSize: jingpianguige.zuoyandushu[jingpianguige.zyds],
+          rightSize: jingpianguige.youyandushu[jingpianguige.yyds],
+          eyeDistance: jingpianguige.tongju[jingpianguige.tj].val,
+          leftLightSize: jingpianguige.zuoyansanguang[jingpianguige.zysg],
+          rightLightSize: jingpianguige.youyansanguang[jingpianguige.yysg],
+          leftLocal: jingpianguige.zuoyanzhouwei[jingpianguige.zyzw],
+          rightLocal: jingpianguige.youyanzhouwei[jingpianguige.yyzw]
+        }
+      }
+    ]
+    productList = JSON.stringify(productList);
+    return productList;
+  },
   // 下单支付
   xiadan() {
+    let productList = this.getGuige();
     wx.navigateTo({
-      url: '../queren/queren',
+      url: '../queren/queren?productList=' + productList,
     })
   },
   // picker选择
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  bindPickerChangeYyds: function (e) {
+    let jingpianguige = this.data.jingpianguige;
+    jingpianguige.yyds = e.detail.value;
     this.setData({
-      arrindex: e.detail.value
+      jingpianguige
     })
   },
+  bindPickerChangeYysg: function (e) {
+    let jingpianguige = this.data.jingpianguige;
+    jingpianguige.yysg = e.detail.value;
+    this.setData({
+      jingpianguige
+    })
+  },
+  bindPickerChangeYyzw: function (e) {
+    let jingpianguige = this.data.jingpianguige;
+    jingpianguige.yyzw = e.detail.value;
+    this.setData({
+      jingpianguige
+    })
+  },
+  bindPickerChangeZyds: function (e) {
+    let jingpianguige = this.data.jingpianguige;
+    jingpianguige.zyds = e.detail.value;
+    this.setData({
+      jingpianguige
+    })
+  },
+  bindPickerChangeZysg: function (e) {
+    let jingpianguige = this.data.jingpianguige;
+    jingpianguige.zysg = e.detail.value;
+    this.setData({
+      jingpianguige
+    })
+  },
+  bindPickerChangeZyzw: function (e) {
+    let jingpianguige = this.data.jingpianguige;
+    jingpianguige.zyzw = e.detail.value;
+    this.setData({
+      jingpianguige
+    })
+  },
+  bindPickerChangeTj: function (e) {
+    let jingpianguige = this.data.jingpianguige;
+    jingpianguige.tj = e.detail.value;
+    this.setData({
+      jingpianguige
+    })
+  },
+
   // 规格选择效果
   xuanze(e) {
     let active = e.currentTarget.dataset;
@@ -47,13 +121,36 @@ Page({
   toShop() {
     let that = this;
     let token = wx.getStorageSync('token')
-    console.log(token);
+    let id = this.data.productDetail.id;
+    that.setData({ isDialog: true })
+    http.post('specialList', { id, isCommonGlass: 1 })
+      .then(res => {
+        let guige = res.data;
+        console.log(guige);
+        that.setData({
+          guige
+        })
+      })
+  },
+  // 领取
+  toLingqu() {
+    let that = this;
+    let token = wx.getStorageSync('token')
     http.post('getUserInfo', { token })
       .then(res => {
         let myDeposit = parseFloat(res.data.myDeposit);
         // 押金值判断
         if (myDeposit >= 0) {
+          let id = this.data.productDetail.id;
           that.setData({ isDialog: true })
+          http.post('specialList', { id, isCommonGlass: 1 })
+            .then(res => {
+              let guige = res.data;
+              console.log(guige);
+              that.setData({
+                guige
+              })
+            })
         } else {
           wx.showModal({
             title: '温馨提示',
@@ -71,9 +168,20 @@ Page({
         }
       })
   },
+  chooseImage() {
+    wx.chooseImage({
+      success: function (res) {
+        console.log(res);
+      }
+    })
+  },
   // 一键置顶
   toScrollTop() {
     this.setData({ scrollTop: 0 })
+  },
+  // 分享小程序
+  toFengxiang() {
+
   },
   // 显示一键置顶
   getScrollTop(e) {
@@ -85,14 +193,23 @@ Page({
     }
 
   },
+  toDetail() {
+    let id = this.data.productDetail.id;
+    wx.navigateTo({
+      url: '../prodetail/prodetail?' + 'weburl=' + http.baseUrl + 'm/product/' + id + '/description'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    this.setData({ status: parseInt(options.status) })
+    wx.setNavigationBarTitle({
+      title: '商品详情',
+    })
     http.post('productDetail', options)
       .then((res) => {
-        console.log(res.data);
+        console.log(res);
         this.setData({
           productDetail: res.data
         })
@@ -104,6 +221,67 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    // 度数
+    let jingpianguige = this.data.jingpianguige;
+    let dushu = [];
+    for (let i = -8; i <= 4; i = i + 0.25) {
+      let newVal = {};
+      newVal.val = i;
+      let item = i.toFixed(2);
+
+      if (item > 0) {
+        item = "+" + item;
+      }
+      newVal.label = item;
+      dushu.push(newVal)
+    }
+    jingpianguige.zuoyandushu = dushu;
+    jingpianguige.zyds = 32;
+    jingpianguige.youyandushu = dushu;
+    jingpianguige.yyds = 32;
+    // 瞳距
+    let tongju = [{ val: 0, label: '无' }];
+    for (let i = 52; i <= 74; i++) {
+      let newVal = {};
+      newVal.val = i
+      newVal.label = i;
+      tongju.push(newVal)
+    }
+    jingpianguige.tongju = tongju;
+    jingpianguige.tj = 0;
+    // 散光
+    let sanguang = [{ val: 0, label: '无' }];
+    for (let i = -2; i <= -0.25; i = i + 0.25) {
+
+      let newVal = {};
+      newVal.val = i
+      let item = i.toFixed(2);
+      newVal.label = item;
+      sanguang.push(newVal)
+    }
+    jingpianguige.zuoyansanguang = sanguang;
+    jingpianguige.zysg = 0;
+    jingpianguige.youyansanguang = sanguang;
+    jingpianguige.yysg = 0;
+
+    // 轴位
+    let zhouwei = [];
+    for (let i = 0; i <= 180; i++) {
+      let newVal = {};
+      newVal.val = i;
+      let item = i;
+      if (item <=0) {
+        item = '无';
+      }
+      newVal.label = item;
+      zhouwei.push(newVal)
+    }
+    jingpianguige.zuoyanzhouwei = zhouwei;
+    jingpianguige.zyzw = 0;
+    jingpianguige.youyanzhouwei = zhouwei;
+    jingpianguige.yyzw = 0;
+    this.setData({ jingpianguige })
+
 
   },
 

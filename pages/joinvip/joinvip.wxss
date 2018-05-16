@@ -1,0 +1,62 @@
+/* pages/joinvip/joinvip.wxss */
+
+.vip1 {
+  height: 350rpx;
+  margin: 20rpx;
+  border: 2rpx dotted #333;
+  border-radius: 6rpx;
+  position: relative;
+}
+
+.vip2 {
+  width: 153rpx;
+  height: 163rpx;
+}
+
+.vip3 {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.vip4 {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.vip5 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50rpx;
+  margin: auto;
+}
+
+.vip6 {
+  width: 100rpx;
+  height: 100rpx;
+  border: 2rpx dotted #999;
+  margin: 30rpx;
+}
+
+.vip7 {
+  font-size: 32rpx;
+  color: #333;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 550rpx;
+}
+
+.vip8 {
+  font-size: 28rpx;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 550rpx;
+}
+.vip9{
+  background: #E51C23;
+  color: #fff;
+}

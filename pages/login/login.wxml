@@ -10,7 +10,7 @@
         <input class='login-input' placeholder='请输入验证码' name='checkCode' />
       </view>
 
-      <button form-type='submit' class='login-yzm'>获取验证码</button>
+      <button form-type='submit' class='login-yzm'>{{yzm}}</button>
     </view>
 
   </form>
