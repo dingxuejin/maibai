@@ -3,7 +3,7 @@
   <scroll-view style='height:90vh;' scrollY>
     <radio-group style='background:#fff;' bindchange='changeRadio'>
       <view wx:for='{{address}}' wx:key='{{index}}'>
-        <view id='user'>
+        <view id='user' bindtap='changeDizhi' data-dizhi='{{item}}'>
           <view class='flex-start'>
             <view class='weizhi'>
               <image src='../../image/weizhi.png' class='full-img'></image>
@@ -23,7 +23,7 @@
         <view class='moren-address flex-between'>
           <radio color='#000' checked='{{item.isDefault==="1"}}' value='{{item.id}}'>设为默认地址</radio>
           <view class='flex-end'>
-            <view class='flex-end' bindtap='bianji'  data-address='{{item}}'>
+            <view class='flex-end' bindtap='bianji' data-address='{{item}}'>
               <image class='dizhi-icon' src='../../image/bianji1.png'></image>
               <text>编辑</text>
             </view>
@@ -38,10 +38,8 @@
 
     </radio-group>
   </scroll-view>
-  <navigator url='../xzdz/xzdz?isBlack=0'>
-    <view class='tijiao flex-center'>
-      <text>＋新建地址</text>
-    </view>
-  </navigator>
+  <view class='tijiao flex-center' bindtap='addAddress'>
+    <text>＋新建地址</text>
+  </view>
 
 </form>

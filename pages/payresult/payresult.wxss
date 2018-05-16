@@ -1,0 +1,9 @@
+/* pages/payresult/payresult.wxss */
+.btn{
+  border: 2rpx solid #ccc;
+  border-radius: 6rpx;
+  width: 240rpx;
+  height: 80rpx;
+  color: #333;
+  font-size: 28rpx;
+}

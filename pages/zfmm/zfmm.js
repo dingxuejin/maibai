@@ -1,4 +1,5 @@
 // pages/zfmm/zfmm.js
+import http from '../../utils/http.js'
 Page({
 
   /**
@@ -14,6 +15,7 @@ Page({
   },
   // 支付密码设置确定
   queding() {
+    let that = this;
     if (this.data.pwd.length !== 6 || this.data.repwd.length !== 6) {
       wx.showToast({
         title: '密码长度不对',
@@ -22,11 +24,33 @@ Page({
       })
     } else {
       if (this.data.pwd === this.data.repwd) {
-        wx.showToast({
-          title: '设置成功',
-          icon: 'success',
-          duration: 2000
-        })
+        let token = wx.getStorageSync('token')
+        let payPassword = this.data.pwd
+        http.post('settingPayPwdAsAdd', { token, payPassword })
+          .then(res => {
+            if (res.status === 0) {
+              wx.showToast({
+                title: '设置成功',
+                icon: 'success',
+                duration: 2000,
+                success() {
+                  setTimeout(function () {
+                    let resultPrie = that.data.resultPrie;
+                    let order = that.data.order;
+                    wx.redirectTo({
+                      url: '../zhifutype/zhifutype?resultPrie=' + resultPrie + '&&order=' + order,
+                    })
+                  }, 2000)
+                }
+              })
+            } else {
+              wx.showToast({
+                title: '网络异常',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+          })
       } else {
         wx.showToast({
           title: '两次密码必须相同',
@@ -51,7 +75,6 @@ Page({
     let repwdShow = [];
     repwdShow.length = repwd.cursor;
     repwdShow.fill('*');
-    console.log(repwdShow);
     this.setData({
       repwdShow,
       repwd: repwd.value
@@ -63,7 +86,6 @@ Page({
     let pwdShow = [];
     pwdShow.length = pwd.cursor;
     pwdShow.fill('*');
-    console.log(pwdShow);
     this.setData({
       pwdShow,
       pwd: pwd.value
@@ -73,7 +95,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData(options);
   },
 
   /**

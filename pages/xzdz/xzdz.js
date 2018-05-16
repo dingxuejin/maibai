@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isBlack:0,
     token: '',
     multiOrignArray: [['省'], ['市'], ['区']],
     multiArray: [['省'], ['市'], ['区']],
@@ -91,7 +92,7 @@ Page({
                   wx.redirectTo({
                     url: '../queren/queren?productList=' + productList,
                   })
-
+                  that.setData({isBlack : 0})
                 } else {
                   wx.redirectTo({
                     url: '../dizhi/dizhi',

@@ -188,7 +188,7 @@
           <view class='xuanze2'>
             <view class='xuanze3'>
               <text>￥</text>
-              <text>{{guige[jingkuangactive].glassList[jingpianactive].skuPrice}}</text>
+              <text>{{guige[jingkuangactive].glassList[jingpianactive].skuPrice||guige[jingkuangactive].skuPrice}}</text>
             </view>
             <view class='xuanze4'>
               <text> 已选 :</text>
@@ -322,8 +322,17 @@
 
     </scroll-view>
     <view style='height:10vh;' class='flex-between'>
-      <view class='xiadan1 flex-center' bindtap='chooseImage'>
-        <text>拍照上传验光单</text>
+      <view class='xiadan1 flex-start' bindtap='chooseImage' wx:if='{{isPaizhao}}'>
+        <image src='../../image/pz.png' class='pz'></image>
+        <text class='pz-title'>拍照上传验光单</text>
+      </view>
+      <view class='xiadan1 flex-start'    wx:else>
+        <image src='../../image/ypz.png' class='pz' bindtap='chooseImage'></image>
+        <view style='width:200rpx;' class='flex-start' bindtap='previewImage'>
+          <text class='ypz-title'>查看验光单</text>
+          <text class='cxpz-title'>(点击图标重新上传)</text>
+        </view>
+
       </view>
       <view class='xiadan xiadan1 flex-center' bindtap='xiadan'>
         <text>立即下单</text>

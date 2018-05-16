@@ -28,7 +28,7 @@
 </scroll-view>
 
 <view id='zhifu'>
-  <button class='zhifu3' bindtap='dialogOpen'>立即支付￥88.00</button>
+  <button class='zhifu3' bindtap='dialogOpen'>{{'立即支付￥'+resultPrie}}</button>
 </view>
 <view class='dialog' wx:if='{{isDialog}}' catchtap='dialogClose'>
   <view class='dialog-container' catchtap='stopMaopao'>
@@ -37,7 +37,7 @@
     </view>
     <view class='text-center mima2'>
       <text>支付：¥</text>
-      <text>20.00</text>
+      <text>{{resultPrie}}</text>
     </view>
     <view class='flex-center zfmm2' bindtap='focuse'>
       <view class='zfmm3 flex-center'>{{pwdShow[0]}}</view>
@@ -49,9 +49,8 @@
       <input class='zfmm5' type='number' focus='{{focuseShow}}' password='true' maxlength='6' bindinput='inputPwd'></input>
     </view>
     <view class='flex-center zfmm6'>
-      <navigator url='../sjyz/sjyz'>
+    
         <text class='mima3'>重置支付密码</text>
-      </navigator>
 
     </view>
   </view>

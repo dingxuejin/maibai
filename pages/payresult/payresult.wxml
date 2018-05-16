@@ -1,0 +1,18 @@
+<!--pages/payresult/payresult.wxml-->
+<view style='margin:80rpx auto;'>
+  <view class='flex-center'>
+    <icon type="success" size='80' />
+  </view>
+  <view class='flex-center' style='margin:10rpx auto; font-size:32rpx;color:#333;'>
+    <text>付款成功</text>
+  </view>
+</view>
+<view class='flex-between' style='padding:20rpx 80rpx;'>
+  <view class='btn flex-center'  bindtap='toDingdan'>
+    <text>查看订单</text>
+  </view>
+    <view class='btn flex-center' bindtap='toGuang'>
+      <text>继续逛</text>
+    </view>
+
+</view>

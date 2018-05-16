@@ -1,4 +1,5 @@
 // pages/zhifutype/zhifutype.js
+import http from '../../utils/http.js'
 Page({
 
   /**
@@ -22,6 +23,26 @@ Page({
       pwdShow,
       pwd: pwd.value
     })
+    console.log(pwd);
+    if (pwd.cursor === 6) {
+      let token = wx.getStorageSync('token');
+      let password = pwd.value;
+      let orderId = this.data.order.orderId;
+      http.post('payByBalance', { token, password, orderId })
+        .then(res => {
+          if (res.statue === 0) {
+            wx.redirectTo({
+              url: '../payresult/payresult',
+            })
+          } else {
+            wx.showToast({
+              title: res.message,
+              icon: 'none',
+              duration: 3000
+            })
+          }
+        })
+    }
   },
   // 输入密码输入框获得焦点
   focuse() {
@@ -29,7 +50,34 @@ Page({
   },
   // dialog打开
   dialogOpen() {
-    this.setData({ isDialog: true })
+    let token = wx.getStorageSync('token');
+
+    let payType = this.data.type;
+    console.log(payType);
+    if (payType === '-1') {
+      wx.showModal({
+        title: '支付操作',
+        content: '请您选择支付方式'
+      })
+    } else if (payType === '0') {
+      // 微信支付
+    } else if (payType === '1') {
+      // 余额支付
+      http.post('getUserInfo', { token })
+        .then(res => {
+          let hasPayPwd = res.data.hasPayPwd;
+          console.log(hasPayPwd);
+          if (hasPayPwd === 0) {
+            this.toSjyz();
+          } else {
+            this.setData({ isDialog: true });
+          }
+        })
+
+    }
+
+
+
   },
   // dialog关闭
   dialogClose() {
@@ -42,14 +90,22 @@ Page({
   },
   // 前往手机验证
   toSjyz() {
+    let resultPrie = this.data.resultPrie;
+    let order = this.data.order;
+    order = JSON.stringify(order);
     wx.navigateTo({
-      url: '../sjyz/sjyz',
+      url: '../sjyz/sjyz?resultPrie=' + resultPrie + '&&order=' + order,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
+    let resultPrie = options.resultPrie;
+    let order = JSON.parse(options.order);
+
+    this.setData({ resultPrie, order });
     wx.setNavigationBarTitle({
       title: '支付方式',
     })

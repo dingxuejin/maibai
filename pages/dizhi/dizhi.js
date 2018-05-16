@@ -6,69 +6,106 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isBlack: 0,
     token: "",
     index: 1,
     size: 20,
     address: []
   },
+  // 选择地址
+  changeDizhi(e) {
+    let dizhi = e.currentTarget.dataset.dizhi;
+    let isBlack = this.data.isBlack;
+    let productList = this.data.productList;
+    if (isBlack === '1') {
+      dizhi = JSON.stringify(dizhi);
+      wx.redirectTo({
+        url: '../queren/queren?dizhi=' + dizhi + '&&productList=' + productList,
+      })
+    }
+    this.setData({ isBlack: 0 })
+  },
+  // 添加地址
+  addAddress() {
+    let isBlack = this.data.isBlack;
+    if (isBlack === 0) {
+      wx.redirectTo({
+        url: '../xzdz/xzdz?isBlack=0',
+      })
+    }
+  },
   // 设置收货地址为默认地址
   changeRadio(e) {
-    let token = this.data.token;
-    let id = e.detail.value;
-    http.post('defaultMyAddress', { token, id })
-      .then(res => {
-        console.log(res);
-        if (res.status === 0) {
-          wx.showToast({
-            title: '设置成功'
+    let isBlack = this.data.isBlack;
+    if (isBlack === 0) {
+      let token = this.data.token;
+      let id = e.detail.value;
+      http.post('defaultMyAddress', { token, id })
+        .then(res => {
+          console.log(res);
+          if (res.status === 0) {
+            wx.showToast({
+              title: '设置成功'
 
-          })
-        } else {
-          wx.showToast({
-            title: '设置失败',
-            icon: 'none'
-          })
-        }
-      })
+            })
+          } else {
+            wx.showToast({
+              title: '设置失败',
+              icon: 'none'
+            })
+          }
+        })
+
+    }
+
   },
   // 编辑地址
   bianji(e) {
-    let address = JSON.stringify(e.currentTarget.dataset.address);
-    wx.navigateTo({
-      url: '../bjdz/bjdz?address=' + address,
-    })
+    let isBlack = this.data.isBlack;
+    if (isBlack === 0) {
+      let address = JSON.stringify(e.currentTarget.dataset.address);
+      wx.navigateTo({
+        url: '../bjdz/bjdz?address=' + address,
+      })
+    }
+
 
   },
   // 删除地址
   shanchu(e) {
-    let that = this;
-    let token = this.data.token;
-    let id = e.currentTarget.dataset.deleteid;
-    wx.showModal({
-      title: '删除操作',
-      content: '你确定要删除此地址吗？',
-      success: function (e) {
-        console.log(e);
-        if (e.confirm) {
-          http.post('deleteMyAddress', { token, id })
-            .then(res => {
-              if (res.status === 0) {
-                wx.showToast({
-                  title: '删除成功',
-                })
-                that.getMyAddressList();
-              } else {
-                wx.showToast({
-                  icon: 'none',
-                  title: '删除失败',
-                  duration: 3000
-                })
-              }
+    let isBlack = this.data.isBlack;
+    if (isBlack === 0) {
+      let that = this;
+      let token = this.data.token;
+      let id = e.currentTarget.dataset.deleteid;
+      wx.showModal({
+        title: '删除操作',
+        content: '你确定要删除此地址吗？',
+        success: function (e) {
+          console.log(e);
+          if (e.confirm) {
+            http.post('deleteMyAddress', { token, id })
+              .then(res => {
+                if (res.status === 0) {
+                  wx.showToast({
+                    title: '删除成功',
+                  })
+                  that.getMyAddressList();
+                } else {
+                  wx.showToast({
+                    icon: 'none',
+                    title: '删除失败',
+                    duration: 3000
+                  })
+                }
 
-            })
+              })
+          }
         }
-      }
-    })
+      })
+
+    }
+
   },
   // 获取我的收货地址
   getMyAddressList() {
@@ -77,9 +114,8 @@ Page({
     let size = this.data.size;
     http.post('getMyAddressList', { token, index, size })
       .then(res => {
-        console.log(res);
         let address = [];
-        if (res.data&&res.data.length>0) {
+        if (res.data && res.data.length > 0) {
           address = res.data;
         }
         this.setData({ address })
@@ -90,6 +126,12 @@ Page({
    */
   onLoad: function (options) {
     let token = wx.getStorageSync('token')
+
+    if (options.productList) {
+      let isBlack = options.isBlack;
+      let productList = options.productList;
+      this.setData({ productList, isBlack });
+    }
     this.setData({ token });
   },
 

@@ -287,4 +287,22 @@
   width:50%;
   height: 100%;
   box-sizing: border-box;
+  border-top:2rpx solid #ccc;
+}
+.pz{
+  width:44rpx;
+  height: 34rpx;
+  margin:0 30rpx;
+}
+.pz-title{
+  font-size: 30rpx;
+  color: #f00;
+}
+.ypz-title{
+  font-size: 30rpx;
+  color: #259B24;
+}
+.cxpz-title{
+   font-size: 20rpx;
+  color: #259B24;
 }

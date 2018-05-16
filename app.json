@@ -1,17 +1,17 @@
 {
   "pages": [
+    "pages/logintype/logintype",
+    "pages/payresult/payresult",
     "pages/mianfei/mianfei",
-      "pages/logintype/logintype",
+    "pages/sjyz/sjyz",
+    "pages/yjsq/yjsq",
     "pages/wode/wode",
- 
-   
     "pages/detail/detail",
     "pages/joinvip/joinvip",
     "pages/haoyou/haoyou",
     "pages/xzdz/xzdz",
     "pages/bjdz/bjdz",
     "pages/login/login",
-    "pages/yjsq/yjsq",
     "pages/dizhi/dizhi",
     "pages/pinglun/pinglun",
     "pages/dingdandetail/dingdandetail",
@@ -19,7 +19,6 @@
     "pages/mingxi/mingxi",
     "pages/chongzhi/chongzhi",
     "pages/qianbao/qiaobao",
-    "pages/sjyz/sjyz",
     "pages/zhifutype/zhifutype",
     "pages/jingxuan/jingxuan",
     "pages/zfmm/zfmm",
@@ -31,6 +30,7 @@
     "pages/web/web",
     "pages/haoyou1/haoyou1",
     "pages/prodetail/prodetail"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",

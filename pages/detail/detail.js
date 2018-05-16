@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    ticketUrl:'',
+    isPaizhao:true,
     baseUrl: http.baseUrl,
     status: 1,
     isDialog: false,
@@ -27,20 +29,29 @@ Page({
     let productDetail = this.data.productDetail;
     let special = guige[jingkuangactive];
     let glass = special.glassList[jingpianactive];
+    let ticketUrl = this.data.ticketUrl;
+    let skuPrice;
+    if (glass && glass.skuPrice) {
+      skuPrice = glass.skuPrice
+    } else {
+      skuPrice = special.skuPrice
+    }
 
     let productList = [
       {
         productId: productDetail.id,
         special,
+        skuPrice,
         glass,
         myRule: {
           leftSize: jingpianguige.zuoyandushu[jingpianguige.zyds],
           rightSize: jingpianguige.youyandushu[jingpianguige.yyds],
-          eyeDistance: jingpianguige.tongju[jingpianguige.tj].val,
+          eyeDistance: jingpianguige.tongju[jingpianguige.tj],
           leftLightSize: jingpianguige.zuoyansanguang[jingpianguige.zysg],
           rightLightSize: jingpianguige.youyansanguang[jingpianguige.yysg],
           leftLocal: jingpianguige.zuoyanzhouwei[jingpianguige.zyzw],
-          rightLocal: jingpianguige.youyanzhouwei[jingpianguige.yyzw]
+          rightLocal: jingpianguige.youyanzhouwei[jingpianguige.yyzw],
+          ticketUrl
         }
       }
     ]
@@ -168,10 +179,33 @@ Page({
         }
       })
   },
+  // 预览验光单
+  previewImage(){
+    let ticketUrl = this.data.ticketUrl;
+    let baseUrl=http.baseUrl;
+    let urls=[];
+    urls.push(baseUrl + ticketUrl);
+    wx.previewImage({
+      urls
+    })
+  },
+  // 上传验光单
   chooseImage() {
+    let that=this;
+    let baseUrl = http.baseUrl;
+    let token=wx.getStorageSync('token');
     wx.chooseImage({
       success: function (res) {
-        console.log(res);
+        wx.uploadFile({
+          url: baseUrl + 'intf/uploadFile',
+          filePath: res.tempFilePaths[0],
+          name: 'file',
+          formData: {token},
+          success: function (res) {
+            let  ticketUrl=JSON.parse(res.data).data.url;
+            that.setData({ isPaizhao: false, ticketUrl})
+          }
+        })
       }
     })
   },
@@ -270,7 +304,7 @@ Page({
       let newVal = {};
       newVal.val = i;
       let item = i;
-      if (item <=0) {
+      if (item <= 0) {
         item = '无';
       }
       newVal.label = item;
