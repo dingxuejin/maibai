@@ -57,4 +57,5 @@
   height: 10vh;
   background: #e51c23;
   color: #fff;
+  border-radius: 0rpx;
 }

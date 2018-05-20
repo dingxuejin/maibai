@@ -43,8 +43,10 @@ Page({
     if (this.data.activeIndex === '1') {
       // 获得光学眼镜列表
       let guangxue = this.data.guangxue;
+ 
       http.post('productList', { type, sortType: guangxue.sortType, index: guangxue.index, size: guangxue.size })
         .then(res => {
+ 
           let productList = res.data.list;
           let hasNextPage = res.data.hasNextPage;
           guangxue.productList = guangxue.productList.concat(productList);
@@ -115,7 +117,6 @@ Page({
       "type": 4,
       "token": wx.getStorageSync("token")
     }).then((res) => {
-      console.log(res.data.list);
       that.setData({
         bannerList: res.data.list
       })
@@ -130,6 +131,9 @@ Page({
 
   },
 
+  scrolltolower() {
+    this.getProductList();
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -169,7 +173,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.getProductList();
+
   },
 
   /**

@@ -1,12 +1,17 @@
 {
   "pages": [
-    "pages/logintype/logintype",
-    "pages/payresult/payresult",
+      "pages/logintype/logintype",
     "pages/mianfei/mianfei",
-    "pages/sjyz/sjyz",
-    "pages/yjsq/yjsq",
+    "pages/shouhou/shouhou",
+    "pages/soresult/soresult",
+ 
     "pages/wode/wode",
     "pages/detail/detail",
+    "pages/czoldmm/czoldmm",
+    "pages/czmm/czmm",
+    "pages/payresult/payresult",
+    "pages/sjyz/sjyz",
+    "pages/yjsq/yjsq",
     "pages/joinvip/joinvip",
     "pages/haoyou/haoyou",
     "pages/xzdz/xzdz",
@@ -36,7 +41,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#E51C23",
     "navigationBarTitleText": "麦拜眼镜",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "#fff",
+    "onReachBottomDistance": 100
   },
   "tabBar": {
     "selectedColor": "#f00",

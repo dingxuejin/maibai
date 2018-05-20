@@ -1,12 +1,12 @@
 <!--pages/detail/detail.wxml-->
-<scroll-view id='detail-container' lower-threshold='2' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}' bindscrolltolower='toDetail'>
+<scroll-view id='detail-container' lower-threshold='2' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}'>
   <view style='min-height:95vh;'>
     <!-- 轮播图 -->
     <view id='banner'>
-      <swiper indicator-active-color="#fff" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:470rpx;'>
+      <swiper indicator-active-color="#f00" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:750rpx;'>
         <block wx:for="{{productDetail.imgList}}" wx:key="{{index}}">
           <swiper-item>
-            <image src="{{baseUrl+item}}" class='full-img' />
+            <image src="{{baseUrl+item}}" mode='widthFix' style='width:100%;' />
           </swiper-item>
         </block>
       </swiper>
@@ -41,8 +41,8 @@
           <text>20</text>
         </view>
         <view>
-          <text>销量：</text>
-          <text>{{productDetail.maxStock}}</text>
+          <text>日销量：</text>
+          <text>{{productDetail.saleNum}}</text>
         </view>
       </view>
       <view class='flex-start'>
@@ -74,7 +74,7 @@
           <view class='flex-between  pinglun-user'>
             <view class='flex-start'>
               <view class='headerimage'>
-                <image src='{{productDetail.comments.commentFirst.usereHead}}' class='full-img'></image>
+                <image src='{{ baseUrl+productDetail.comments.commentFirst.userHead}}' class='full-img'></image>
               </view>
               <view>
                 <view>
@@ -89,6 +89,8 @@
               <image class='xing' src='../../image/xing.png'></image>
               <image class='xing' src='../../image/xing.png'></image>
               <image class='xing' src='../../image/xing.png'></image>
+              <image class='xing' src='../../image/xing.png'></image>
+              <image class='xing' src='../../image/kongxing.png'></image>
             </view>
           </view>
           <!-- 评论人信息end -->
@@ -135,20 +137,21 @@
     </view>
     <!-- 评论end -->
     <!-- 商品详情 -->
-    <view id='detail'>
+    <view id='detail' wx:if="{{productDetail.detailContent.length>0}}">
       <view class='flex-between'>
         <view class='detail-hr'></view>
         <view>
-          <text class='detail-caption'>上拉查看更多详情</text>
+          <text class='detail-caption'>商品详情</text>
         </view>
         <view class='detail-hr'></view>
       </view>
       <!-- 商品图片 -->
-      <!-- <view style='margin-top:500rpx;'>
-      <web-view src='http://39.108.76.65:8080/m/product/5786/description'>
+      <view style='margin-top:20rpx;'>
+        <view wx:for='{{ productDetail.detailContent}}' wx:key='{{index}}'>
+          <image src='{{item}}' mode='widthFix' style='width:100%;'></image>
+        </view>
 
-      </web-view>
-    </view> -->
+      </view>
 
     </view>
     <!-- 商品详情end -->
@@ -158,10 +161,27 @@
 </scroll-view>
 <view id='detail-tarbar' class='flex-between'>
   <view class='flex-start'>
-    <image class='taricon' src='../../image/guanzu.png'></image>
-    <image class='taricon' src='../../image/dianhua.png'></image>
-    <image class='taricon' src='../../image/shouji.png'></image>
-    <image class='taricon' src='../../image/kefu.png'></image>
+    <view class='add1'>
+      <image class='taricon' src='../../image/guanzu.png' bindtap='guanzu'></image>
+      <text class='add2'>关注</text>
+    </view>
+    <view class='add1'>
+      <image class='taricon' src='../../image/shouji.png' bindtap='loadApp'></image>
+      <text class='add2'>App</text>
+    </view>
+    <view class='add1'>
+      <image class='taricon' src='../../image/dianhua.png' bindtap='telKefu'></image>
+      <text class='add2'>热线</text>
+    </view>
+    <view class='add1'>
+      <button open-type='contact' class='tariconbtn flex-center'>
+        <image src='../../image/kefu.png' class='full-img'></image>
+      </button>
+      <text class='add2'>客服</text>
+    </view>
+
+
+
   </view>
   <view class='flex-end'>
     <button wx:if='{{status===0}}' class='tarbutton' bindtap='toLingqu'>立即领取</button>
@@ -326,7 +346,7 @@
         <image src='../../image/pz.png' class='pz'></image>
         <text class='pz-title'>拍照上传验光单</text>
       </view>
-      <view class='xiadan1 flex-start'    wx:else>
+      <view class='xiadan1 flex-start' wx:else>
         <image src='../../image/ypz.png' class='pz' bindtap='chooseImage'></image>
         <view style='width:200rpx;' class='flex-start' bindtap='previewImage'>
           <text class='ypz-title'>查看验光单</text>
@@ -341,3 +361,32 @@
     </view>
   </view>
 </view>
+
+<!-- 弹出公众号二维码 -->
+<dialog isVisible='{{gongzhonghao}}'>
+  <view class='erweima1'>
+    <view class='erweima2'>
+      <text>免费验光，上门配镜</text>
+    </view>
+    <view class='erweima3'>
+      <image src='../../image/gongzhonghao.jpg' class='full-img'></image>
+    </view>
+    <view class='erweima4'>
+      <text>长按识别二维码，关注“麦拜” 官方微信公众号</text>
+    </view>
+  </view>
+</dialog>
+<!-- 弹出公下载app二维码 -->
+<dialog isVisible='{{loadToApp}}'>
+  <view class='erweima1'>
+    <view class='erweima2'>
+      <text>更多款式，请下载麦拜APP</text>
+    </view>
+    <view class='erweima3' bindlongpress='getImgInfo'>
+      <image src='../../image/app.png' class='full-img'></image>
+    </view>
+    <view class='erweima4'>
+      <text>长按识别二维码，关注下载 “麦拜APP”</text>
+    </view>
+  </view>
+</dialog>

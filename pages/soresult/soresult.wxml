@@ -1,0 +1,46 @@
+<!--pages/soresult/soresult.wxml-->
+<view>
+  <view style='height:8vh;' class='flex-between'>
+    <!-- 导航 -->
+    <view class='soresult1 {{ active==index?"active":""}}' wx:for='{{tarbar}}' wx:key='{{index}}' data-active='{{index}}' bindtap='bindClick'>
+      <text>{{item}}</text>
+      <image wx:if='{{index==3&&active==index}}' src='../../image/sxactive.png' class='soresult2'></image>
+      <image wx:if='{{index==3&&active!=index}}' src='../../image/sx.png' class='soresult2'></image>
+    </view>
+  </view>
+  <scroll-view style='height:92vh;'  bindscrolltolower='scrollTolower' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}' >
+    <!-- 主内容 -->
+    <view class='soresult3 flex-between' wx:for='{{searchResult.list}}' wx:key='{{index}}' data-index='{{index}}' bindtap='toDetail'>
+      <view class='soresult4'>
+        <image src='{{baseUrl+item.imgUrl}}' class='full-img'></image>
+      </view>
+      <view class='soresult5'>
+        <view>
+          <text class='soresult9'>{{item.name}}</text>
+        </view>
+        <view>
+          <text class='soresult9'>{{item.description}}</text>
+        </view>
+        <view class='flex-between'>
+          <view>
+            <text class='soresult6'>¥{{item.price}}</text>
+            <text class='soresult7 soresult8'>¥{{item.originPrice}}</text>
+          </view>
+          <view>
+            <text class='soresult7'>销量：</text>
+            <text class='soresult7'>154</text>
+          </view>
+        </view>
+      </view>
+    </view>
+   
+ 
+    
+  </scroll-view>
+</view>
+
+
+<!-- 置顶 -->
+<cover-view class='zhiding flex-center' wx:if='{{isShowZhiding}}' bindtap='toScrollTop'>
+  <cover-image class='zhiding1' src='../../image/zhiding.png'></cover-image>
+</cover-view>

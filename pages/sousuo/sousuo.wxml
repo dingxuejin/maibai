@@ -5,7 +5,7 @@
       <view class="weui-search-bar__form">
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" confirm-type="search" placeholder="搜索你要的商品" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <input type="text" class="weui-search-bar__input" confirm-type="search" placeholder="搜索你要的商品" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping"  bindconfirm='inputConfirm'/>
           <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
             <icon type="clear" size="14"></icon>
           </view>
@@ -22,29 +22,11 @@
       <view id='lishi'>
         <view class='flex-between lishi1'>
           <text class='lishi2'>历史搜索</text>
-          <image class='shanchu' src='../../image/shanchu.png'></image>
+          <image class='shanchu' src='../../image/shanchu.png' bindtap='clearStorage'></image>
         </view>
         <view class='flex-start lishi3'>
-          <view class='lishi4'>
-            <text class='nowrap'>舒服</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到水电费</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发水电费送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发的送到</text>
+          <view class='lishi4' wx:for='{{hisSearch}}' wx:key='{{index}}' data-history='{{item}}' bindtap='hisToSearch'>
+            <text class='nowrap'>{{item}}</text>
           </view>
         
         </view>
@@ -56,28 +38,9 @@
           <text class='lishi2'>热门搜索</text>
         </view>
         <view class='flex-start lishi3'>
-          <view class='lishi4'>
-            <text class='nowrap'>舒服</text>
+          <view class='lishi4' wx:for='{{hotSearch}}' wx:key='{{index}}' data-index='{{index}}' bindtap='bindHotSearch'>
+            <text class='nowrap'>{{item.tagName}}</text>
           </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到水电费</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发水电费送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发送到</text>
-          </view>
-          <view class='lishi4'>
-            <text class='nowrap'>发的送到</text>
-          </view>
-        
         </view>
       </view>
     </view>

@@ -15,6 +15,13 @@ Page({
     value: '',
     active: -1
   },
+  // 前往充值协议
+  toWeb(){
+    wx.setStorageSync('detailUrl', http.chongzhiUrl)
+    wx.navigateTo({
+      url: `../web/web`,
+    })
+  },
   // 输入金额
   tapChongzhi(e) {
     let value = e.detail.value;

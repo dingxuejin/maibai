@@ -1,0 +1,74 @@
+/* pages/soresult/soresult.wxss */
+page{
+  background: #eee;
+}
+.soresult1 {
+  background: #fff;
+  border-bottom: 1rpx solid #ccc;
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  width: 25%;
+  box-sizing: border-box;
+  line-height: 8vh;
+}
+
+.soresult2 {
+  margin: 0 6rpx;
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.active {
+  border-bottom: 10rpx solid #e51c23;
+  text-align: center;
+  color: #e51c23;
+}
+.soresult3{
+  background: #fff;
+  border-top:20rpx solid #ccc;
+  padding:30rpx;
+}
+.soresult4{
+  width:180rpx;
+  height: 180rpx;
+  overflow: hidden;
+  border-radius: 6rpx;
+}
+.soresult5{
+  margin-left: 30rpx;
+  width:450rpx;
+  flex: 1;
+}
+.soresult6{
+  font-size: 36rpx;
+  color: #E51C23;
+  font-weight: 600;
+}
+.soresult7{
+  font-size: 26rpx;
+  color: #999;
+}
+.soresult8{
+  text-decoration: line-through;
+  padding:10rpx;
+}
+.soresult9{
+  font-size: 30rpx;
+  color: #333;
+}
+
+.zhiding {
+  width: 90rpx;
+  height: 90rpx;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  right: 10rpx;
+  bottom: 200rpx;
+}
+
+.zhiding1 {
+  width: 50%;
+  height: 50%;
+}

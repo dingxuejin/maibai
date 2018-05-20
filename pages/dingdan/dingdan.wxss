@@ -3,7 +3,11 @@
 .weui-navbar__item.weui-bar__item_on {
   color: #e51c23;
 }
-
+.textNone{
+  padding:100rpx;
+  font-size: 30rpx;
+  color: #999;
+}
 .weui-navbar__slider {
   background-color: #e51c23;
 }

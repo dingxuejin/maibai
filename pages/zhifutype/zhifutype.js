@@ -23,16 +23,23 @@ Page({
       pwdShow,
       pwd: pwd.value
     })
-    console.log(pwd);
+   
     if (pwd.cursor === 6) {
       let token = wx.getStorageSync('token');
       let password = pwd.value;
       let orderId = this.data.order.orderId;
       http.post('payByBalance', { token, password, orderId })
         .then(res => {
-          if (res.statue === 0) {
-            wx.redirectTo({
-              url: '../payresult/payresult',
+          if (res.status === 0) {
+            wx.showToast({
+              title: '支付成功',
+              success: function () {
+                setTimeout(() => {
+                  wx.redirectTo({
+                    url: '../payresult/payresult',
+                  })
+                }, 2000)
+              }
             })
           } else {
             wx.showToast({
@@ -53,24 +60,59 @@ Page({
     let token = wx.getStorageSync('token');
 
     let payType = this.data.type;
-    console.log(payType);
+  
     if (payType === '-1') {
       wx.showModal({
         title: '支付操作',
         content: '请您选择支付方式'
       })
     } else if (payType === '0') {
-      // 微信支付
+        // 微信支付
+      let orderNumber=this.data.order.orderNumber;
+      http.post('getPrePayIdOfMiniPrograms', { token, orderNumber,payMethod:1})
+      .then(res=>{
+        console.log(res);
+
+        let playInfo = res.data;
+        console.log(playInfo);
+        let timeStamp = playInfo.timestamp;
+        let nonceStr = playInfo.nonceStr;
+        let prepay_id = 'prepay_id=' + playInfo.prePayId;
+        let paySign = playInfo.sign;
+        console.log({
+          timeStamp,
+          nonceStr,
+          'signType': 'MD5',
+          'package': prepay_id,
+          paySign
+
+        })
+        wx.requestPayment({
+          timeStamp,
+          nonceStr,
+          'signType': 'MD5',
+          'package': prepay_id,
+          paySign,
+          success(res) {
+            console.log(res);
+          },
+          fail(err) {
+            console.log(err)
+          }
+        })
+
+
+      })
+    
     } else if (payType === '1') {
       // 余额支付
       http.post('getUserInfo', { token })
         .then(res => {
           let hasPayPwd = res.data.hasPayPwd;
-          console.log(hasPayPwd);
           if (hasPayPwd === 0) {
             this.toSjyz();
           } else {
-            this.setData({ isDialog: true });
+            this.setData({ isDialog: true, focuseShow: true });
           }
         })
 
@@ -88,6 +130,16 @@ Page({
     let type = e.currentTarget.dataset;
     this.setData(type)
   },
+  // 重置密码
+  czmm() {
+    let resultPrie = this.data.resultPrie;
+    let order = this.data.order;
+    order = JSON.stringify(order);
+    wx.navigateTo({
+      url: '../czoldmm/czoldmm?resultPrie=' + resultPrie + '&&order=' + order,
+    })
+
+  },
   // 前往手机验证
   toSjyz() {
     let resultPrie = this.data.resultPrie;
@@ -101,10 +153,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+  
     let resultPrie = options.resultPrie;
     let order = JSON.parse(options.order);
-
+    console.log(order);
     this.setData({ resultPrie, order });
     wx.setNavigationBarTitle({
       title: '支付方式',

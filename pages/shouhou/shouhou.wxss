@@ -1,0 +1,85 @@
+/* pages/shouhou/shouhou.wxss */
+/* pages/dingdan/dingdan.wxss */
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #e51c23;
+}
+.textNone{
+  padding:100rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+.weui-navbar__slider {
+  background-color: #e51c23;
+}
+
+.hr {
+  height: 20rpx;
+  background: #ccc;
+}
+
+.product-img {
+  width: 160rpx;
+  height: 160rpx;
+  border: 2rpx solid #ccc;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+.product-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.product-geshu {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.product-guige {
+  align-self: flex-start;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.product-guigexx {
+  font-size: 22rpx;
+  color: #999;
+  width: 360rpx;
+}
+
+.product-text {
+  margin-right: 10rpx;
+}
+
+.dingdan {
+  padding: 30rpx;
+  background: #eee;
+}
+
+.dingdan1 {
+  font-size: 28rpx;
+  color: #e51c23;
+  padding: 30rpx;
+}
+
+.dingdan2 {
+  font-size: 28rpx;
+  color: #333;
+  padding: 30rpx;
+}
+
+.dingdan3 {
+  margin: 30rpx 30rpx 30rpx 0;
+  background: #fff;
+  border: 2rpx solid #e51c23;
+  font-size: 28rpx;
+}
+
+.dingdan4 {
+  margin: 30rpx 30rpx 30rpx 0;
+  background: #fff;
+  border: 2rpx solid #000;
+  color: #000;
+  font-size: 28rpx;
+}

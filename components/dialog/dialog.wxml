@@ -1,0 +1,7 @@
+<!--components/dialog/dialog.wxml-->
+
+<view class='dialog flex-center' wx:if='{{isVisible}}' catchtap='close'>
+  <view catchtap='stopMaopao'>
+    <slot></slot>
+  </view>
+</view>

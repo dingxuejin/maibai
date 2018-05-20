@@ -1,0 +1,68 @@
+<!--pages/shouhou/shouhou.wxml-->
+<view wx:if='{{orderList.list.length>0}}'>
+  <view wx:for='{{orderList.list}}' wx:key='{{index}}'>
+    <view class='hr'></view>
+    <view>
+      <view class='flex-between'>
+        <view class='dingdan2'>
+          <text>订单号：</text>
+          <text>{{item.orderCode}}</text>
+        </view>
+        <view class='dingdan1'>
+          <text>售后服务</text>
+        </view>
+      </view>
+      <view class='flex-between dingdan'>
+        <view class='product-img'>
+          <image src='{{baseUrl+item.productList[0].productImage}}' class='full-img'></image>
+        </view>
+        <view style='width:480rpx;'>
+          <view class='flex-between'>
+            <text class='product-name'>{{item.productList[0].productName}}</text>
+            <text class='product-geshu'>{{'×'+item.productList[0].productNumber}}</text>
+          </view>
+          <view class='flex-start'>
+            <view class='product-guige'>
+              <text>规格：</text>
+            </view>
+            <view class='product-guigexx'>
+              <view>
+                <text class='product-text'>{{item.productList[0].specInfo}}</text>
+              </view>
+
+            </view>
+          </view>
+          <view class='flex-start'>
+            <view class='product-guige'>
+              <text>度数：</text>
+            </view>
+            <view class='product-guigexx'>
+              <view>
+                <text wx:if='{{item.productList[0].rightSize}}' class='product-text'>右眼度数：{{item.productList[0].rightSize}}</text>
+                <text wx:if='{{item.productList[0].rightLightSize}}' class='product-text'>右眼散光：{{item.productList[0].rightLightSize}}</text>
+                <text wx:if='{{item.productList[0].rightLocal}}' class='product-text'>右眼轴位：{{item.productList[0].rightLocal}} </text>
+                <text wx:if='{{item.productList[0].leftLocal}}' class='product-text'>左眼轴位：{{item.productList[0].leftLocal}} </text>
+                <text wx:if='{{item.productList[0].leftSize}}' class='product-text'>左眼度数：{{item.productList[0].leftSize}}</text>
+                <text wx:if='{{item.productList[0].leftLightSize}}' class='product-text'>左眼散光：{{item.productList[0].leftLightSize}}</text>
+                <text wx:if='{{item.productList[0].eyeDistance}}' class='product-text'>瞳距：{{item.productList[0].eyeDistance}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='flex-end dingdan2' style='border-bottom:2rpx solid #ccc;'>
+        <text style='margin-right:20rpx;'>{{'共'+item.productList[0].productNumber+'件商品'}}</text>
+        <text>{{'应付￥'+item.orderFee}}</text>
+      </view>
+      <view class='flex-end'>
+        <view>
+          <button size='mini' class='dingdan1 dingdan3' bindtap='tuikuan'>申请退款</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else class='flex-center textNone'>
+  <text>暂无数据</text>
+</view>

@@ -1,16 +1,25 @@
 // pages/dingdandetail/dingdandetail.js
+import http from '../../utils/http.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    status:-1
+    baseUrl:http.baseUrl,
+    status: -1
   },
   // 去支付
   toZhifu() {
+    let orderData = this.data.orderDetail;
+    let resultPrie = orderData.totalFee;
+    let order = {
+      orderId: orderData.orderId,
+      orderNumber: orderData.orderCode
+    }
+    order = JSON.stringify(order);
     wx.navigateTo({
-      url: '../zhifutype/zhifutype',
+      url: '../zhifutype/zhifutype?resultPrie=' + resultPrie + '&&order=' + order,
     })
   },
   // 跳转评论
@@ -23,15 +32,80 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let status = parseInt(options.status);
-    console.log(status);
-    this.setData({ status })
+    let params = JSON.parse(options.params);
+    let status = parseInt(params.status);
+    let orderid = params.orderid;
+    this.setData({ status, orderid })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    let orderId = this.data.orderid;
+    let token = wx.getStorageSync('token')
+    console.log(orderId);
+    http.post('getOrderDetail', { token, orderId })
+      .then(result => {
+        let res = result.data;
+        if (res.productList && res.productList.length > 0)
+          res.productList.map(val => {
+
+            if (val.eyeDistance) {
+              if (val.eyeDistance <= 0) {
+                val.eyeDistance = '无'
+              }
+            }
+            if (val.leftSize) {
+              if (val.leftSize > 0) {
+                val.leftSize = '+' + parseFloat(val.leftSize).toFixed(2);
+              } else if (val.leftSize == 0) {
+                val.leftSize = '平光0.00';
+              } else {
+                val.leftSize = parseFloat(val.leftSize).toFixed(2);
+              }
+            }
+            if (val.rightSize) {
+              if (val.rightSize > 0) {
+                val.rightSize = '+' + parseFloat(val.rightSize).toFixed(2);
+              } else if (val.rightSize == 0) {
+                val.rightSize = '平光0.00';
+              } else {
+                val.rightSize = parseFloat(val.rightSize).toFixed(2);
+              }
+            }
+            if (val.rightLightSize) {
+              if (val.rightLightSize < 0) {
+                val.rightLightSize = parseFloat(val.rightLightSize).toFixed(2);
+              } else {
+                val.rightLightSize = '无';
+              }
+            }
+            if (val.leftLocal) {
+              if (val.leftLocal == 0) {
+
+                val.leftLocal = '无';
+              }
+            }
+            if (val.rightLocal) {
+              if (val.rightLocal == 0) {
+
+                val.rightLocal = '无';
+              }
+            }
+            if (val.leftLightSize) {
+              if (val.leftLightSize < 0) {
+                val.leftLightSize = parseFloat(val.leftLightSize).toFixed(2);
+              } else {
+                val.leftLightSize = '无';
+              }
+            }
+
+          })
+        console.log(res);
+        this.setData({orderDetail:res})
+      })
+
 
   },
 

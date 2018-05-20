@@ -83,7 +83,6 @@ Page({
         this.getViewList('gongyi', 3);
       } else {
         this.getViewList('huodong', 0);
-        console.log(this.data.huodong);
       }
     })
 

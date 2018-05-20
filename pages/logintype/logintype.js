@@ -1,4 +1,5 @@
 // pages/logintype/logintype.js
+import http from '../../utils/http.js'
 Page({
 
   /**
@@ -7,6 +8,14 @@ Page({
   data: {
 
   },
+  // 前往用户手册
+  toWeb() {
+    wx.setStorageSync('detailUrl', http.userUrl)
+    wx.navigateTo({
+      url: `../web/web`,
+    })
+  },
+  // 获得用户信息
   getuserinfo(res) {
     let userInfo = res.detail.userInfo;
     if (userInfo) {
@@ -30,9 +39,9 @@ Page({
           })
         }
       })
-      wx.reLaunch({
-        url: '../mianfei/mianfei'
-      })
+      // wx.reLaunch({
+      //   url: '../mianfei/mianfei'
+      // })
     } else {
       wx.showToast({
         title: '用户信息获取失败',

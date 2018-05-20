@@ -1,2 +1,3 @@
 <!-- 分享好友界面 -->
-<web-view src='{{inviteFriendUrl}}'></web-view>
+<!-- <web-view src='http://a.app.qq.com/o/simple.jsp?pkgname=com.android.maibai'></web-view> -->
+ <web-view src='{{inviteFriendUrl}}'></web-view>   

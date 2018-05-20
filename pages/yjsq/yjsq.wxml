@@ -1,5 +1,5 @@
 <!-- 押金申请页面 -->
-<form>
+<form  bindsubmit="formSubmit">
   <view id='yajin'>
     <view class='xinxi'>
       <view class='flex-between yajin'>
@@ -16,7 +16,7 @@
           </view>
         </view>
         <view>
-          <input class='yajin3' placeholder='请输入你的真实姓名'></input>
+          <input class='yajin3' placeholder='请输入你的真实姓名' name='realName'></input>
         </view>
       </view>
       <view class='flex-between yajin'>
@@ -30,9 +30,9 @@
           </view>
         </view>
         <view class='yajin4'>
-          <radio-group>
-            <radio color='#000' class='yajin5' checked>男</radio>
-            <radio color='#000' class='yajin5'>女</radio>
+          <radio-group name='gender'>
+            <radio color='#000' class='yajin5' checked value='1'>男</radio>
+            <radio color='#000' class='yajin5' value='2'>女</radio>
           </radio-group>
         </view>
       </view>
@@ -49,7 +49,7 @@
           </view>
         </view>
         <view>
-          <input class='yajin3' placeholder='请输入您的手机号码' type='number'></input>
+          <input class='yajin3' placeholder='请输入您的手机号码' type='number' name='phone'></input>
         </view>
       </view>
       <view class='flex-between yajin'>
@@ -66,7 +66,7 @@
           </view>
         </view>
         <view>
-          <input class='yajin3' placeholder='请输入您的身份证号码' type='idcard'></input>
+          <input class='yajin3' placeholder='请输入您的身份证号码' type='idcard' name='cardId'></input>
         </view>
       </view>
       <view class='flex-between yajin'>
@@ -83,7 +83,7 @@
           </view>
         </view>
         <view>
-          <input class='yajin3' placeholder='请输入您所在的单位或学校'></input>
+          <input class='yajin3' placeholder='请输入您所在的单位或学校' name='orgName'></input>
         </view>
       </view>
     </view>
@@ -105,7 +105,7 @@
 
     </view>
   </view>
-  <view class='tijiao flex-center'>
+  <button class='tijiao flex-center' formType='submit'>
     <text>提交订单</text>
-  </view>
+  </button>
 </form>

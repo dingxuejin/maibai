@@ -26,7 +26,6 @@ Page({
     http.post('getMyBalanceInfo',{token})
     .then(res=>{
       let myBalanceInfo=res.data;
-      console.log(myBalanceInfo);
       this.setData({ myBalanceInfo})
     })
   },

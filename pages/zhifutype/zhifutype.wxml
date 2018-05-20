@@ -1,5 +1,5 @@
 <!--pages/queren/queren.wxml-->
-<scroll-view style='height:1105rpx;' scrollY>
+<scroll-view style='height:90vh;' scrollY>
   <view>
     <view>
 
@@ -49,9 +49,7 @@
       <input class='zfmm5' type='number' focus='{{focuseShow}}' password='true' maxlength='6' bindinput='inputPwd'></input>
     </view>
     <view class='flex-center zfmm6'>
-    
-        <text class='mima3'>重置支付密码</text>
-
+        <text class='mima3' bindtap='czmm'>重置支付密码</text>
     </view>
   </view>
 

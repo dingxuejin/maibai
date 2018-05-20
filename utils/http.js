@@ -4,6 +4,12 @@ let http={};
 let getTime = new Date().getTime();
 // 接口域名
 http.baseUrl = 'http://39.108.76.65:8080/';
+// 客服电话
+http.phoneNumber = '4006701808';
+// 充值说明Url
+http.chongzhiUrl ='http://h5.myobye.com:8088/index.html#index?question=3';
+// 用户手册Url
+http.userUrl ='http://h5.myobye.com:8088/index.html#index?question=12';
 http.post = function (method, data = null) {
   return new Promise((resolve, reject) => {
     wx.request({

@@ -73,7 +73,7 @@
       </view>
     </view>
   </navigator>
-  <navigator url='../dingdan/dingdan'>
+  <navigator url='../shouhou/shouhou'>
     <view class='dingdan4'>
       <view class='flex-center'>
         <image src='../../image/shouhou.png' class='dingdan5'></image>

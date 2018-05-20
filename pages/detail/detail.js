@@ -6,8 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ticketUrl:'',
-    isPaizhao:true,
+    gongzhonghao:false,
+    loadToApp:false,
+    ticketUrl: '',
+    isPaizhao: true,
     baseUrl: http.baseUrl,
     status: 1,
     isDialog: false,
@@ -20,6 +22,23 @@ Page({
     productDetail: {},
     scrollTop: 0
   },
+  getImgInfo(){
+    console.log(111111);
+    wx.request({
+      url: 'http://a.app.qq.com/o/simple.jsp?pkgname=com.android.maibai',
+    })
+    wx.saveImageToPhotosAlbum({
+      filePath:'../../image/app.png'
+    })
+  },
+  // 关注公众号
+  guanzu(){
+    this.setData({ gongzhonghao: true})
+  },
+  // 下载app
+  loadApp(){
+    this.setData({ loadToApp:true})
+  },
   // 得到下单眼镜规格
   getGuige() {
     let guige = this.data.guige;
@@ -28,7 +47,10 @@ Page({
     let jingpianactive = this.data.jingpianactive;
     let productDetail = this.data.productDetail;
     let special = guige[jingkuangactive];
-    let glass = special.glassList[jingpianactive];
+    let glass
+    if (special.glassList) {
+      glass = special.glassList[jingpianactive];
+    }
     let ticketUrl = this.data.ticketUrl;
     let skuPrice;
     if (glass && glass.skuPrice) {
@@ -36,7 +58,6 @@ Page({
     } else {
       skuPrice = special.skuPrice
     }
-
     let productList = [
       {
         productId: productDetail.id,
@@ -57,6 +78,11 @@ Page({
     ]
     productList = JSON.stringify(productList);
     return productList;
+  },
+  // 客服电话
+  telKefu(){
+    let phoneNumber = http.phoneNumber;
+    wx.makePhoneCall({ phoneNumber})
   },
   // 下单支付
   xiadan() {
@@ -151,7 +177,8 @@ Page({
       .then(res => {
         let myDeposit = parseFloat(res.data.myDeposit);
         // 押金值判断
-        if (myDeposit >= 0) {
+        let deposit=199;
+        if (myDeposit >= deposit) {
           let id = this.data.productDetail.id;
           that.setData({ isDialog: true })
           http.post('specialList', { id, isCommonGlass: 1 })
@@ -165,12 +192,14 @@ Page({
         } else {
           wx.showModal({
             title: '温馨提示',
-            content: '您还没缴纳押金，缴纳押金成为麦拜会员 即可免费领取一副眼镜',
+            content: '您还没缴纳押金，缴纳押金('+deposit+'元)成为麦拜会员 即可免费领取一副眼镜',
             confirmText: '去交押金',
             confirmColor: '#f00',
             success: function (res) {
               if (res.confirm) {
-                console.log('用户点击确定')
+               wx.navigateTo({
+                 url: '../joinvip/joinvip?isvip=1',
+               })
               } else if (res.cancel) {
                 console.log('用户点击取消')
               }
@@ -180,10 +209,10 @@ Page({
       })
   },
   // 预览验光单
-  previewImage(){
+  previewImage() {
     let ticketUrl = this.data.ticketUrl;
-    let baseUrl=http.baseUrl;
-    let urls=[];
+    let baseUrl = http.baseUrl;
+    let urls = [];
     urls.push(baseUrl + ticketUrl);
     wx.previewImage({
       urls
@@ -191,19 +220,19 @@ Page({
   },
   // 上传验光单
   chooseImage() {
-    let that=this;
+    let that = this;
     let baseUrl = http.baseUrl;
-    let token=wx.getStorageSync('token');
+    let token = wx.getStorageSync('token');
     wx.chooseImage({
       success: function (res) {
         wx.uploadFile({
           url: baseUrl + 'intf/uploadFile',
           filePath: res.tempFilePaths[0],
           name: 'file',
-          formData: {token},
+          formData: { token },
           success: function (res) {
-            let  ticketUrl=JSON.parse(res.data).data.url;
-            that.setData({ isPaizhao: false, ticketUrl})
+            let ticketUrl = JSON.parse(res.data).data.url;
+            that.setData({ isPaizhao: false, ticketUrl })
           }
         })
       }
@@ -241,9 +270,12 @@ Page({
     wx.setNavigationBarTitle({
       title: '商品详情',
     })
-    http.post('productDetail', options)
+    http.post('productDetailInfo', options)
       .then((res) => {
         console.log(res);
+        let productDetail=res.data;
+        productDetail.detailContent = productDetail.detailContent.split('|');
+        productDetail.detailContent.length--;
         this.setData({
           productDetail: res.data
         })

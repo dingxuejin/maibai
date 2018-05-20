@@ -1,5 +1,5 @@
 <!--pages/queren/queren.wxml-->
-<scroll-view style='height:1105rpx;' scrollY>
+<scroll-view style='height:90vh;' scrollY>
   <view id='user' wx:if="{{dizhi.phone}}"  bindtap='xzAddress'>
     <view class='flex-start'>
       <view class='weizhi'>
@@ -50,16 +50,17 @@
       </view>
       <view style='width:480rpx;'>
         <view class='flex-between'>
-          <text class='product-name'>{{productList[0].special.specialProductName}} {{productList[0].special.specialName}}</text>
+          <text class='product-name'>{{productList[0].special.specialProductName}}</text>
           <text class='product-geshu'>×1</text>
         </view>
         <view class='flex-start'>
           <view class='product-guige'>
-            <text>镜片规格：</text>
+            <text>规格：</text>
           </view>
           <view class='product-guigexx'>
             <view>
               <text class='product-text'>{{productList[0].glass.glassName}}</text>
+              <text class='product-text'> {{productList[0].special.specialName}}</text>
             </view>
           </view>
         </view>

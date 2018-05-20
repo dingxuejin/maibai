@@ -25,7 +25,8 @@
   color: #fff;
   background: #e51c23;
   border-radius: 0rpx;
-  height: 100rpx;
+  height: 10vh;
+  line-height: 10vh;
 }
 
 .dialog {

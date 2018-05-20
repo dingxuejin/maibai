@@ -3,7 +3,6 @@
 .vip1 {
   height: 350rpx;
   margin: 20rpx;
-  border: 2rpx dotted #333;
   border-radius: 6rpx;
   position: relative;
 }
@@ -34,7 +33,6 @@
 .vip6 {
   width: 100rpx;
   height: 100rpx;
-  border: 2rpx dotted #999;
   margin: 30rpx;
 }
 
@@ -59,4 +57,10 @@
 .vip9{
   background: #E51C23;
   color: #fff;
+}
+.vip10{
+  background: #fff;
+  color: #000;
+  border-top:2rpx solid #999;
+  box-sizing: border-box;
 }

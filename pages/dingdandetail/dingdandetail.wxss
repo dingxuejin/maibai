@@ -39,6 +39,7 @@
 
 .product {
   padding: 30rpx;
+  border-bottom:2rpx solid #ccc;
 }
 
 .product-img {
@@ -126,7 +127,7 @@
 
 #zhifu {
   border-top: 2rpx #ccc solid;
-  height: 100rpx;
+  height: 10vh;
   box-sizing: border-box;
 }
 

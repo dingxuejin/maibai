@@ -36,8 +36,6 @@
 
 }
 .img-size {
-  width: 690rpx;
-  height: 460rpx;
   vertical-align: bottom;
 }
 

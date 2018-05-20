@@ -36,13 +36,23 @@
     </view>
 
   </scroll-view>
-  <navigator url='../joinvip/joinvip'>
+   <navigator url='../joinvip/joinvip?isvip=1' wx:if='{{myBalanceInfo.deposit<199}}'>
     <view id='jiaoyajin' class='flex-between'>
       <view class='jiaoyajin1'>
         <text>未充押金,无法免费领取眼镜</text>
       </view>
       <view>
         <button class='jiaoyajin2'>交纳押金</button>
+      </view>
+    </view>
+  </navigator> 
+  <navigator url='../joinvip/joinvip?isvip=0' wx:else>
+    <view id='jiaoyajin' class='flex-between'>
+      <view class='jiaoyajin1'>
+        <text>加入会员满一年退会费，眼镜继续使用</text>
+      </view>
+      <view>
+        <button class='jiaoyajin2'>退押金</button>
       </view>
     </view>
   </navigator>

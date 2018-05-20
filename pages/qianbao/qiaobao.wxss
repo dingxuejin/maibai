@@ -7,7 +7,6 @@
 
 .qiaobao1 {
   margin: 20rpx;
-  border: 2rpx dotted #999;
   height: 350rpx;
   position: relative;
   border-radius: 10rpx;
