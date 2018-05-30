@@ -31,6 +31,13 @@ Page({
       filePath:'../../image/app.png'
     })
   },
+  // 前往评论页
+  toPinglunAll(){
+    let id = this.data.productDetail.id;
+    wx.navigateTo({
+      url: '../pinglunall/pinglunall?id='+id,
+    })
+  },
   // 关注公众号
   guanzu(){
     this.setData({ gongzhonghao: true})

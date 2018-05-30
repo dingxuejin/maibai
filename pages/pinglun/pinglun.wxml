@@ -3,35 +3,27 @@
   <view id='pinglun'>
     <view class='flex-start'>
       <view class='pinglun1'>
-        <image src='../../image/bg.png' class='full-img'></image>
+        <image src='{{baseUrl+orderDetail.productList[0].productImage}}' class='full-img'></image>
       </view>
       <view class='pinglun3'>
-        <text>评价评价</text>
+        <!-- <text>评价评价</text> -->
+        <text>{{orderDetail.productList[0].productName}}</text>
       </view>
-      <view class='flex-start'>
+      <!-- <view class='flex-start'>
         <image src='../../image/kongxing.png' class='pinglun2'></image>
         <image src='../../image/kongxing.png' class='pinglun2'></image>
         <image src='../../image/kongxing.png' class='pinglun2'></image>
         <image src='../../image/kongxing.png' class='pinglun2'></image>
         <image src='../../image/kongxing.png' class='pinglun2'></image>
-      </view>
+      </view> -->
     </view>
     <view class='hr'></view>
     <view style='margin:30rpx; padding:30rpx 0;border-bottom:2rpx solid #ccc;'>
-      <textarea class='pinglun4' maxlength='-1' placeholder='说说你对眼镜看法，分享给想买的他们把'></textarea>
+      <textarea class='pinglun4' maxlength='-1' value='{{textVal}}' bindinput='inputVal' placeholder='说说你对眼镜看法，分享给想买的他们把'></textarea>
     </view>
     <view class='flex-start pinglun8'>
-      <view class='pinglun9'>
-        <image src='../../image/paizhao.png' class='full-img'></image>
-      </view>
-      <view class='pinglun9'>
-        <image src='../../image/paizhao.png' class='full-img'></image>
-      </view>
-      <view class='pinglun9'>
-        <image src='../../image/paizhao.png' class='full-img'></image>
-      </view>
-      <view class='pinglun9'>
-        <image src='../../image/paizhao.png' class='full-img'></image>
+      <view class='pinglun9' wx:for='{{tempFilePaths}}' wx:key="{{index}}">
+        <image src='{{item}}' class='full-img'></image>
       </view>
       <view class='pinglun7 flex-center' bindtap='chooseImage'>
         <view>
@@ -46,6 +38,6 @@
     </view>
   </view>
 </scroll-view>
-<view id='tijiao' class='flex-center'>
+<view id='tijiao' class='flex-center' bindtap='tijiao'>
   <text>提交评论</text>
 </view>

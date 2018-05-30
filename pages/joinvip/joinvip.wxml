@@ -54,9 +54,10 @@
     </view>
   </view>
 </scroll-view>
-<view style='height:10vh;' class='flex-center vip9' wx:if='{{isvip==1}}'>
+<view style='height:10vh;' class='flex-center vip9' wx:if='{{isvip==1}}' bindtap='joinVip'>
   <text>加入会员</text>
 </view>
-<view style='height:10vh;' class='flex-center vip10' wx:else>
-  <text>退押金</text>
+<view style='height:10vh;' class='flex-between vip10' wx:else>
+  <text  class='vip11' style='border-right:2rpx solid #999;'  bindtap='yajinToYue'>押金充值为余额</text>
+  <text  class='vip11' bindtap='tuiyajin'>退还押金</text>
 </view>

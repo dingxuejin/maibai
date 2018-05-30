@@ -42,7 +42,7 @@ Page({
       http.post('getServiceOrderList', { token, index, size })
         .then(res => {
           let orderList = res.data;
-
+          console.log(res);
           if (orderList.list)
             orderList.list.map(val => {
               if (val.productList)
@@ -100,7 +100,7 @@ Page({
 
 
             })
-
+          console.log(orderList);
 
           this.setData({ orderList })
         })

@@ -1,0 +1,13 @@
+<!--pages/mianfeilingqu/mianfeilingqu.wxml-->
+<view class='mflq2'>
+  <text>标题：免费领取眼镜操作指南</text>
+</view>
+<view>
+  <image src='../../image/mflq1.jpg' mode='widthFix' class='mflq1'></image>
+</view>
+<view>
+  <image src='../../image/mflq2.png'  mode='widthFix' class='mflq1'></image>
+</view>
+<view>
+  <image src='../../image/mflq3.jpg'  mode='widthFix' class='mflq1'></image>
+</view>

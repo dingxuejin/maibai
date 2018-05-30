@@ -1,15 +1,19 @@
 {
   "pages": [
-      "pages/logintype/logintype",
+    "pages/logintype/logintype",
     "pages/mianfei/mianfei",
+    "pages/web1/web1",
+    "pages/mianfeilingqu/mianfeilingqu",
+    "pages/postdetail/postdetail",
+    "pages/wode/wode",
+    "pages/myjtg/myjtg",
+    "pages/payresult/payresult",
+    "pages/pinglunall/pinglunall",
     "pages/shouhou/shouhou",
     "pages/soresult/soresult",
- 
-    "pages/wode/wode",
     "pages/detail/detail",
     "pages/czoldmm/czoldmm",
     "pages/czmm/czmm",
-    "pages/payresult/payresult",
     "pages/sjyz/sjyz",
     "pages/yjsq/yjsq",
     "pages/joinvip/joinvip",
@@ -35,7 +39,6 @@
     "pages/web/web",
     "pages/haoyou1/haoyou1",
     "pages/prodetail/prodetail"
-   
   ],
   "window": {
     "backgroundTextStyle": "light",

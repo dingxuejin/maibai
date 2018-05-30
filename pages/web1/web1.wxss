@@ -1,0 +1,6 @@
+/* pages/web1/web1.wxss */
+.mflq2{
+  margin: 10rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}

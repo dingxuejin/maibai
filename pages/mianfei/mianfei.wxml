@@ -22,10 +22,10 @@
     </view>
   </view>
 </view>
-<scroll-view id='main' scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}' bindscrolltolower="scrolltolower">
+<scroll-view id='main'  scroll-with-animation scroll-y enable-back-to-top bindscroll='getScrollTop' scroll-top='{{scrollTop}}' bindscrolltolower="scrolltolower">
   <view>
     <!-- 轮播图 -->
-    <swiper indicator-active-color="#f00" indicator-dots="{{true}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:400rpx;'>
+    <swiper indicator-active-color="#f00" indicator-dots="{{false}}" circular='{{true}}' autoplay="{{true}}" interval="4000" style='height:400rpx;'>
       <block wx:for="{{bannerList}}" wx:key="{{index}}">
         <swiper-item bindtap='toWeb' data-weburl='{{item.detailUrl}}'>
           <image src="{{baseUrl+item.imgUrl}}"   mode='widthFix' style='width:100%;' />

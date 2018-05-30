@@ -1,5 +1,6 @@
 // pages/chongzhi/chongzhi.js
 import http from '../../utils/http.js'
+var MD5Util = require('../../utils/MD5.js');
 Page({
 
   /**
@@ -8,15 +9,15 @@ Page({
   data: {
 
     xiangmu: [
-      { title: '充199送10', value: '199' },
-      { title: '充299送20', value: '299' },
-      { title: '充399送50', value: '399' }
+      { title: '充值199', value: '199' },
+      { title: '充值299', value: '299' },
+      { title: '充值399', value: '399' }
     ],
     value: '',
     active: -1
   },
   // 前往充值协议
-  toWeb(){
+  toWeb() {
     wx.setStorageSync('detailUrl', http.chongzhiUrl)
     wx.navigateTo({
       url: `../web/web`,
@@ -31,24 +32,16 @@ Page({
   toChongzhi() {
     let token = wx.getStorageSync('token');
     let payMethod = 1;
-    // let type = 1;
-    let fee = '1';
-    http.post('addBalance', { token, payMethod, 'type': 1, fee })
+    let fee = this.data.value;
+    http.post('addBalanceOfMiniPrograms', { token, payMethod, 'type': 1, fee })
       .then(res => {
         let playInfo = res.data;
-        console.log(playInfo);
         let timeStamp = playInfo.timestamp;
+        let orderNumber = playInfo.orderNumber;
+        console.log(orderNumber)
         let nonceStr = playInfo.nonceStr;
         let prepay_id = 'prepay_id=' + playInfo.prePayId;
-        let paySign = playInfo.sign;
-        console.log({
-          timeStamp,
-          nonceStr,
-          'signType': 'MD5',
-          'package': prepay_id,
-          paySign
-      
-        })
+        let paySign = MD5Util.MD5(`appId=${http.appId}&nonceStr=${nonceStr}&package=${prepay_id}&signType=MD5&timeStamp=${timeStamp}&key=${http.key}`).toUpperCase();
         wx.requestPayment({
           timeStamp,
           nonceStr,
@@ -56,7 +49,12 @@ Page({
           'package': prepay_id,
           paySign,
           success(res) {
-            console.log(res);
+            http.post('getRechargeOrderPayResultForMiniPrograms', { token, orderNumber })
+              .then(res => {
+                wx.redirectTo({
+                  url: '../qianbao/qiaobao',
+                })
+              })
           },
           fail(err) {
             console.log(err)
@@ -65,7 +63,6 @@ Page({
       })
   },
   clickActive(e) {
-    console.log(e);
     let active = e.currentTarget.dataset.active;
     let xiangmu = this.data.xiangmu;
     let value = xiangmu[active].value

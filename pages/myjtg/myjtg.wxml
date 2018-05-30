@@ -1,0 +1,54 @@
+<!--pages/myjtg/myjtg.wxml-->
+<!--pages/payresult/payresult.wxml-->
+<view wx:if='{{freeDepositStatus==1}}'>
+  <view style='margin:80rpx auto;'>
+    <view class='flex-center'>
+      <icon type="success" size='80' />
+    </view>
+    <view class='flex-center' style='margin:10rpx auto; font-size:36rpx;color:#333;'>
+      <text>审核通过</text>
+    </view>
+    <view class='flex-center' style='margin:10rpx auto; font-size:32rpx;color:#333;'>
+      <text>可在“会员免费”区域领取一副眼镜</text>
+    </view>
+  </view>
+  <view style='padding: 30rpx;'>
+    <button class='btn' bindtap='bindClick'>我知道了</button>
+  </view>
+</view>
+<view wx:if='{{freeDepositStatus==2}}'>
+  <view style='margin:80rpx auto;'>
+    <view class='flex-center'>
+      <icon type="warn" size='80' />
+    </view>
+    <view class='flex-center' style='margin:10rpx auto; font-size:36rpx;color:#333;'>
+      <text>审核失败</text>
+    </view>
+    <view class='flex-center' style='margin:10rpx auto; font-size:32rpx;color:#333;'>
+      <text>您不符合要求，无法通过审核</text>
+    </view>
+    <view class='flex-center' style='margin:10rpx auto; font-size:32rpx;color:#333;'>
+      <text>通过缴纳押金免费领取眼镜</text>
+      <text class='toYajin' bindtap='toYajin'>去缴押金>></text>
+    </view>
+  </view>
+  <view style='padding: 30rpx;'>
+    <button class='btn' bindtap='bindToMyj'>重新申请</button>
+  </view>
+</view>
+<view wx:if='{{freeDepositStatus==3}}'>
+  <view style='margin:80rpx auto;'>
+    <view class='flex-center'>
+      <icon type="success" size='80' />
+    </view>
+    <view class='flex-center' style='margin:10rpx auto; font-size:36rpx;color:#333;'>
+      <text>提交成功</text>
+    </view>
+    <view class='flex-center' style='margin:10rpx auto; font-size:32rpx;color:#333;'>
+      <text>待工作人员审核</text>
+    </view>
+  </view>
+  <view style='padding: 30rpx;'>
+    <button class='btn' bindtap='bindClick'>我知道了</button>
+  </view>
+</view>

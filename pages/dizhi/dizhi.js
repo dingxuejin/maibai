@@ -64,7 +64,7 @@ Page({
     let isBlack = this.data.isBlack;
     if (isBlack === 0) {
       let address = JSON.stringify(e.currentTarget.dataset.address);
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../bjdz/bjdz?address=' + address,
       })
     }

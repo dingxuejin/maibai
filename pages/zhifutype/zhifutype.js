@@ -1,5 +1,6 @@
 // pages/zhifutype/zhifutype.js
 import http from '../../utils/http.js'
+var MD5Util = require('../../utils/MD5.js');
 Page({
 
   /**
@@ -23,7 +24,7 @@ Page({
       pwdShow,
       pwd: pwd.value
     })
-   
+
     if (pwd.cursor === 6) {
       let token = wx.getStorageSync('token');
       let password = pwd.value;
@@ -60,50 +61,70 @@ Page({
     let token = wx.getStorageSync('token');
 
     let payType = this.data.type;
-  
+
     if (payType === '-1') {
       wx.showModal({
         title: '支付操作',
         content: '请您选择支付方式'
       })
     } else if (payType === '0') {
-        // 微信支付
-      let orderNumber=this.data.order.orderNumber;
-      http.post('getPrePayIdOfMiniPrograms', { token, orderNumber,payMethod:1})
-      .then(res=>{
-        console.log(res);
+      // 微信支付
+      let orderNumber = this.data.order.orderNumber;
+      http.post('getPrePayIdOfMiniPrograms', { token, orderNumber, payMethod: 1 })
+        .then(res => {
+          let playInfo = res.data;
+          console.log(playInfo);
+          let timeStamp = playInfo.timestamp;
+          let nonceStr = playInfo.nonceStr;
+          let prepay_id = 'prepay_id=' + playInfo.prePayId;
+          let paySign = MD5Util.MD5(`appId=${http.appId}&nonceStr=${nonceStr}&package=${prepay_id}&signType=MD5&timeStamp=${timeStamp}&key=${http.key}`).toUpperCase();
+          console.log({
+            timeStamp,
+            nonceStr,
+            'signType': 'MD5',
+            'package': prepay_id,
+            paySign})
+          wx.requestPayment({
+            timeStamp,
+            nonceStr,
+            'signType': 'MD5',
+            'package': prepay_id,
+            paySign,
+            success(res) {
+              wx.showToast({
+                title: '支付成功',
+                success: function () {
+                  http.post('getOrderPayResultForMiniPrograms', { token, orderNumber })
+                    .then(res => {
+                      console.log(res);
+                      if (res.status === 0) {
+                        setTimeout(() => {
+                          wx.redirectTo({
+                            url: '../payresult/payresult',
+                          })
+                        }, 2000)
+                      }else{
+                        wx.showToast({
+                          title: res.msg,
+                          icon:'none'
+                        })
+                      }
+                    })
 
-        let playInfo = res.data;
-        console.log(playInfo);
-        let timeStamp = playInfo.timestamp;
-        let nonceStr = playInfo.nonceStr;
-        let prepay_id = 'prepay_id=' + playInfo.prePayId;
-        let paySign = playInfo.sign;
-        console.log({
-          timeStamp,
-          nonceStr,
-          'signType': 'MD5',
-          'package': prepay_id,
-          paySign
+                }
+              })
+            },
+            fail(err) {
+              wx.showToast({
+                title: '支付失败',
+                icon: 'none'
+              })
+            }
+          })
+
 
         })
-        wx.requestPayment({
-          timeStamp,
-          nonceStr,
-          'signType': 'MD5',
-          'package': prepay_id,
-          paySign,
-          success(res) {
-            console.log(res);
-          },
-          fail(err) {
-            console.log(err)
-          }
-        })
 
-
-      })
-    
     } else if (payType === '1') {
       // 余额支付
       http.post('getUserInfo', { token })
@@ -153,7 +174,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
     let resultPrie = options.resultPrie;
     let order = JSON.parse(options.order);
     console.log(order);

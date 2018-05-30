@@ -163,6 +163,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    let that = this;
     let token = wx.getStorageSync('token');
     let dizhi = this.data.dizhi;
     if (dizhi.phone) {
@@ -181,8 +182,20 @@ Page({
         } else {
           let dizhi = {};
           this.setData({ dizhi })
-        }
+          wx.showModal({
+            title: '操作提示',
+            content: '您还没有收货地址',
+            success: function (res) {
+              if (res.confirm == true) {
+                that.addAddress()
+              } else if (res.cancel == true) {
+                wx.navigateBack({
 
+                })
+              }
+            }
+          })
+        }
       }).then(() => {
         this.getPostFee()
       })

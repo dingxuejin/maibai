@@ -1,0 +1,7 @@
+<!--pages/web1/web1.wxml-->
+<view class='mflq2'>
+  <text>标题：千亿蛋糕已备好，邀你来战</text>
+</view>
+<view>
+  <image src='../../image/zhaoshang.jpg' mode='widthFix' style='width:100%;'></image>
+</view>

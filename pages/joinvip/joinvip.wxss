@@ -64,3 +64,10 @@
   border-top:2rpx solid #999;
   box-sizing: border-box;
 }
+.vip11{
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+}

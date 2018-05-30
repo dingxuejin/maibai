@@ -2,8 +2,13 @@
 let http={};
 // 接口时间戳
 let getTime = new Date().getTime();
+// appId
+http.appId = 'wxf518e574b3ed6481';
+// 商户密钥key
+http.key = 'xxymhtMAIBAIKEJIliguangwenxxymht';
 // 接口域名
-http.baseUrl = 'http://39.108.76.65:8080/';
+// http.baseUrl = 'http://39.108.76.65:8080/';
+http.baseUrl = 'https://app.myobye.com/';
 // 客服电话
 http.phoneNumber = '4006701808';
 // 充值说明Url

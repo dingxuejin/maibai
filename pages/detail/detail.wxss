@@ -160,7 +160,6 @@
 .tariconbtn {
   width: 50rpx;
   height: 50rpx;
-  border: 2rpx #ccc dotted;
   background: transparent;
   overflow: hidden;
   padding:0;
@@ -175,7 +174,7 @@
   background: #f00;
   color: #fff;
   border-radius: 6rpx;
-  width:280rpx;
+  min-width:280rpx;
 }
 
 .zhiding {
@@ -214,7 +213,6 @@
   position: absolute;
   top: 30rpx;
   right: 30rpx;
-  border: 2rpx dotted #333;
   width: 32rpx;
   height: 32rpx;
   z-index: 2;

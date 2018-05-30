@@ -3,10 +3,15 @@
   <view>
     <image src='../../image/loginbg.jpg' mode='widthFix' style='width:100%;'></image>
   </view>
-  <button  open-type="getUserInfo getPhoneNumber"  class='type2 flex-center' bindgetuserinfo='getuserinfo' bindgetphonenumber="getuserinfo">
+  <button wx:if='{{isGetUserInfo}}' open-type="getPhoneNumber" class='type2 flex-center' bindgetphonenumber="phonenumber">
     <image src='../../image/wxdl.png' class='type3'></image>
     <text>微信用户快速登录</text>
   </button>
+  <button wx:else open-type="getUserInfo" class='type2 flex-center' bindgetuserinfo='getuserinfo'>
+    <image src='../../image/wxdl.png' class='type3'></image>
+    <text>微信授权验证</text>
+  </button>
+
   <navigator url='../login/login'>
     <view class='type4 flex-center'>
       <image src='../../image/sjdl.png' class='type3'></image>

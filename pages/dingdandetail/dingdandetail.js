@@ -6,8 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    baseUrl:http.baseUrl,
+    baseUrl: http.baseUrl,
     status: -1
+  },
+  // 跳转到物流详情
+  toPostDetail() {
+    wx.navigateTo({
+      url: '../postdetail/postdetail',
+    })
+  },
+  // 跳转到评论
+  toPinglun(e) {
+
+    let orderData = this.data.orderDetail;
+    let orderId = orderData.orderId;
+    wx.navigateTo({
+      url: '../pinglun/pinglun?orderId=' + orderId,
+    })
   },
   // 去支付
   toZhifu() {
@@ -22,12 +37,7 @@ Page({
       url: '../zhifutype/zhifutype?resultPrie=' + resultPrie + '&&order=' + order,
     })
   },
-  // 跳转评论
-  toPinglun() {
-    wx.navigateTo({
-      url: '../pinglun/pinglun',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,66 +54,74 @@ Page({
   onReady: function () {
     let orderId = this.data.orderid;
     let token = wx.getStorageSync('token')
-    console.log(orderId);
+    console.log(orderId, token);
     http.post('getOrderDetail', { token, orderId })
       .then(result => {
-        let res = result.data;
-        if (res.productList && res.productList.length > 0)
-          res.productList.map(val => {
+        console.log(result)
+        if (result.status == 0) {
+          let res = result.data;
+          if (res.productList && res.productList.length > 0)
+            res.productList.map(val => {
 
-            if (val.eyeDistance) {
-              if (val.eyeDistance <= 0) {
-                val.eyeDistance = '无'
+              if (val.eyeDistance) {
+                if (val.eyeDistance <= 0) {
+                  val.eyeDistance = '无'
+                }
               }
-            }
-            if (val.leftSize) {
-              if (val.leftSize > 0) {
-                val.leftSize = '+' + parseFloat(val.leftSize).toFixed(2);
-              } else if (val.leftSize == 0) {
-                val.leftSize = '平光0.00';
-              } else {
-                val.leftSize = parseFloat(val.leftSize).toFixed(2);
+              if (val.leftSize) {
+                if (val.leftSize > 0) {
+                  val.leftSize = '+' + parseFloat(val.leftSize).toFixed(2);
+                } else if (val.leftSize == 0) {
+                  val.leftSize = '平光0.00';
+                } else {
+                  val.leftSize = parseFloat(val.leftSize).toFixed(2);
+                }
               }
-            }
-            if (val.rightSize) {
-              if (val.rightSize > 0) {
-                val.rightSize = '+' + parseFloat(val.rightSize).toFixed(2);
-              } else if (val.rightSize == 0) {
-                val.rightSize = '平光0.00';
-              } else {
-                val.rightSize = parseFloat(val.rightSize).toFixed(2);
+              if (val.rightSize) {
+                if (val.rightSize > 0) {
+                  val.rightSize = '+' + parseFloat(val.rightSize).toFixed(2);
+                } else if (val.rightSize == 0) {
+                  val.rightSize = '平光0.00';
+                } else {
+                  val.rightSize = parseFloat(val.rightSize).toFixed(2);
+                }
               }
-            }
-            if (val.rightLightSize) {
-              if (val.rightLightSize < 0) {
-                val.rightLightSize = parseFloat(val.rightLightSize).toFixed(2);
-              } else {
-                val.rightLightSize = '无';
+              if (val.rightLightSize) {
+                if (val.rightLightSize < 0) {
+                  val.rightLightSize = parseFloat(val.rightLightSize).toFixed(2);
+                } else {
+                  val.rightLightSize = '无';
+                }
               }
-            }
-            if (val.leftLocal) {
-              if (val.leftLocal == 0) {
+              if (val.leftLocal) {
+                if (val.leftLocal == 0) {
 
-                val.leftLocal = '无';
+                  val.leftLocal = '无';
+                }
               }
-            }
-            if (val.rightLocal) {
-              if (val.rightLocal == 0) {
+              if (val.rightLocal) {
+                if (val.rightLocal == 0) {
 
-                val.rightLocal = '无';
+                  val.rightLocal = '无';
+                }
               }
-            }
-            if (val.leftLightSize) {
-              if (val.leftLightSize < 0) {
-                val.leftLightSize = parseFloat(val.leftLightSize).toFixed(2);
-              } else {
-                val.leftLightSize = '无';
+              if (val.leftLightSize) {
+                if (val.leftLightSize < 0) {
+                  val.leftLightSize = parseFloat(val.leftLightSize).toFixed(2);
+                } else {
+                  val.leftLightSize = '无';
+                }
               }
-            }
-
+            })
+          console.log(res);
+          this.setData({ orderDetail: res })
+        } else {
+          wx.showToast({
+            title: '网络错误，请返回后重新连接',
+            icon: 'none'
           })
-        console.log(res);
-        this.setData({orderDetail:res})
+        }
+
       })
 
 

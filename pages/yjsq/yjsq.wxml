@@ -106,6 +106,6 @@
     </view>
   </view>
   <button class='tijiao flex-center' formType='submit'>
-    <text>提交订单</text>
+    <text>提交申请</text>
   </button>
 </form>

@@ -1,0 +1,94 @@
+<!--pages/pinglunall/pinglunall.wxml-->
+ <view class='flex-between pinglun'>
+  <view>
+    <!-- <text>好评度95%</text> -->
+  </view>
+</view> 
+<view class='flex-start ping0'>
+  <view class='ping1 flex-center {{active==index?"active":""}}' bindtap='bindClick' data-active='{{index}}' wx:for='{{tarbar}}' wx:key='{{index}}'>
+    <text>{{item}}</text>
+  </view>
+</view>
+<view class='hr ping2'></view>
+
+<view id='pinglun' wx:if='{{active==0}}'>
+  <view class='pinglun-inner' wx:for='{{allPinglun.pinglunList}}' wx:key="{{index}}">
+    <!-- 评论人信息 -->
+    <view class='flex-between  pinglun-user'>
+      <view class='flex-start'>
+        <view class='headerimage'>
+          <image wx:if='{{item.userHeader!=="null"}}' src='{{item.userHeader}}' class='full-img'></image>
+          <image wx:else src='../../image/headerimage.png' class='full-img'></image>
+        </view>
+        <view>
+          <view>
+            <text>{{item.userName}}</text>
+          </view>
+          <view>
+            <text class='pinglun-date'>{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+      <view>
+        <image class='xing' src='../../image/xing.png' wx:for='{{1*item.level}}' wx:key='{{index}}'></image>
+        <image class='xing' src='../../image/kongxing.png' wx:for='{{5-item.level}}' wx:key='{{index}}'></image>
+      </view>
+    </view>
+    <!-- 评论人信息end -->
+    <!-- 评论内容 -->
+    <view class='pinglun-content'>
+      <text>{{item.content}}</text>
+    </view>
+    <view class='flex-start pinglun-content'>
+    <view wx:for='{{item.imgList}}' wx:key="{{index}}">
+      <view class='pinglun-img' wx:if='{{item}}'>
+        <image src='{{baseUrl+item}}' class='full-img'></image>
+      </view>
+    </view>
+    
+
+
+    </view>
+    <!-- 评论内容end -->
+  </view>
+
+</view>
+<view id='pinglun' wx:if='{{active==1}}'>
+  <view class='pinglun-inner' wx:for='{{hasTuPinglun.pinglunList}}' wx:key="{{index}}">
+    <!-- 评论人信息 -->
+    <view class='flex-between  pinglun-user'>
+      <view class='flex-start'>
+        <view class='headerimage'>
+          <image wx:if='{{item.userHeader!=="null"}}' src='{{item.userHeader}}' class='full-img'></image>
+          <image wx:else src='../../image/headerimage.png' class='full-img'></image>
+        </view>
+        <view>
+          <view>
+            <text>{{item.userName}}</text>
+          </view>
+          <view>
+            <text class='pinglun-date'>{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+      <view>
+        <image class='xing' src='../../image/xing.png' wx:for='{{1*item.level}}' wx:key='{{index}}'></image>
+        <image class='xing' src='../../image/kongxing.png' wx:for='{{5-item.level}}' wx:key='{{index}}'></image>
+      </view>
+    </view>
+    <!-- 评论人信息end -->
+    <!-- 评论内容 -->
+    <view class='pinglun-content'>
+      <text>{{item.content}}</text>
+    </view>
+    <view class='flex-start pinglun-content'>
+      <view class='pinglun-img' wx:for='{{item.imgList}}' wx:key="{{index}}">
+        <image src='{{baseUrl+item}}' class='full-img'></image>
+      </view>
+
+
+    </view>
+    <!-- 评论内容end -->
+  </view>
+
+</view>

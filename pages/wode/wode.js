@@ -12,9 +12,23 @@ Page({
   },
   // 前往押金申请
   toYjsq(){
-    wx.navigateTo({
-      url: '../yjsq/yjsq',
+    let token=wx.getStorageSync('token')
+    http.post('getUserInfo',{token})
+    .then(res=>{
+      let freeDepositStatus = res.data.freeDepositStatus
+      console.log(freeDepositStatus);
+      if (freeDepositStatus==0){
+        wx.navigateTo({
+          url: '../yjsq/yjsq',
+        })
+      } else {
+        wx.navigateTo({
+          url: '../myjtg/myjtg',
+        })
+      }
+      
     })
+  
   },
   /**
    * 生命周期函数--监听页面加载
@@ -27,29 +41,25 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let userInfo = wx.getStorageSync('userInfo')
-    this.setData({
-      headerimage: userInfo.avatarUrl,
-      nickname: userInfo.nickName
+   
+    let that = this;
+    let token = wx.getStorageSync('token')
+    http.post('getUserInfo', { token })
+    .then(res=>{
+      console.log(res.data)
+      // 获取用户头像
+      if(res.data.headImage){
+        that.setData({
+          headerimage: res.data.headImage
+        })
+      }
+      // 获取用户昵称
+      if (res.data.nickname) {
+        that.setData({
+          nickname: res.data.nickname
+        })
+      }
     })
-    // let that = this;
-    // let token = wx.getStorageSync('token')
-    // http.post('getUserInfo', { token })
-    // .then(res=>{
-    //   console.log(res.data)
-    //   // 获取用户头像
-    //   if(res.data.headImage){
-    //     that.setData({
-    //       headerimage: res.data.headImage
-    //     })
-    //   }
-    //   // 获取用户昵称
-    //   if (res.data.nickname) {
-    //     that.setData({
-    //       nickname: res.data.nickname
-    //     })
-    //   }
-    // })
   },
 
   /**

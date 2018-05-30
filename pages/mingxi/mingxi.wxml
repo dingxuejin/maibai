@@ -1,61 +1,25 @@
 <!--pages/mingxi/mingxi.wxml-->
-<view class='mingxi'>
-  <view class='flex-between mingxi1'>
-    <view class='mingxi2'>
-      <text>支付运费</text>
+
+<view wx:if='{{status==0}}'>
+  <view class='mingxi' wx:for='{{detail}}' wx:key='{{index}}'>
+    <view class='flex-between mingxi1'>
+      <view class='mingxi2'>
+        <text>{{item.payDes}}</text>
+      </view>
+      <view class='mingxi3'>
+        <text>{{item.payFee}}</text>
+      </view>
     </view>
-    <view class='mingxi3'>
-      <text>-20.00</text>
-    </view>
-  </view>
-  <view class='flex-between mingxi4'>
-    <view class='mingxi5'>
-      <text>2018-03-23 </text>
-      <text> 10:23</text>
-    </view>
-    <view class='mingxi5'>
-      <text>余额</text>
-      <text>21.00</text>
-    </view>
-  </view>
-</view>
-<view class='mingxi'>
-  <view class='flex-between mingxi1'>
-    <view class='mingxi2'>
-      <text>充值赠送</text>
-    </view>
-    <view class='mingxi6'>
-      <text>+25.00</text>
-    </view>
-  </view>
-  <view class='flex-between mingxi4'>
-    <view class='mingxi5'>
-      <text>2018-03-23 </text>
-      <text> 10:23</text>
-    </view>
-    <view class='mingxi5'>
-      <text>余额</text>
-      <text>21.00</text>
+    <view class='flex-between mingxi4'>
+      <view class='mingxi5'>
+        <text>{{item.payTime}}</text>
+      </view>
+      <view class='mingxi5'>
+        <text>{{item.payWay}}</text>
+      </view>
     </view>
   </view>
 </view>
-<view class='mingxi'>
-  <view class='flex-between mingxi1'>
-    <view class='mingxi2'>
-      <text>客户充值</text>
-    </view>
-    <view class='mingxi6'>
-      <text>+200.00</text>
-    </view>
-  </view>
-  <view class='flex-between mingxi4'>
-    <view class='mingxi5'>
-      <text>2018-03-23 </text>
-      <text> 10:23</text>
-    </view>
-    <view class='mingxi5'>
-      <text>余额</text>
-      <text>21.00</text>
-    </view>
-  </view>
+<view wx:else class='mingxi8'>
+  <text>暂无数据</text>
 </view>

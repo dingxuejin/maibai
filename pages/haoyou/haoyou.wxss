@@ -4,7 +4,6 @@
   width:320rpx;
   height: 320rpx;
   margin: 60rpx auto;
-  border: 2rpx dotted #333;
   border-radius: 10rpx;
 }
 .haoyou1{

@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isGetUserInfo: false,
+    gender: '',
+    avatarUrl: ''
   },
   // 前往用户手册
   toWeb() {
@@ -15,55 +17,103 @@ Page({
       url: `../web/web`,
     })
   },
-  // 获得用户信息
+  // 获得用户信息授权
   getuserinfo(res) {
-    let userInfo = res.detail.userInfo;
-    if (userInfo) {
-      wx.setStorage({
-        key: 'userInfo',
-        data: userInfo,
-      })
-      wx.login({
-        timeout: 20000,
-        fail: function () {
-          wx.showToast({
-            title: '登录失败',
-            icon: 'none'
-          })
-        },
-        success: function (res) {
-          let token = res.code;
-          wx.setStorage({
-            key: 'token',
-            data: token,
-          })
-        }
-      })
-      // wx.reLaunch({
-      //   url: '../mianfei/mianfei'
-      // })
-    } else {
-      wx.showToast({
-        title: '用户信息获取失败',
-        icon: 'none'
-      })
-    }
+    console.log(res)
+    let avatarUrl = res.detail.userInfo.avatarUrl;
+    let nickName = res.detail.userInfo.nickName;
+    let gender = res.detail.userInfo.gender;
+    this.setData({
+      isGetUserInfo: true,
+      gender,
+      nickName,
+      avatarUrl
+    })
 
 
+  },
+  // 获得用户手机号登陆
+  phonenumber(res) {
+    let that = this;
+    wx.login({
+      success: function (res1) {
+        let JSCODE = res1.code;
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session',
+          data: {
+            appid: 'wxf518e574b3ed6481',
+            secret: '95ace8bcc67a05d19b4ace8f07404995',
+            js_code: JSCODE,
+            grant_type: 'authorization_code'
+          },
+          success(res2) {
+            let newData = {};
+            newData.openid = res2.data.openid;
+            newData.session_key = res2.data.session_key;
+            newData.encryptedData = res.detail.encryptedData;
+            newData.iv = res.detail.iv;
+
+            newData.headImgUrl = that.data.avatarUrl
+            newData.nickName = that.data.nickName
+            newData.gender = that.data.gender
+            newData.userPhone = '';
+            console.log(newData);
+            http.post('thirdUserlogin', newData)
+              .then(res => {
+                if (res.status === 0) {
+                  wx.setStorage({
+                    key: 'token',
+                    data: res.data.token,
+                  })
+                  wx.reLaunch({
+                    url: '../mianfei/mianfei',
+                  })
+                } else {
+                  wx.showToast({
+                    title: '网络错误',
+                    icon: 'none'
+                  })
+                }
+
+              })
+          }
+        })
+      }
+    })
 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    let that = this;
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，
+          wx.getUserInfo({
+            success: function (res) {
+              let avatarUrl = res.userInfo.avatarUrl;
+              let gender = res.userInfo.gender;
+              let nickName = res.userInfo.nickName;
+              that.setData({
+                isGetUserInfo: true,
+                gender,
+                nickName,
+                avatarUrl
+              })
+            }
+          })
 
+        }
+      }
+    })
   },
 
   /**

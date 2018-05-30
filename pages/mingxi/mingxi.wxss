@@ -32,3 +32,9 @@
 .mingxi6{
   color:#09BB07;
 }
+.mingxi8{
+  margin: 200rpx auto;
+  color:#333;
+  font-size: 36rpx;
+  text-align: center;
+}

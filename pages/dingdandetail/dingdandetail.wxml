@@ -151,7 +151,7 @@
   </view>
 </view>
 <view class='flex-between' id='zhifu' wx:elif="{{status===2}}">
-  <view class='zhifu2 zhifu5 flex-center'>
+  <view class='zhifu2 zhifu5 flex-center' bindtap='toPostDetail'>
     <text>物流追踪</text>
   </view>
   <view class='zhifu1 zhifu5 flex-center'>
@@ -162,7 +162,7 @@
   </view>
 </view>
 <view class='flex-between' id='zhifu' wx:elif="{{status===3}}">
-  <view class='zhifu2 zhifu4 flex-center'>
+  <view class='zhifu2 zhifu4 flex-center' bindtap='toPostDetail'>
     <text>物流追踪</text>
   </view>
   <view class='zhifu3 zhifu4 flex-center'>
@@ -170,14 +170,14 @@
   </view>
 </view>
 <view class='flex-between' id='zhifu' wx:elif="{{status===4}}">
-  <view class='zhifu2 zhifu5 flex-center'>
+  <!-- <view class='zhifu2 zhifu5 flex-center'>
     <text>删除订单</text>
-  </view>
-  <view class='zhifu1 zhifu5 flex-center'>
+  </view> -->
+  <view class='zhifu1 zhifu4 flex-center' bindtap='toPostDetail'>
     <text>追踪物流</text>
   </view>
 
-  <view class='zhifu3 zhifu5 flex-center' bindtap='toPinglun'>
+  <view class='zhifu3 zhifu4 flex-center' bindtap='toPinglun'>
     <text>评论</text>
   </view>
 

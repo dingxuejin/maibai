@@ -1,0 +1,26 @@
+<!--pages/postdetail/postdetail.wxml-->
+<view id='post' wx:if='{{status==0}}'>
+  <view class='post1'>
+    <text>物流公司：</text>
+    <text>顺丰物流</text>
+  </view>
+  <view class='post1'>
+    <text>物流单号：</text>
+    <text>{{postDetail.post_num}}</text>
+  </view>
+  <view class='post1'>
+    <text>物流信息：</text>
+  </view>
+  <view wx:for='{{postDetail.list}}' wx:key='{{index}}' style='margin-top:20rpx;'>
+    <view class='flex-start'>
+      <text class='post2 {{index==0?"active":""}}'></text>
+      <text class='post3'>{{item.time}}</text>
+    </view>
+    <view class='post4'>
+      <text>{{item.context}}</text>
+    </view>
+  </view>
+</view>
+<view wx:else class='post5 flex-center'>
+  <text>暂无相关物流信息</text>
+</view>

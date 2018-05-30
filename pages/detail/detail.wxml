@@ -86,11 +86,11 @@
               </view>
             </view>
             <view>
+              <!-- <image class='xing' src='../../image/xing.png'></image>
               <image class='xing' src='../../image/xing.png'></image>
               <image class='xing' src='../../image/xing.png'></image>
               <image class='xing' src='../../image/xing.png'></image>
-              <image class='xing' src='../../image/xing.png'></image>
-              <image class='xing' src='../../image/kongxing.png'></image>
+              <image class='xing' src='../../image/kongxing.png'></image> -->
             </view>
           </view>
           <!-- 评论人信息end -->
@@ -98,7 +98,7 @@
           <view class='pinglun-content'>
             <text>{{productDetail.comments.commentFirst.content}}</text>
           </view>
-          <view class='flex-start pinglun-content'>
+          <!-- <view class='flex-start pinglun-content'>
             <view class='pinglun-img'>
               <image src='../../image/bg.png' class='full-img'></image>
             </view>
@@ -114,12 +114,12 @@
             <view class='pinglun-img'>
               <image src='../../image/bg.png' class='full-img'></image>
             </view>
-          </view>
+          </view> -->
           <!-- 评论内容end -->
         </view>
       </view>
 
-      <view class='text-center chakanall'>
+      <view class='text-center chakanall' bindtap='toPinglunAll'>
         <text>查看全部评价</text>
       </view>
     </view>
@@ -161,16 +161,16 @@
 </scroll-view>
 <view id='detail-tarbar' class='flex-between'>
   <view class='flex-start'>
-    <view class='add1'>
-      <image class='taricon' src='../../image/guanzu.png' bindtap='guanzu'></image>
+    <view class='add1' bindtap='guanzu'>
+      <image class='taricon' src='../../image/guanzu.png' ></image>
       <text class='add2'>关注</text>
     </view>
-    <view class='add1'>
-      <image class='taricon' src='../../image/shouji.png' bindtap='loadApp'></image>
-      <text class='add2'>App</text>
+    <view class='add1' bindtap='loadApp'>
+      <image class='taricon' src='../../image/shouji.png' ></image>
+      <text class='add2'>APP</text>
     </view>
-    <view class='add1'>
-      <image class='taricon' src='../../image/dianhua.png' bindtap='telKefu'></image>
+    <view class='add1' bindtap='telKefu'>
+      <image class='taricon' src='../../image/dianhua.png' ></image>
       <text class='add2'>热线</text>
     </view>
     <view class='add1'>
@@ -189,7 +189,7 @@
   </view>
 </view>
 <!-- 置顶 -->
-<cover-view class='zhiding flex-center' wx:if='{{isShowZhiding}}' bindtap='toScrollTop'>
+<cover-view class='zhiding flex-center' wx:if='{{isShowZhiding&&!isDialog}}' bindtap='toScrollTop'>
   <cover-image class='zhiding1' src='../../image/zhiding.png'></cover-image>
 </cover-view>
 
@@ -241,7 +241,7 @@
         </view>
         <!-- 选择标题 -->
         <view class='xuanze-title'>
-          <text>镜片规格</text>
+          <text>度数</text>
         </view>
         <!-- 选择内容 -->
 

@@ -1,12 +1,12 @@
 <!-- 邀请好友 -->
 <view id='erweima'>
-  <image src='../../image/bg.png' class='full-img'></image>
+  <image src='../../image/fxhaoyou.png' class='full-img'></image>
 </view>
 <view class='flex-center'>
   <text class='haoyou1'>邀请好友得现金奖励</text>
 </view>
 <view class='flex-center haoyou3 text-center'>
-  <text class='haoyou2'>邀请好友成功注册，即可获得10元现金红包，不限封顶 还在等什么赶紧来参与吧！！！</text>
+  <text class='haoyou2'>邀请好友成功注册，即可获得5元现金红包，不限封顶 还在等什么赶紧来参与吧！！！</text>
 </view>
 <view class='flex-center haoyou3'>
  <button  class='haoyou4' open-type="share">邀请好友</button>

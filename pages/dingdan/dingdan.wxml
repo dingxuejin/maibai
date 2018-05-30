@@ -4,7 +4,7 @@
 <template name='1'>
   <view>
     <view class='hr'></view>
-    <view bindtap='toDetail' data-status='1' data-orderid='{{orderId}}'>
+    <view>
       <view class='flex-between'>
         <view class='dingdan2'>
           <text>订单号：</text>
@@ -14,7 +14,7 @@
           <text>等待付款</text>
         </view>
       </view>
-      <view class='flex-between dingdan'>
+      <view class='flex-between dingdan' bindtap='toDetail' data-logisticurl='{{logisticUrl}}' data-status='1' data-orderid='{{orderId}}'>
         <view class='product-img'>
           <image src='{{baseUrl+productList[0].productImage}}' class='full-img'></image>
         </view>
@@ -58,6 +58,9 @@
         <text>{{'应付￥'+orderFee}}</text>
       </view>
       <view class='flex-end'>
+        <view>
+          <button size='mini' class='dingdan1 dingdan4' bindtap='detelOrder' data-orderCode='{{orderCode}}'>删除订单</button>
+        </view>
         <view bindtap='toZhifu' data-resultPrie='{{orderFee}}' data-orderId='{{orderId}}' data-orderNumber='{{orderCode}}'>
           <button size='mini' class='dingdan1 dingdan3'>去支付</button>
         </view>
@@ -71,7 +74,7 @@
 <template name='2'>
   <view>
     <view class='hr'></view>
-    <view bindtap='toDetail' data-status='2' data-orderid='{{orderId}}'>
+    <view>
       <view class='flex-between'>
         <view class='dingdan2'>
           <text>订单号：</text>
@@ -82,7 +85,7 @@
 
         </view>
       </view>
-      <view class='flex-between dingdan'>
+      <view class='flex-between dingdan' bindtap='toDetail' data-logisticurl='{{logisticUrl}}'  data-status='2' data-orderid='{{orderId}}'>
         <view class='product-img'>
           <image src='{{baseUrl+productList[0].productImage}}' class='full-img'></image>
         </view>
@@ -125,10 +128,10 @@
         <text>{{'应付￥'+orderFee}}</text>
       </view>
       <view class='flex-end'>
-        <view>
+        <view bindtap='toPostDetail' data-logisticurl='{{logisticUrl}}'>
           <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
         </view>
-        <view>
+        <view bindtap='tixing'>
           <button size='mini' class='dingdan1 dingdan3'>提醒发货</button>
         </view>
       </view>
@@ -141,7 +144,7 @@
 <template name='3'>
   <view>
     <view class='hr'></view>
-    <view bindtap='toDetail' data-status='3' data-orderid='{{orderId}}'>
+    <view>
       <view class='flex-between'>
         <view class='dingdan2'>
           <text>订单号：</text>
@@ -152,7 +155,7 @@
 
         </view>
       </view>
-      <view class='flex-between dingdan'>
+      <view class='flex-between dingdan' bindtap='toDetail' data-logisticurl='{{logisticUrl}}'  data-status='3' data-orderid='{{orderId}}'>
         <view class='product-img'>
           <image src='{{baseUrl+productList[0].productImage}}' class='full-img'></image>
         </view>
@@ -196,7 +199,7 @@
         <text>{{'应付￥'+orderFee}}</text>
       </view>
       <view class='flex-end'>
-        <view>
+        <view bindtap='toPostDetail' data-logisticurl='{{logisticUrl}}'>
           <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
         </view>
         <view>
@@ -212,18 +215,18 @@
 <template name='4'>
   <view>
     <view class='hr'></view>
-    <view bindtap='toDetail' data-status='4' data-orderid='{{orderId}}'>
+    <view>
       <view class='flex-between'>
         <view class='dingdan2'>
           <text>订单号：</text>
           <text>{{orderCode}}</text>
         </view>
         <view class='dingdan1'>
-          <text>确认发货</text>
+          <text>交易完成</text>
 
         </view>
       </view>
-      <view class='flex-between dingdan'>
+      <view class='flex-between dingdan' bindtap='toDetail' data-logisticurl='{{logisticUrl}}'  data-status='4' data-orderid='{{orderId}}'>
         <view class='product-img'>
           <image src='{{baseUrl+productList[0].productImage}}' class='full-img'></image>
         </view>
@@ -268,16 +271,16 @@
       </view>
       <view class='flex-end'>
         <view>
-          <button size='mini' class='dingdan1 dingdan4'>售后</button>
+          <button size='mini' class='dingdan1 dingdan4' bindtap='toSouhou'>售后</button>
         </view>
-        <view>
-          <button size='mini' class='dingdan1 dingdan4'>删除订单</button>
-        </view>
-        <view>
+        <!-- <view>
+          <button size='mini' class='dingdan1 dingdan4' bindtap='detelOrder' data-orderCode='{{orderCode}}'>删除订单</button>
+        </view> -->
+        <view bindtap='toPostDetail' data-logisticurl='{{logisticUrl}}'>
           <button size='mini' class='dingdan1 dingdan4'>物流追踪</button>
         </view>
-        <view bindtap='toPinglun'>
-          <button size='mini' class='dingdan1 dingdan3'>评论</button>
+        <view>
+          <button size='mini' class='dingdan1 dingdan3' bindtap='toPinglun' data-orderId='{{orderId}}'>评论</button>
         </view>
       </view>
     </view>

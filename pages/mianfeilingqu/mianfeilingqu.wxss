@@ -1,0 +1,9 @@
+/* pages/mianfeilingqu/mianfeilingqu.wxss */
+.mflq1{
+  width:100%;
+}
+.mflq2{
+  margin: 10rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+}

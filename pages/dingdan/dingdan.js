@@ -44,6 +44,34 @@ Page({
       activeIndex
     });
   },
+  // 提醒发货
+  tixing(){
+    wx.showToast({
+      title: '已提醒卖家发货',
+    })
+  },
+  // 跳转到物流详情
+  toPostDetail(e) {
+    let logisticUrl = e.currentTarget.dataset.logisticurl;
+    wx.setStorageSync('logisticUrl', logisticUrl)
+    wx.navigateTo({
+      url: '../postdetail/postdetail',
+    })
+  },
+  // 跳转到售后
+  toSouhou() {
+    wx.navigateTo({
+      url: '../shouhou/shouhou',
+    })
+  },
+  // 跳转到评论
+  toPinglun(e) {
+
+    let orderId = e.currentTarget.dataset.orderid;
+    wx.navigateTo({
+      url: '../pinglun/pinglun?orderId=' + orderId,
+    })
+  },
   // 去支付
   toZhifu(e) {
     let orderData = e.currentTarget.dataset;
@@ -57,12 +85,7 @@ Page({
       url: '../zhifutype/zhifutype?resultPrie=' + resultPrie + '&&order=' + order,
     })
   },
-  // 跳转评论
-  toPinglun() {
-    wx.navigateTo({
-      url: '../pinglun/pinglun',
-    })
-  },
+
   getOrder() {
     let activeIndex = this.data.activeIndex;
     if (activeIndex == 0) {
@@ -149,12 +172,36 @@ Page({
 
           order.list = order.list.concat(data.list);
           newOrder[str] = order;
+          console.log(newOrder);
           this.setData(newOrder)
         }
 
 
       })
 
+  },
+  detelOrder(e) {
+    let orderNumber = e.currentTarget.dataset.ordercode;
+    let token = wx.getStorageSync('token');
+    let activeIndex = this.data.activeIndex;
+    http.post('deleteOrder', { token, orderNumber })
+      .then(res => {
+        if (res.status == 0) {
+          wx.showToast({
+            title: '删除成功',
+            success: function () {
+              wx.redirectTo({
+                url: '../dingdan/dingdan?active=' + activeIndex,
+              })
+            }
+          })
+        } else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none'
+          })
+        }
+      })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -171,11 +218,20 @@ Page({
     })
   },
   // 前往订单详情
-  toDetail(e){
-    console.log(e.currentTarget.dataset)
-    let params = JSON.stringify(e.currentTarget.dataset);
+  toDetail(e) {
+    // data - logisticurl='{{logisticUrl}}'  data- status='2' data- orderid='{{orderId}}'
+
+    let dataset = e.currentTarget.dataset;
+    wx.setStorage({
+      key: 'logisticUrl',
+      data: dataset.logisticurl,
+    })
+    let params = {};
+    params.orderid=dataset.orderid;
+    params.status=dataset.status;
+    params = JSON.stringify(params);
     wx.navigateTo({
-      url: '../dingdandetail/dingdandetail?params='+params,
+      url: '../dingdandetail/dingdandetail?params=' + params,
     })
 
   },

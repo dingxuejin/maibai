@@ -1,0 +1,9 @@
+/* pages/myjtg/myjtg.wxss */
+.btn{
+  background: #fff;
+  height: 100rpx;
+}
+.toYajin{
+  color: #f00;
+  margin-left: 30rpx;
+}
