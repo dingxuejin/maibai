@@ -54,6 +54,13 @@ Page({
               if (res.status == 0) {
                 wx.showToast({
                   title: '操作成功',
+                  success: function () {
+                    setTimeout(function () {
+                      wx.redirectTo({
+                        url: '../qianbao/qiaobao',
+                      })
+                    }, 2000)
+                  }
                 })
               } else {
                 wx.showToast({
@@ -74,13 +81,19 @@ Page({
       content: '是否确认退押金',
       success: function (res) {
         if (res.confirm == true) {
-          console.log(token)
           http.post('returnMoneyForMiniPrograms', { token, cause: 1 })
             .then(res => {
               console.log(res);
               if (res.status == 0) {
                 wx.showToast({
                   title: '操作成功',
+                  success: function () {
+                    setTimeout(function () {
+                      wx.redirectTo({
+                        url: '../qianbao/qiaobao',
+                      })
+                    }, 2000)
+                  }
                 })
               } else {
                 wx.showToast({

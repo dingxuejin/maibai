@@ -31,14 +31,12 @@ Page({
   },
   // 前往web查看
   toWeb(e) {
-      wx.navigateTo({
-        url: `../mianfeilingqu/mianfeilingqu`,
+    let id = e.currentTarget.dataset.id;
+    let webUrl = http.baseUrl + 'intf/specialActive/' + id
+    wx.setStorageSync('detailUrl', webUrl)
+    wx.navigateTo({
+      url: `../web/web`,
     })
-    // let webUrl = e.currentTarget.dataset.weburl;
-    // wx.setStorageSync('detailUrl', webUrl)
-    // wx.navigateTo({
-    //   url: `../web/web`,
-    // })
   },
   // 获取商品列表
   getProductList: function () {
@@ -120,9 +118,8 @@ Page({
       "type": 4,
       "token": wx.getStorageSync("token")
     }).then((res) => {
-//  选取轮播第一张作为轮播
       that.setData({
-        bannerList: res.data.list.slice(0, 1)
+        bannerList: res.data.list
       })
     });
     http.post('productTypeList')
