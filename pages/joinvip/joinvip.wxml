@@ -55,7 +55,7 @@
   </view>
 </scroll-view>
 <view style='height:10vh;' class='flex-center vip9' wx:if='{{isvip==1}}' bindtap='joinVip'>
-  <text>加入会员</text>
+  <text>{{'加入会员 ￥'+yajin}}</text>
 </view>
 <view style='height:10vh;' class='flex-between vip10' wx:else>
   <text  class='vip11' style='border-right:2rpx solid #999;'  bindtap='yajinToYue'>押金充值为余额</text>

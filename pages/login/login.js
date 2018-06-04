@@ -18,6 +18,13 @@ Page({
           // 验证码校验成功
 
 
+          let that = this;
+          wx.login({
+            success: function (res1) {
+              let js_code = res1.code;
+              http.post('wxLoginForMiniPrograms', { js_code })
+            }
+          })
           wx.setStorage({
             key: "token",
             data: res.data.token
@@ -59,7 +66,7 @@ Page({
             let time = setInterval(() => {
               totalTime--;
               this.setData({
-                yzm: totalTime+'S'
+                yzm: totalTime + 'S'
               })
               if (totalTime <= 0) {
                 clearInterval(time);

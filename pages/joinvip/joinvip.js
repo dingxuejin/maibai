@@ -7,12 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    yajin: http.yajin
   },
   joinVip() {
     let token = wx.getStorageSync('token');
     let payMethod = 1;
-    let fee = 199;
+    let fee = this.data.yajin;
     http.post('addBalanceOfMiniPrograms', { token, payMethod, 'type': 2, fee })
       .then(res => {
         console.log(res)
@@ -74,7 +74,8 @@ Page({
       content: '是否确认退押金',
       success: function (res) {
         if (res.confirm == true) {
-          http.post('returnMoney', { token, cause:1 })
+          console.log(token)
+          http.post('returnMoneyForMiniPrograms', { token, cause: 1 })
             .then(res => {
               console.log(res);
               if (res.status == 0) {

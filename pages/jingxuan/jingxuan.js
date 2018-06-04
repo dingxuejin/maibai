@@ -8,13 +8,7 @@ Page({
   data: {
     baseUrl: http.baseUrl,
     huodong: [],
-    zhaoshang: [
-      {
-        imgUrl:'../../image/zhaoshang1.jpg',
-        title:'千亿蛋糕已备好，邀你来战',
-        description:'欢迎加盟麦拜'
-      }
-    ],
+    zhaoshang: [],
     gongyi: [],
     tabs: ["活动", "招商", "公益"],
     activeIndex: 0,
@@ -39,8 +33,9 @@ Page({
    
     let index = e.currentTarget.dataset.index;
     console.log(huodong);
-    let webUrl = huodong[index].detailUrl;
     let id = huodong[index].id;
+    let webUrl = http.baseUrl +'intf/specialActive/'+id
+    wx.setStorageSync('detailUrl', webUrl)
     http.post('addViewNumber', { id })
       .then(res => {
         if (res.status === 0) {
@@ -100,7 +95,7 @@ Page({
     })
     .then(() => {
       if (activeIndex === '1') {
-        // this.getViewList('zhaoshang', 1);
+        this.getViewList('zhaoshang', 1);
       } else if (activeIndex === '2') {
         this.getViewList('gongyi', 3);
       } else {

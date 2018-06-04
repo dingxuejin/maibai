@@ -50,14 +50,13 @@
     <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
 
       <!-- 商品列表 -->
-      <view class='pro-container' wx:for='{{zhaoshang}}' wx:key="{{index}}" data-index='{{index}}' bindtap='toWeb1'>
+      <view class='pro-container' wx:for='{{zhaoshang}}' wx:key="{{index}}" data-index='{{index}}' bindtap='toWeb'>
         <view class='img-container'>
-          <!-- <image src='{{baseUrl+item.imgUrl}}' mode='widthFix' style='width:100%;' class='img-size'></image> -->
-          <image src='{{item.imgUrl}}' mode='widthFix' style='width:100%;' class='img-size'></image>
-          <!-- <view class='yuedu'>
+           <image src='{{baseUrl+item.imgUrl}}' mode='widthFix' style='width:100%;' class='img-size'></image> 
+           <view class='yuedu'>
             <text>{{item.scan}}</text>
             <text>阅读</text>
-          </view> -->
+          </view> 
         </view>
         <view class='flex-between'>
           <view class='pro-title'>

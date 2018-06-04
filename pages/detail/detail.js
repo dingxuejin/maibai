@@ -184,7 +184,8 @@ Page({
       .then(res => {
         let myDeposit = parseFloat(res.data.myDeposit);
         // 押金值判断
-        let deposit=199;
+        let deposit=http.yajin;
+        console.log(deposit)
         if (myDeposit >= deposit) {
           let id = this.data.productDetail.id;
           that.setData({ isDialog: true })

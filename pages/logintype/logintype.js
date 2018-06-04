@@ -1,7 +1,6 @@
 // pages/logintype/logintype.js
 import http from '../../utils/http.js'
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -29,55 +28,51 @@ Page({
       nickName,
       avatarUrl
     })
-
-
   },
   // 获得用户手机号登陆
   phonenumber(res) {
     let that = this;
     wx.login({
       success: function (res1) {
-        let JSCODE = res1.code;
-        wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session',
-          data: {
-            appid: 'wxf518e574b3ed6481',
-            secret: '95ace8bcc67a05d19b4ace8f07404995',
-            js_code: JSCODE,
-            grant_type: 'authorization_code'
-          },
-          success(res2) {
-            let newData = {};
-            newData.openid = res2.data.openid;
-            newData.session_key = res2.data.session_key;
-            newData.encryptedData = res.detail.encryptedData;
-            newData.iv = res.detail.iv;
-
-            newData.headImgUrl = that.data.avatarUrl
-            newData.nickName = that.data.nickName
-            newData.gender = that.data.gender
-            newData.userPhone = '';
-            console.log(newData);
-            http.post('thirdUserlogin', newData)
-              .then(res => {
-                if (res.status === 0) {
-                  wx.setStorage({
-                    key: 'token',
-                    data: res.data.token,
-                  })
-                  wx.reLaunch({
-                    url: '../mianfei/mianfei',
-                  })
-                } else {
-                  wx.showToast({
-                    title: '网络错误',
-                    icon: 'none'
-                  })
-                }
-
+        let js_code = res1.code;
+        http.post('wxLoginForMiniPrograms', { js_code })
+          .then(res2 => {
+            console.log(res2);
+            if (res2.status == 0) {
+              let newData = {};
+              newData.openid = res2.data.openid;
+              newData.session_key = res2.data.session_key;
+              newData.encryptedData = res.detail.encryptedData;
+              newData.iv = res.detail.iv;
+              newData.headImgUrl = that.data.avatarUrl
+              newData.nickName = that.data.nickName
+              newData.gender = that.data.gender
+              newData.userPhone = '';
+              console.log(newData);
+              http.post('thirdUserlogin', newData)
+                .then(res => {
+                  if (res.status === 0) {
+                    wx.setStorage({
+                      key: 'token',
+                      data: res.data.token,
+                    })
+                    wx.reLaunch({
+                      url: '../mianfei/mianfei',
+                    })
+                  } else {
+                    wx.showToast({
+                      title: '网络错误',
+                      icon: 'none'
+                    })
+                  }
+                })
+            } else {
+              wx.showToast({
+                title: res2.message,
+                icon: 'none'
               })
-          }
-        })
+            }
+          })
       }
     })
 

@@ -12,22 +12,26 @@ Page({
   },
   // 前往押金申请
   toYjsq(){
-    let token=wx.getStorageSync('token')
-    http.post('getUserInfo',{token})
-    .then(res=>{
-      let freeDepositStatus = res.data.freeDepositStatus
-      console.log(freeDepositStatus);
-      if (freeDepositStatus==0){
-        wx.navigateTo({
-          url: '../yjsq/yjsq',
-        })
-      } else {
-        wx.navigateTo({
-          url: '../myjtg/myjtg',
-        })
-      }
-      
+    wx.showModal({
+      title: '操作提示',
+      content: '免押金功能即将开放',
     })
+    // let token=wx.getStorageSync('token')
+    // http.post('getUserInfo',{token})
+    // .then(res=>{
+    //   let freeDepositStatus = res.data.freeDepositStatus
+    //   console.log(freeDepositStatus);
+    //   if (freeDepositStatus==0){
+    //     wx.navigateTo({
+    //       url: '../yjsq/yjsq',
+    //     })
+    //   } else {
+    //     wx.navigateTo({
+    //       url: '../myjtg/myjtg',
+    //     })
+    //   }
+      
+    // })
   
   },
   /**

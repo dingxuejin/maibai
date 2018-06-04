@@ -4,6 +4,8 @@ let http={};
 let getTime = new Date().getTime();
 // appId
 http.appId = 'wxf518e574b3ed6481';
+// 押金额度
+http.yajin = '199';
 // 商户密钥key
 http.key = 'xxymhtMAIBAIKEJIliguangwenxxymht';
 // 接口域名

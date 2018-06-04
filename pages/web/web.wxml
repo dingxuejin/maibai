@@ -1,2 +1,3 @@
 <!--pages/web/web.wxml-->
-<web-view src='{{webUrl}}'></web-view>
+<!-- <web-view src='http://www.uaibx.com'></web-view> -->
+ <web-view src='{{webUrl}}'></web-view> 
