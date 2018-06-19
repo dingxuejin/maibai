@@ -20,6 +20,7 @@ Page({
    */
   onReady: function () {
     let webUrl = wx.getStorageSync('detailUrl')
+    console.log(webUrl);
     this.setData({ webUrl })
   },
 

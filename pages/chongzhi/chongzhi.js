@@ -17,10 +17,9 @@ Page({
     active: -1
   },
   // 前往充值协议
-  toWeb() {
-    wx.setStorageSync('detailUrl', http.chongzhiUrl)
+  toxieyi() {
     wx.navigateTo({
-      url: `../web/web`,
+      url: `../xieyi/xieyi?show=0`,
     })
   },
   // 输入金额

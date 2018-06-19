@@ -10,9 +10,11 @@ Page({
     yajin: http.yajin
   },
   joinVip() {
+    console.log(111111);
     let token = wx.getStorageSync('token');
     let payMethod = 1;
     let fee = this.data.yajin;
+    console.log(token, payMethod, fee);
     http.post('addBalanceOfMiniPrograms', { token, payMethod, 'type': 2, fee })
       .then(res => {
         console.log(res)

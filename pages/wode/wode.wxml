@@ -1,12 +1,9 @@
 <!--pages/wode/wode.wxml-->
 <view class='flex-between geren'>
   <view class='flex-start'>
-    <navigator url='../logintype/logintype'>
-      <view class='touxiang'>
+      <view class='touxiang' bindtap='toLogin'>
         <image src='{{headerimage}}' class='full-img'></image>
       </view>
-    </navigator>
-
     <view>
       <text class='zhanghao'>{{nickname}}</text>
     </view>

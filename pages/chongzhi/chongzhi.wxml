@@ -33,6 +33,6 @@
   </view>
   <view  class='chongzhi13 text-center'>
     <text class='chongzhi10'>点击立即充值，即表示您已经同意</text>
-    <text class='chongzhi12' bindtap='toWeb'>《麦拜充值协议》</text>
+    <text class='chongzhi12' bindtap='toxieyi'>《麦拜充值协议》</text>
   </view>
 </view>

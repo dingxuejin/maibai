@@ -10,38 +10,41 @@ Page({
   },
   // 验证码登录
   login(e) {
+    let that = this;
     let userPhone = e.detail.value.userPhone;
     let checkCode = e.detail.value.checkCode;
-    http.post('userlogin', { userPhone, checkCode })
-      .then(res => {
-        if (res.status === 0) {
-          // 验证码校验成功
-
-
-          let that = this;
-          wx.login({
-            success: function (res1) {
-              let js_code = res1.code;
-              http.post('wxLoginForMiniPrograms', { js_code })
-            }
+    let headImgUrl = this.data.avataUrl;
+    let nickName = this.data.nickName;
+    wx.login({
+      success: function (res1) {
+        let js_code = res1.code;
+        http.post('wxLoginForMiniPrograms', { js_code })
+          .then(res => {
+            let openid = res.data.openid;
+            http.post('thirdUserloginForCheckCode', { userPhone, checkCode, openid, headImgUrl, nickName })
+              .then(res => {
+                console.log(res);
+                if (res.status === 0) {
+                  // 验证码校验成功
+                  wx.setStorage({
+                    key: "token",
+                    data: res.data.token
+                  })
+                  // 验证成功跳转到免费领取页
+                  wx.reLaunch({
+                    url: '../mianfei/mianfei'
+                  })
+                } else {
+                  // 验证码校验失败
+                  wx.showModal({
+                    title: '操作提示',
+                    content: '验证码输入错误！'
+                  });
+                }
+              })
           })
-          wx.setStorage({
-            key: "token",
-            data: res.data.token
-          })
-          // 验证成功跳转到免费领取页
-          wx.reLaunch({
-            url: '../mianfei/mianfei'
-          })
-
-        } else {
-          // 验证码校验失败
-          wx.showModal({
-            title: '操作提示',
-            content: '验证码输入错误！'
-          });
-        }
-      })
+      }
+    })
   },
   // 获得验证码
   getCheckCode(e) {
@@ -96,7 +99,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData(options)
   },
 
   /**

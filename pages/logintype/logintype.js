@@ -10,15 +10,13 @@ Page({
     avatarUrl: ''
   },
   // 前往用户手册
-  toWeb() {
-    wx.setStorageSync('detailUrl', http.userUrl)
+  toxieyi() {
     wx.navigateTo({
-      url: `../web/web`,
+      url: `../xieyi/xieyi?show=1`,
     })
   },
   // 获得用户信息授权
   getuserinfo(res) {
-    console.log(res)
     let avatarUrl = res.detail.userInfo.avatarUrl;
     let nickName = res.detail.userInfo.nickName;
     let gender = res.detail.userInfo.gender;
@@ -27,6 +25,16 @@ Page({
       gender,
       nickName,
       avatarUrl
+
+    })
+  },
+  // 前往手机号登陆
+  toPhoneLogin() {
+    let nickName = this.data.nickName;
+    let avatarUrl = this.data.avatarUrl;
+
+    wx.navigateTo({
+      url: '../login/login?nickName=' + nickName + '&avatarUrl' + avatarUrl,
     })
   },
   // 获得用户手机号登陆
@@ -51,6 +59,7 @@ Page({
               console.log(newData);
               http.post('thirdUserlogin', newData)
                 .then(res => {
+                  console.log(res);
                   if (res.status === 0) {
                     wx.setStorage({
                       key: 'token',
@@ -81,6 +90,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let token = wx.getStorageSync('token');
+    if (token) {
+      wx.reLaunch({
+        url: '../mianfei/mianfei',
+      })
+    }
   },
 
   /**
@@ -90,6 +105,7 @@ Page({
     let that = this;
     wx.getSetting({
       success: function (res) {
+        console.log(res);
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，
           wx.getUserInfo({

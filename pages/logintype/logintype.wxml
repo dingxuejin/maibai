@@ -11,16 +11,13 @@
     <image src='../../image/wxdl.png' class='type3'></image>
     <text>微信授权验证</text>
   </button>
-
-  <navigator url='../login/login'>
-    <view class='type4 flex-center'>
-      <image src='../../image/sjdl.png' class='type3'></image>
-      <text>输入手机号码登录</text>
-    </view>
-  </navigator>
+  <view class='type4 flex-center' wx:if='{{isGetUserInfo}}' bindtap='toPhoneLogin'>
+    <image src='../../image/sjdl.png' class='type3'></image>
+    <text>输入手机号码登录</text>
+  </view>
 
 </view>
 <view style='height:40vh;' class='flex-center'>
   <text class='type5'>点击登录，即表示已阅读并同意</text>
-  <text class='type6' bindtap='toWeb'>《麦拜用户手册》</text>
+  <text class='type6' bindtap='toxieyi'>《麦拜用户手册》</text>
 </view>

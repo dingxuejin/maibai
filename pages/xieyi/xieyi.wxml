@@ -1,0 +1,7 @@
+<!--pages/xieyi/xieyi.wxml-->
+<view style='font-size:30rpx;padding:30rpx;' wx:if='{{show==0}}'>
+  <text space='emsp'>{{chongzhi}}</text>
+</view>
+<view style='font-size:30rpx;padding:30rpx;'  wx:if='{{show==1}}'>
+  <text space='ensp'>{{fuwu}}</text>
+</view>
