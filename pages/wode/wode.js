@@ -7,7 +7,8 @@ Page({
    */
   data: {
     headerimage: '../../image/headerimage.png',
-    nickname: 'Cody'
+    nickname: 'Cody',
+    freeState: '申请免押金'
 
   },
   // 前往登录页
@@ -31,22 +32,22 @@ Page({
     //   title: '操作提示',
     //   content: '免押金功能即将开放',
     // })
-    let token=wx.getStorageSync('token')
-    http.post('getUserInfo',{token})
-    .then(res=>{
-      let freeDepositStatus = res.data.freeDepositStatus
-      console.log(freeDepositStatus);
-      if (freeDepositStatus==0){
-        wx.navigateTo({
-          url: '../yjsq/yjsq',
-        })
-      } else {
-        wx.navigateTo({
-          url: '../myjtg/myjtg',
-        })
-      }
+    let token = wx.getStorageSync('token')
+    http.post('getUserInfo', { token })
+      .then(res => {
+        let freeDepositStatus = res.data.freeDepositStatus
+        console.log(freeDepositStatus);
+        if (freeDepositStatus == 0) {
+          wx.navigateTo({
+            url: '../yjsq/yjsq',
+          })
+        } else {
+          wx.navigateTo({
+            url: '../myjtg/myjtg',
+          })
+        }
 
-    })
+      })
 
   },
   /**
@@ -66,6 +67,20 @@ Page({
     http.post('getUserInfo', { token })
       .then(res => {
         console.log(res.data)
+        let freeDepositStatus = res.data.freeDepositStatus
+        if (freeDepositStatus) {
+          let freeState = '申请免押金'
+          if (freeDepositStatus == 1) {
+            freeState = '已申请免押金'
+          }
+          else if (freeDepositStatus == 2) {
+            freeState = '申请不通过'
+          }
+          else if (freeDepositStatus == 3) {
+            freeState = '申请待审核'
+          }
+          this.setData({ freeState })
+        }
         // 获取用户头像
         if (res.data.headImage) {
           that.setData({

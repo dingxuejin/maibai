@@ -9,7 +9,7 @@
     </view>
   </view>
   <view class='mianyajin' bindtap='toYjsq'>
-    <text>申请免押金</text>
+    <text>{{freeState}}</text>
   </view>
 </view>
 <view class='flex-between dingdan'>

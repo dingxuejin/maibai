@@ -126,6 +126,7 @@ Page({
     }
     http.post('createOrder', order)
       .then(res => {
+        console.log(res)
         if (res.status === 0) {
           let order = res.data;
           order = JSON.stringify(order);

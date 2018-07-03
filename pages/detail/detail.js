@@ -13,6 +13,7 @@ Page({
     baseUrl: http.baseUrl,
     status: 1,
     isDialog: false,
+    freeDepositStatus:0,
     guige: [],
     isShowZhiding: false,
     jingpianguige: {},
@@ -185,8 +186,8 @@ Page({
         let myDeposit = parseFloat(res.data.myDeposit);
         // 押金值判断
         let deposit=http.yajin;
-        console.log(deposit)
-        if (myDeposit >= deposit) {
+        console.log(this.data.freeDepositStatus)
+        if (this.data.freeDepositStatus==1||myDeposit >= deposit) {
           let id = this.data.productDetail.id;
           that.setData({ isDialog: true })
           http.post('specialList', { id, isCommonGlass: 1 })
@@ -295,6 +296,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+    let token = wx.getStorageSync('token')
+    http.post('getUserInfo', { token })
+      .then(res => {
+        let freeDepositStatus = res.data.freeDepositStatus
+        this.setData({ freeDepositStatus})
+      })
     // 度数
     let jingpianguige = this.data.jingpianguige;
     let dushu = [];
