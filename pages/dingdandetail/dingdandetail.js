@@ -54,10 +54,8 @@ Page({
   onReady: function () {
     let orderId = this.data.orderid;
     let token = wx.getStorageSync('token')
-    console.log(orderId, token);
     http.post('getOrderDetail', { token, orderId })
       .then(result => {
-        console.log(result)
         if (result.status == 0) {
           let res = result.data;
           if (res.productList && res.productList.length > 0)
@@ -113,7 +111,6 @@ Page({
                 }
               }
             })
-          console.log(res);
           this.setData({ orderDetail: res })
         } else {
           wx.showToast({

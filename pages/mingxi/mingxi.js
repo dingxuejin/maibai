@@ -30,7 +30,6 @@ Page({
         } else {
           this.setData({ status: 1 })
         }
-        console.log(res);
       })
   },
 

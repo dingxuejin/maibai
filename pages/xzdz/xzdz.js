@@ -16,7 +16,7 @@ Page({
   addMyAddressList(e) {
     let that = this;
     let value = e.detail.value;
-    console.log(value);
+  
     if (value.address[0] === -1) {
       wx.showToast({
         icon: 'none',
@@ -56,10 +56,10 @@ Page({
     } else {
       let reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
       let test = reg.test(value.iphone);
-      console.log(test);
+      
       if (test) {
         let multiOrignArray = this.data.multiOrignArray
-        console.log(multiOrignArray);
+        
         let address = value.address;
         let token = this.data.token;
         let name = value.user;

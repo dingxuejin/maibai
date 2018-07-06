@@ -8,7 +8,7 @@ Page({
   
   },
 getUserLogin(){
-  console.log(22)
+
   wx.request({
     url: 'http://app.myobye.com/intf/userlogin',
     method:'post',
@@ -24,10 +24,10 @@ getUserLogin(){
   
     },
     success(res){
-      console.log(res)
+      // console.log(res)
     },
     fail(err){
-      console.log(err)
+      // console.log(err)
     }
 
 

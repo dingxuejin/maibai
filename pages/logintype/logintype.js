@@ -45,7 +45,6 @@ Page({
         let js_code = res1.code;
         http.post('wxLoginForMiniPrograms', { js_code })
           .then(res2 => {
-            console.log(res2);
             if (res2.status == 0) {
               let newData = {};
               newData.openid = res2.data.openid;
@@ -56,10 +55,8 @@ Page({
               newData.nickName = that.data.nickName
               newData.gender = that.data.gender
               newData.userPhone = '';
-              console.log(newData);
               http.post('thirdUserlogin', newData)
                 .then(res => {
-                  console.log(res);
                   if (res.status === 0) {
                     wx.setStorage({
                       key: 'token',
@@ -105,7 +102,6 @@ Page({
     let that = this;
     wx.getSetting({
       success: function (res) {
-        console.log(res);
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，
           wx.getUserInfo({

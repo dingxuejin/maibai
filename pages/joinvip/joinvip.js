@@ -10,14 +10,11 @@ Page({
     yajin: http.yajin
   },
   joinVip() {
-    console.log(111111);
     let token = wx.getStorageSync('token');
     let payMethod = 1;
     let fee = this.data.yajin;
-    console.log(token, payMethod, fee);
     http.post('addBalanceOfMiniPrograms', { token, payMethod, 'type': 2, fee })
       .then(res => {
-        console.log(res)
         let playInfo = res.data;
         let timeStamp = playInfo.timestamp;
         let orderNumber = playInfo.orderNumber;
@@ -39,7 +36,7 @@ Page({
               })
           },
           fail(err) {
-            console.log(err)
+            // console.log(err)
           }
         })
       })
@@ -85,7 +82,6 @@ Page({
         if (res.confirm == true) {
           http.post('returnMoneyForMiniPrograms', { token, cause: 1 })
             .then(res => {
-              console.log(res);
               if (res.status == 0) {
                 wx.showToast({
                   title: '操作成功',
@@ -112,7 +108,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     this.setData(options)
   },
 

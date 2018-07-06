@@ -30,7 +30,6 @@ Page({
         let value = val.split('=');
         newParams[value[0]] = value[1]
       })
-      console.log(newParams);
       http.post('getPostFlow', { token, post_num: newParams.postid, post_company_code: newParams.type })
         .then(res => {
           if (res.status == 0) {

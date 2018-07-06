@@ -23,7 +23,6 @@ Page({
             let openid = res.data.openid;
             http.post('thirdUserloginForCheckCode', { userPhone, checkCode, openid, headImgUrl, nickName })
               .then(res => {
-                console.log(res);
                 if (res.status === 0) {
                   // 验证码校验成功
                   wx.setStorage({

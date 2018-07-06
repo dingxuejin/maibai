@@ -24,7 +24,6 @@ Page({
     let token = this.data.token;
     http.post('getShareInfo', { token })
       .then(res => {
-        console.log(res);
         let inviteFriendUrl = 'https://' + res.data.inviteFriendUrl;
         this.setData({ inviteFriendUrl })
       })

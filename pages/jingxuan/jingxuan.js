@@ -32,7 +32,6 @@ Page({
     }
    
     let index = e.currentTarget.dataset.index;
-    console.log(huodong);
     let id = huodong[index].id;
     let webUrl = http.baseUrl +'intf/specialActive/'+id
     wx.setStorageSync('detailUrl', webUrl)

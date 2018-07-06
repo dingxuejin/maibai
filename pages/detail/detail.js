@@ -24,7 +24,6 @@ Page({
     scrollTop: 0
   },
   getImgInfo(){
-    console.log(111111);
     wx.request({
       url: 'http://a.app.qq.com/o/simple.jsp?pkgname=com.android.maibai',
     })
@@ -171,7 +170,6 @@ Page({
     http.post('specialList', { id, isCommonGlass: 1 })
       .then(res => {
         let guige = res.data;
-        console.log(guige);
         that.setData({
           guige
         })
@@ -186,14 +184,12 @@ Page({
         let myDeposit = parseFloat(res.data.myDeposit);
         // 押金值判断
         let deposit=http.yajin;
-        console.log(this.data.freeDepositStatus)
         if (this.data.freeDepositStatus==1||myDeposit >= deposit) {
           let id = this.data.productDetail.id;
           that.setData({ isDialog: true })
           http.post('specialList', { id, isCommonGlass: 1 })
             .then(res => {
               let guige = res.data;
-              console.log(guige);
               that.setData({
                 guige
               })
@@ -210,7 +206,7 @@ Page({
                  url: '../joinvip/joinvip?isvip=1',
                })
               } else if (res.cancel) {
-                console.log('用户点击取消')
+                // console.log('用户点击取消')
               }
             }
           })
@@ -281,7 +277,6 @@ Page({
     })
     http.post('productDetailInfo', options)
       .then((res) => {
-        console.log(res);
         let productDetail=res.data;
         productDetail.detailContent = productDetail.detailContent.split('|');
         productDetail.detailContent.length--;

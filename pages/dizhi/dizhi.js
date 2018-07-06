@@ -42,7 +42,6 @@ Page({
       let id = e.detail.value;
       http.post('defaultMyAddress', { token, id })
         .then(res => {
-          console.log(res);
           if (res.status === 0) {
             wx.showToast({
               title: '设置成功'
@@ -82,7 +81,6 @@ Page({
         title: '删除操作',
         content: '你确定要删除此地址吗？',
         success: function (e) {
-          console.log(e);
           if (e.confirm) {
             http.post('deleteMyAddress', { token, id })
               .then(res => {

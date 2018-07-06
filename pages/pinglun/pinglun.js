@@ -25,7 +25,7 @@ Page({
         that.setData({ tempFilePaths })
       },
       fail: function (err) {
-        console.log(err)
+        // console.log(err)
       }
     })
   },
@@ -36,7 +36,6 @@ Page({
     let comment = this.data.textVal;
     let picturs = this.data.tempFilePaths;
     let productId = this.data.orderDetail.productList[0].productId;
-    console.log(picturs);
     if (picturs.length > 0) {
       let promiseAll = picturs.map((val, i) => {
         let promise = new Promise((resolve, reject) => {
@@ -80,7 +79,6 @@ Page({
 
 
     } else {
-      console.log({ token, orderId, comment, productId })
       http.post('addComment', { token, orderId, comment, picturs, productId })
         .then(res => {
           if (res.status === 0) {
@@ -122,7 +120,6 @@ Page({
     http.post('getOrderDetail', { token, orderId })
       .then(result => {
         let res = result.data;
-        console.log(res);
         this.setData({ orderDetail: res })
       })
 

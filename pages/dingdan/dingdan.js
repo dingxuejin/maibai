@@ -172,7 +172,7 @@ Page({
 
           order.list = order.list.concat(data.list);
           newOrder[str] = order;
-          console.log(newOrder);
+        
           this.setData(newOrder)
         }
 

@@ -37,7 +37,6 @@ Page({
         let playInfo = res.data;
         let timeStamp = playInfo.timestamp;
         let orderNumber = playInfo.orderNumber;
-        console.log(orderNumber)
         let nonceStr = playInfo.nonceStr;
         let prepay_id = 'prepay_id=' + playInfo.prePayId;
         let paySign = MD5Util.MD5(`appId=${http.appId}&nonceStr=${nonceStr}&package=${prepay_id}&signType=MD5&timeStamp=${timeStamp}&key=${http.key}`).toUpperCase();
@@ -56,7 +55,7 @@ Page({
               })
           },
           fail(err) {
-            console.log(err)
+            // console.log(err)
           }
         })
       })

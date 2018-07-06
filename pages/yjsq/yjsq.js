@@ -13,7 +13,7 @@ Page({
 
     params.token = token;
     params.gender = parseInt(params.gender)
-    console.log(params)
+  
     if (params.cardId && params.orgName && params.phone && params.realName) {
       // 身份证正则
       let cardIdReg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/

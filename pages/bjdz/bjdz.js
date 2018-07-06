@@ -253,7 +253,6 @@ Page({
     let defaultArr = [];
     let address = options.address;
     address = JSON.parse(address);
-    console.log(address);
     let id = address.id;
     let addressDetail = address.detailAddress;
     let user = address.name;

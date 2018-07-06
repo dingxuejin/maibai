@@ -36,7 +36,7 @@ Page({
     http.post('getUserInfo', { token })
       .then(res => {
         let freeDepositStatus = res.data.freeDepositStatus
-        console.log(freeDepositStatus);
+      
         if (freeDepositStatus == 0) {
           wx.navigateTo({
             url: '../yjsq/yjsq',
@@ -66,7 +66,7 @@ Page({
     let token = wx.getStorageSync('token')
     http.post('getUserInfo', { token })
       .then(res => {
-        console.log(res.data)
+      
         let freeDepositStatus = res.data.freeDepositStatus
         if (freeDepositStatus) {
           let freeState = '申请免押金'
