@@ -24,7 +24,6 @@ Page({
       pwdShow,
       pwd: pwd.value
     })
-
     if (pwd.cursor === 6) {
       let token = wx.getStorageSync('token');
       let password = pwd.value;
